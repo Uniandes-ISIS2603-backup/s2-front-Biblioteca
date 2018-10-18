@@ -6,19 +6,21 @@ import { BibliotecaModule } from './biblioteca/biblioteca.module';
 import {SalaModule} from './sala/sala.module';
 import {ComentarioModule} from './comentario/comentario.module'
 import {LibroModule} from './libro/libro.module';
+import { VideoModule } from './video/video.module';
 
 @NgModule({
   declarations: [
     AppComponent
-    
+
   ],
   imports: [
     BrowserModule,
     BibliotecaModule,
     SalaModule,
-    ComentarioModule,  
-    LibroModule
-    
+    ComentarioModule,
+    LibroModule,
+    VideoModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
