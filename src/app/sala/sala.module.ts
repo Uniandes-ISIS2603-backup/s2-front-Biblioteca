@@ -6,6 +6,7 @@ import { SalaListComponent } from './sala-list/sala-list.component';
   imports: [
     CommonModule
   ],
-  declarations: [SalaListComponent]
+  declarations: [SalaListComponent],
+  exports:[SalaListComponent]
 })
 export class SalaModule { }
