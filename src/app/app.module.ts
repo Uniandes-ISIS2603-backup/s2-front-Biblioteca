@@ -10,6 +10,7 @@ import {SalaModule} from './sala/sala.module';
 import {ComentarioModule} from './comentario/comentario.module'
 import {LibroModule} from './libro/libro.module';
 import { VideoModule } from './video/video.module';
+import { VideoDigitalModule } from './videoDigital/videoDigital.module';
 import { PrestamoModule } from './prestamo/prestamo.module';
 
 @NgModule({
@@ -27,6 +28,7 @@ import { PrestamoModule } from './prestamo/prestamo.module';
     ComentarioModule,
     LibroModule,
     VideoModule,
+    VideoDigitalModule,
     PrestamoModule
 
   ],
