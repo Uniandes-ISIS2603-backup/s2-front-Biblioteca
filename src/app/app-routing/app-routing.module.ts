@@ -6,18 +6,20 @@ import {SalaListComponent} from '../sala/sala-list/sala-list.component';
 import {ComentarioListComponent} from '../comentario/comentario-list/comentario-list.component';
 import {BibliotecaListComponent} from '../biblioteca/biblioteca-list/biblioteca-list.component';
 import {LibroListComponent} from '../libro/libro-list/libro-list.component';
+import {VideoListComponent} from '../video/video-list/video-list.component';
+import {VideoDetailComponent} from '../video/video-detail/video-detail.component';
 
-const routes: Routes = 
+const routes: Routes =
 [
     {
         path: 'bibliotecas',
-        children: 
+        children:
         [
             {
                 path: 'list',
-                component: BibliotecaListComponent                
+                component: BibliotecaListComponent
             }
-            
+
         ]
 
     },
@@ -27,9 +29,22 @@ const routes: Routes =
             {
                 path: 'list',
                 component: LibroListComponent
-            },
-          
+            }
+
         ]
+    },
+    {
+      path: 'videos',
+      children: [
+        {
+          path: 'list',
+          component: VideoListComponent
+        },
+        {
+          path: ':id',
+          component: VideoDetailComponent
+        }
+      ]
     }
 ];
 @NgModule({
