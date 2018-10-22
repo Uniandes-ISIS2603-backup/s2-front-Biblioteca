@@ -6,6 +6,7 @@ import { LibroListComponent } from './libro-list/libro-list.component';
   imports: [
     CommonModule
   ],
-  declarations: [LibroListComponent]
+  declarations: [LibroListComponent],
+  exports:[LibroListComponent]
 })
 export class LibroModule { }
