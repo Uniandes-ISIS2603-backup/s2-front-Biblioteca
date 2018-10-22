@@ -5,7 +5,7 @@ import {Biblioteca} from './biblioteca';
 import { Observable } from 'rxjs';
 
 const API_URL = "../../assets/";
-const bibliotecas = 'bibliotecas.json';
+const bibliotecas = "bibliotecas.json";
 
 /**
 * The service provider for everything related to editorials

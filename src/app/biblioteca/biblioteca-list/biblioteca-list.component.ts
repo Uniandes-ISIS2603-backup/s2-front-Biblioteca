@@ -3,7 +3,7 @@ import {Biblioteca} from '../biblioteca';
 import {BibliotecaService} from '../biblioteca.service';
 
 @Component({
-  selector: 'app-biblioteca-list',
+  selector: 'biblioteca-list',
   templateUrl: './biblioteca-list.component.html',
   styleUrls: ['./biblioteca-list.component.css']
 })
