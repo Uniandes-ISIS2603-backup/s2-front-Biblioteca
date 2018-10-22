@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BibliotecaModule } from './biblioteca/biblioteca.module';
 import {SalaModule} from './sala/sala.module';
@@ -16,6 +16,7 @@ import { PrestamoModule } from './prestamo/prestamo.module';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BibliotecaModule,
     SalaModule,
     ComentarioModule,
