@@ -7,6 +7,7 @@ import {SalaModule} from './sala/sala.module';
 import {ComentarioModule} from './comentario/comentario.module'
 import {LibroModule} from './libro/libro.module';
 import { VideoModule } from './video/video.module';
+import { PrestamoModule } from './prestamo/prestamo.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { VideoModule } from './video/video.module';
     SalaModule,
     ComentarioModule,
     LibroModule,
-    VideoModule
+    VideoModule,
+    PrestamoModule
 
   ],
   providers: [],
