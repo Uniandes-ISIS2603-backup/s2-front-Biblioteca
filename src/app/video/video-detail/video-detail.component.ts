@@ -1,22 +1,21 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 
-@NgModule({
-  imports: [
-    CommonModule
-  ],
-  declarations: []
+@Component({
+  selector: 'app-video-detail',
+  templateUrl: './video-detail.component.html',
+  styleUrls: ['./video-detail.component.css']
 })
-export class VideoDetailModule implements OnInit{
+export class VideoDetailComponent implements OnInit {
+
   constructor(
-    private videoService: VideoService,
-    private route: ActivatedRoute
+    //private videoService: VideoService,
+    //private route: ActivatedRoute
   ) {}
 
   video_id: number;
 
   ngOnInit() {
-    this.video_id = +this.route.snapshot.paramMap.get('id');
+    //this.video_id = +this.route.snapshot.paramMap.get('id');
   }
 
 }

@@ -1,13 +1,25 @@
-import { VideoDetailModule } from './video-detail.module';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-describe('VideoDetailModule', () => {
-  let videoDetailModule: VideoDetailModule;
+import { VideoDetailComponent } from './video-detail.component';
+
+describe('VideoDetailComponent', () => {
+  let component: VideoDetailComponent;
+  let fixture: ComponentFixture<VideoDetailComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ VideoDetailComponent ]
+    })
+    .compileComponents();
+  }));
 
   beforeEach(() => {
-    videoDetailModule = new VideoDetailModule();
+    fixture = TestBed.createComponent(VideoDetailComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
-  it('should create an instance', () => {
-    expect(videoDetailModule).toBeTruthy();
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
 });
