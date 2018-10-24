@@ -12,6 +12,7 @@ import {LibroModule} from './libro/libro.module';
 import { VideoModule } from './video/video.module';
 import { VideoDigitalModule } from './videoDigital/videoDigital.module';
 import { PrestamoModule } from './prestamo/prestamo.module';
+import { LibroDigitalModule } from './libro-digital/libro-digital.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PrestamoModule } from './prestamo/prestamo.module';
     LibroModule,
     VideoModule,
     VideoDigitalModule,
-    PrestamoModule
+    PrestamoModule,
+    LibroDigitalModule
 
   ],
   providers: [],
