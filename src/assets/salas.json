@@ -1,0 +1,35 @@
+[
+    {
+       
+       
+        "id": 200,
+        "ubicacion": "Norte"
+        
+        
+      
+    },
+    {
+       
+        
+        "id": 201,
+        "nombre": "Sur"
+        
+        
+    },
+    {
+        
+
+        "id": 202,
+        "ubicacion": "Este"
+       
+        
+    },
+    {
+        
+       
+        "id": 203,
+      "ubicacion": "Oeste"
+       
+        
+    }
+]

@@ -55,6 +55,15 @@ const routes: Routes =
           component: LibroDigitalListComponent
         }
       ]
+    },
+    {
+        path: 'salas',
+        children:[
+            {
+                path: 'list',
+                component: SalaListComponent
+            }
+        ]
     }
 ];
 @NgModule({

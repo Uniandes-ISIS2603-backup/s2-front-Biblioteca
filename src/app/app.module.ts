@@ -13,7 +13,7 @@ import { VideoModule } from './video/video.module';
 import { VideoDigitalModule } from './videoDigital/videoDigital.module';
 import { PrestamoModule } from './prestamo/prestamo.module';
 import { LibroDigitalModule } from './libro-digital/libro-digital.module';
-
+import {UsuarioModule} from './usuario/usuario.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -31,8 +31,8 @@ import { LibroDigitalModule } from './libro-digital/libro-digital.module';
     VideoModule,
     VideoDigitalModule,
     PrestamoModule,
-    LibroDigitalModule
-
+    LibroDigitalModule,
+    UsuarioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

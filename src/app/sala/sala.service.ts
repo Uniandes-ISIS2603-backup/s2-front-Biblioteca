@@ -3,7 +3,7 @@ import { HttpClient} from '@angular/common/http';
 import {Sala} from './sala';
 import {Observable} from 'rxjs'; 
 const API_URL = '../../assets/';
-const sala = '';
+const sala = 'salas.json';
 @Injectable({
   providedIn: 'root'
 })

@@ -1,5 +1,17 @@
-<tbody>
-    <tr *ngFor = "let sala of salas">
-        <td> {sala.id}</td>
-    </tr>
-</tbody>
+<div class="container-fluid">
+    <div class="col-md-2">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Sala Ubicacion</th>    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let s of salas">
+                    <td>{{s.ubicacion}}</td>
+                  
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
