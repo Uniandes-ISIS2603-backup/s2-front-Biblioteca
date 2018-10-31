@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import {Video} from '../video';
+import {VideoService} from '../video.service';
+
 @Component({
   selector: 'app-video-detail',
   templateUrl: './video-detail.component.html',
@@ -8,8 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class VideoDetailComponent implements OnInit {
 
   constructor(
-    //private videoService: VideoService,
-    //private route: ActivatedRoute
+    private videoService: VideoService
   ) {}
 
   video_id: number;
