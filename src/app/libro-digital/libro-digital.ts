@@ -1,14 +1,14 @@
-//export class libro-digital {
+export class libroDigital {
 
-  //id: number;
-  //nombre: string;
-  //isbn: string;
-  //autor: string;
-  //editoral: string;
-  //edicion: string;
-  //idioma: string;
-  //calificacionPromedio: number;
+  id: number;
+  nombre: string;
+  isbn: string;
+  autor: string;
+  editoral: string;
+  edicion: string;
+  idioma: string;
+  calificacionPromedio: number;
 
-  //usuarios: any[];
+  usuarios: any[];
 
-//}
+}
