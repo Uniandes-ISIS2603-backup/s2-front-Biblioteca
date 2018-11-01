@@ -9,7 +9,6 @@ import {LibroListComponent} from '../libro/libro-list/libro-list.component';
 import {VideoListComponent} from '../video/video-list/video-list.component';
 import {VideoDetailComponent} from '../video/video-detail/video-detail.component';
 import {LibroDigitalListComponent} from '../libro-digital/libro-digital-list/libro-digital-list.component';
-
 const routes: Routes =
 [
     {
@@ -30,6 +29,16 @@ const routes: Routes =
             {
                 path: 'list',
                 component: LibroListComponent
+            }
+
+        ]
+    },
+    {
+        path: 'comentarios',
+        children: [
+            {
+                path: 'list',
+                component: ComentarioListComponent
             }
 
         ]

@@ -1,3 +1,18 @@
-<p>
-  comentario-list works!
-</p>
+<div class="container-fluid">
+    <div class="col-md-2">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Comentario Nombre</th>    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let comentario of comentarios">
+                    <td>{{comentario.id}}</td>
+                  
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
