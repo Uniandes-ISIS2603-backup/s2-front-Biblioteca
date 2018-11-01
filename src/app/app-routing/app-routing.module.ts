@@ -5,6 +5,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {SalaListComponent} from '../sala/sala-list/sala-list.component';
 import {ComentarioListComponent} from '../comentario/comentario-list/comentario-list.component';
 import {BibliotecaListComponent} from '../biblioteca/biblioteca-list/biblioteca-list.component';
+import { BibliotecaDetailComponent } from '../biblioteca/biblioteca-detail/biblioteca-detail.component';
 import {LibroListComponent} from '../libro/libro-list/libro-list.component';
 import {VideoListComponent} from '../video/video-list/video-list.component';
 import {VideoDetailComponent} from '../video/video-detail/video-detail.component';
@@ -19,6 +20,10 @@ const routes: Routes =
             {
                 path: 'list',
                 component: BibliotecaListComponent
+            },
+            {
+                path: ':id',
+                component: BibliotecaDetailComponent
             }
 
         ]
