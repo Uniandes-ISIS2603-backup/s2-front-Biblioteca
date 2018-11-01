@@ -2,7 +2,7 @@
 * This class represents an biblioteca of the Biblioteca. 
 * It contains all the information relevant to the biblioteca.
 */
-export interface Biblioteca {
+export class  Biblioteca {
    /**
     * Se refiere al identificador de cada biblioteca
     */

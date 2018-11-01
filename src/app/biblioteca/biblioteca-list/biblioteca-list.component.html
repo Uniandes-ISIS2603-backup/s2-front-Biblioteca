@@ -3,12 +3,16 @@
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
+                    <th>ID</th> 
                     <th>Biblioteca Nombre</th>    
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor = "let b of bibliotecas">
-                    <td>{{b.nombre}}</td>
+                <tr *ngFor = "let biblioteca of bibliotecas">
+                    <td>{{biblioteca.id}}</td>
+                    <td>
+                        <dd id="biblioteca-nombre" class="figure-caption" routerLink="/bibliotecas/{{biblioteca.id}}">{{biblioteca.nombre}}</dd>
+                            </td>
                   
                 </tr>
             </tbody>
