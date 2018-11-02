@@ -10,6 +10,7 @@ import {VideoListComponent} from '../video/video-list/video-list.component';
 import {VideoDetailComponent} from '../video/video-detail/video-detail.component';
 import {LibroDigitalListComponent} from '../libro-digital/libro-digital-list/libro-digital-list.component';
 import {UsuarioListComponent} from '../usuario/usuario-list/usuario-list.component';
+import {SalaDetailComponent} from '../sala/sala-detail/sala-detail.component';
 
 const routes: Routes =
 [
@@ -63,6 +64,10 @@ const routes: Routes =
             {
                 path: 'list',
                 component: SalaListComponent
+            },
+              {
+                path: ':id',
+                component: SalaDetailComponent
             }
         ]
     },
