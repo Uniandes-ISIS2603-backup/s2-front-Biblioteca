@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { Video } from '../../video/video';
 import { VideoService } from '../../video/video.service';

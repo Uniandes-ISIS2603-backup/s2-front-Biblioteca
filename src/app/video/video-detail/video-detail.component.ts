@@ -3,6 +3,7 @@ import {ActivatedRoute, Router, NavigationEnd} from '@angular/router';
 
 import {Video} from '../video';
 import {VideoService} from '../video.service';
+import {VideoDetail} from '../video-detail';
 
 @Component({
   selector: 'app-video-detail',
@@ -24,10 +25,21 @@ export class VideoDetailComponent implements OnInit {
   }
 
   video_id: number;
+  videoDetail: VideoDetail;
   navigationSubscription;
+
+  getVideoDetail(): void {
+    this.videoService.getVideoDetail(this.video_id).subscribe(
+      videoDetail => {this.videoDetail = videoDetail}
+    );
+  }
 
   ngOnInit() {
     this.video_id = +this.route.snapshot.paramMap.get('id');
+    if(this.video_id){
+      this.videoDetail = new VideoDetail();
+      this.getVideoDetail();
+    }
   }
 
 }

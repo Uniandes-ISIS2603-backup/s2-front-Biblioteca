@@ -1,3 +1,7 @@
-<p>
-  video-detail works!
-</p>
+<div>
+  <h3>{{videoDetail.nombre}}</h3>
+  <dl *ngIf="videoDetail!=undefined">
+    <p>Director: {{videoDetail.director}}</p>
+    
+  </dl>
+</div>

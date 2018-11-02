@@ -10,7 +10,5 @@ export class Video {
   subtitulos: boolean;
 
   biblioteca: Biblioteca;
-  reservas: any[];
-  prestamos: any[];
 
 }
