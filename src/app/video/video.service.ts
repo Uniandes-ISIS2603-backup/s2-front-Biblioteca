@@ -17,4 +17,8 @@ export class VideoService {
     return this.http.get<Video[]>(API_URL + videos);
   }
 
+  getVideoDetail(videoId): Observable<Video> {
+    return this.http.get<Video>(API_URL + videos + "/" + videoId);
+  }
+
 }

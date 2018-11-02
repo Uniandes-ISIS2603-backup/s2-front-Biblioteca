@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router, NavigationEnd} from '@angular/router';
 
 import {Video} from '../video';
 import {VideoService} from '../video.service';
@@ -11,13 +12,22 @@ import {VideoService} from '../video.service';
 export class VideoDetailComponent implements OnInit {
 
   constructor(
-    private videoService: VideoService
-  ) {}
+    private videoService: VideoService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
+    this.navigationSubscription = this.router.events.subscribe((e: any) => {
+      if (e instanceof NavigationEnd) {
+          this.ngOnInit();
+      }
+    });
+  }
 
   video_id: number;
+  navigationSubscription;
 
   ngOnInit() {
-    //this.video_id = +this.route.snapshot.paramMap.get('id');
+    this.video_id = +this.route.snapshot.paramMap.get('id');
   }
 
 }

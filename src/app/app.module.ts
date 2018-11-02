@@ -10,7 +10,7 @@ import {SalaModule} from './sala/sala.module';
 import {ComentarioModule} from './comentario/comentario.module'
 import {LibroModule} from './libro/libro.module';
 import { VideoModule } from './video/video.module';
-import { VideoDigitalModule } from './videoDigital/videoDigital.module';
+import { VideoDigitalModule } from './video-digital/video-digital.module';
 import { PrestamoModule } from './prestamo/prestamo.module';
 import { LibroDigitalModule } from './libro-digital/libro-digital.module';
 import {UsuarioModule} from './usuario/usuario.module';
