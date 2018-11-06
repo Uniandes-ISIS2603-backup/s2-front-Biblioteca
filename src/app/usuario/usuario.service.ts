@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http/';
 import {Observable} from 'rxjs';
 import {Usuario} from './usuario';
 const API_URL = '../../assets/';
-const usuarios = '';
+const usuarios = 'usuarios.json';
 @Injectable({
   providedIn: 'root'
 })

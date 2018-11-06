@@ -11,6 +11,7 @@ import { SalaDetailComponent } from './sala-detail/sala-detail.component';
     CommonModule
   ],
   declarations: [SalaListComponent, SalaDetailComponent],
+  providers:[SalaService],
   exports:[SalaListComponent]
 })
 export class SalaModule { }
