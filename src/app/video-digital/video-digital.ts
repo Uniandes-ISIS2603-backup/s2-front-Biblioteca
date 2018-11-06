@@ -2,7 +2,7 @@
 * This class represents an biblioteca of the Biblioteca. 
 * It contains all the information relevant to the biblioteca.
 */
-export interface VideoDigital {
+export class VideoDigital {
    /**
     * Se refiere al identificador de cada videoDigital
     */
@@ -12,8 +12,12 @@ export interface VideoDigital {
     /**
      * nombre del video digital 
      */
-    nombre: String;
+    nombre: string;
     
+    direccion:string;
     
+    idioma:string;
+    
+    subtitulos:boolean;
 
 }
