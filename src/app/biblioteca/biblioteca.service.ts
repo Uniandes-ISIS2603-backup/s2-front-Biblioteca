@@ -1,11 +1,14 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {Biblioteca} from './biblioteca';
 import { Observable } from 'rxjs';
 
-const API_URL = "../../assets/";
-const bibliotecas = "bibliotecas.json";
+import {Biblioteca} from './biblioteca';
+import { BibliotecaDetail } from './biblioteca-detail';
+
+import { environment } from '../../environments/environment';
+const API_URL = environment.apiURL;
+const bibliotecas = "bibliotecas";
 
 /**
 * The service provider for everything related to editorials
@@ -24,6 +27,9 @@ export class BibliotecaService {
         return this.http.get<Biblioteca[]>(API_URL + bibliotecas);
     }
     
+     getBibliotecaDetail(bibliotecaId): Observable<BibliotecaDetail> {
+        return this.http.get<BibliotecaDetail>(API_URL + bibliotecas + '/' + bibliotecaId);
+    }
 }
 
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+
+
 import {Biblioteca} from '../biblioteca';
 import {BibliotecaService} from '../biblioteca.service';
 
@@ -9,12 +11,15 @@ import {BibliotecaService} from '../biblioteca.service';
 })
 export class BibliotecaListComponent implements OnInit {
 
-  constructor(private bibliotecaService: BibliotecaService) { }
+  constructor(private bibliotecaService: BibliotecaService) 
+  {   }
 
     /**
      * La lista de bibliotecas del sistema de bibliotecas
      */
     bibliotecas: Biblioteca[];
+    
+    
     /**
      * Pregunta el servicio para actualizar la lista de bibliotecas
      */
@@ -25,6 +30,7 @@ export class BibliotecaListComponent implements OnInit {
   ngOnInit() 
       {
         this.getBibliotecas();
+        
       }
 
 }

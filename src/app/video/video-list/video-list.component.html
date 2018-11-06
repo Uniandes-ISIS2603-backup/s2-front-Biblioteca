@@ -8,7 +8,7 @@
             </thead>
             <tbody>
                 <tr *ngFor = "let video of videos">
-                  <td>{{video.name}}</td>
+                  <a routerLink="/videos/{{video.id}}">{{video.name}}</a>
                 </tr>
             </tbody>
         </table>
