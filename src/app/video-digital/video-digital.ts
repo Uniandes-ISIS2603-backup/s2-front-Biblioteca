@@ -14,7 +14,7 @@ export class VideoDigital {
      */
     nombre: string;
     
-    direccion:string;
+    director:string;
     
     idioma:string;
     

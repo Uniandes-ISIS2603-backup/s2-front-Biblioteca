@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {VideoDigital} from '../video-digital';
-import {VideoDigitalService} from '../video-digital.services';
+import {VideoDigitalService} from '../video-digital.service';
 
 @Component({
   selector: 'app-videoDigital',

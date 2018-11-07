@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <br>
+        <h2 class="text-center">Crear un videoDigital</h2>
+        <hr>
+        <form name="videoDigital"  (ngSubmit)="v.form.valid && crearVideoDigital()"#v="ngForm" novalidate>
+              <div class="form-group">
+                  <label for="videoDigitalNombre"><b>Nombre</b></label>
+                  <input type="text" name="videoDigitalNombre" class="form-control" id="videoDigitalNombre" [(ngModel)]="videoDigital.nombre" #videoDigitalNombre="ngModel" [ngClass]="{ 'is-invalid': v.submitted && videoDigitalNombre.invalid }" required>
+   <div class="invalid-feedback">
+        <div>Este campo no puede estar vacio</div>
+   </div>
+</div> 
+              <div class="form-group">
+                  <label for="videoDigitalDirector"><b>Director</b></label>
+                  <input type="text" name="videoDigitalDirector" class="form-control" id="videoDigitalDirector" [(ngModel)]="videoDigital.director" #videoDigitalDirector="ngModel" [ngClass]="{ 'is-invalid': v.submitted && videoDigitalDirector.invalid }" required>
+   <div class="invalid-feedback">
+        <div>Este campo no puede estar vacio</div>
+   </div>
+</div>
+              <div class="form-group">
+                  <label for="videoDigitalIdioma"><b>Idioma</b></label>
+                  <input type="text" name="videoDigitalIdioma" class="form-control" id="videoDigitalIdioma" [(ngModel)]="videoDigital.idioma" #videoDigitalIdioma="ngModel" [ngClass]="{ 'is-invalid': v.submitted && videoDigitalIdioma.invalid }" required>
+   <div class="invalid-feedback">
+        <div>Este campo no puede estar vacio</div>
+   </div>
+</div> 
+              <div class="form-group">
+                  <label for="videoDigitalSubtitulos"><b>Subtitulos</b></label>
+                  <input type="text" name="videoDigitalSubtitulos" class="form-control" id="videoDigitalSubtitulos" [(ngModel)]="videoDigital.subtitulos" #videoDigitalSubtitulos="ngModel" [ngClass]="{ 'is-invalid': v.submitted && videoDigitalSubtitulos.invalid }" required>
+   <div class="invalid-feedback">
+        <div>Este campo no puede estar vacio</div>
+   </div>
+</div> 
+    </form>
+    </div>
+    <div class="col-3"></div>
+    video-digital-create works!
+
+</div>
