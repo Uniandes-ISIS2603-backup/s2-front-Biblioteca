@@ -5,9 +5,21 @@
  */
  export class Sala
  {
+     /**
+     * Identificador de la sala
+     */
      id: number;
+     /**
+     * Disponibilidad de la sala 
+     */
      disponibilidad: boolean;
+     /**
+     * Ubicación de la sala
+     */
      ubicacion: String;
+     /**
+     * Capacidad de la sala
+     */
      capacidad: number;
  }
 

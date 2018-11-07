@@ -1,12 +1,10 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 
 import{Sala} from './sala';
-
+/**
+* This class represents a sala of the Sala. 
+* It contains all the information relevant to the sala.
+*/
 export class SalaDetail extends Sala{
     
 }
