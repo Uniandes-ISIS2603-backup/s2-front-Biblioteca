@@ -1,4 +1,6 @@
-import {
+/**
+ * 
+ import {
     HttpEvent,
     HttpInterceptor,
     HttpHandler,
@@ -44,3 +46,4 @@ export class HttpErrorInterceptor  extends HttpErrorResponse {
     }
 }   
 
+*/

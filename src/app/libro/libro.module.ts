@@ -7,7 +7,8 @@ import {LibroDetailComponent} from './libro-detail/libro-detail.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { LibroCreateComponent } from './libro-create/libro-create.component';
+
 
 
 @NgModule({
@@ -17,9 +18,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
         HttpClientModule,
         CommonModule,
         FormsModule,
-        NgbModule
     ],
-    declarations: [LibroListComponent, LibroDetailComponent],
+    declarations: [LibroListComponent, LibroDetailComponent, LibroCreateComponent],
     providers: [LibroService],
     exports: [LibroListComponent]
 })

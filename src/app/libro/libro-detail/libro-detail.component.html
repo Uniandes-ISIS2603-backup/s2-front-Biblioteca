@@ -1,31 +1,13 @@
-<div class="panel panel-default"> 
-    <div>
-        <div class="border margin">
-            <p class="h3 p-3">{{libroDetail.nombre}}</p> 
-                <div class="col">
-                    <dl>  
-                        
-                        <dt> ISBN</dt>
-                        <dd>{{libroDetail.isbn}}</dd>
-                        <hr>
-                        <dt>Publishing Date</dt>
-                        <dd>{{bookDetail.publish_date| date:'yyyy-MM-dd'}}</dd>
-                        <hr>
-                        <dt class="bold">Editorial</dt>
-                        <dd class="caption" routerLink="/editorials/{{bookDetail.editorial.id}}">{{bookDetail.editorial.name}}</dd>
-                        <hr>
-                        <dt class="bold">Description</dt>
-                        <dd>{{bookDetail.description}}</dd>
-                    </dl>
-                    <div *ngIf="bookDetail.reviews.length > 0">
-                        <app-book-reviews [bookReviews]="bookDetail.reviews"></app-book-reviews>
+<p class="h4 p-3">Id: {{LibroDetail.id}}</p> 
+<p class="h4 p-3">Nombre: {{LibroDetail.nombre}}</p> 
+<p class="h4 p-3">Isbn {{LibroDetail.isbn}}</p> 
+<p class="h4 p-3">Idioma: {{LibroDetail.idioma}}</p> 
+<p class="h4 p-3">Editorial {{LibroDetail.editorial}}</p> 
+<p class="h4 p-3">Edicion {{LibroDetail.edicion}}</p> 
+<p class="h4 p-3">Unidades Disponibles {{LibroDetail.unidadesDisponibles}}</p> 
+<p class="h4 p-3">Usuarios en Lista de Espera {{LibroDetail.usuariosListaEspera:}}</p> 
+<p class="h4 p-3">Calificacion Promedio {{LibroDetail.calificacionPromedio}}</p> 
+<!--<div *ngIf="libroDetail.comentarios.length > 0">
+                        <app-libro-comentarios [libroComentarios]="libroDetail.comentarios"></app-libro-comentarios>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row border margin">
-        <p class="h3 p-3">Other books you may like</p>
-        <app-book-list [books]="other_books"></app-book-list>
-    </div>
-</div>
+--> 
