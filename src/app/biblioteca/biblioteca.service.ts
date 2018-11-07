@@ -30,6 +30,15 @@ export class BibliotecaService {
      getBibliotecaDetail(bibliotecaId): Observable<BibliotecaDetail> {
         return this.http.get<BibliotecaDetail>(API_URL + bibliotecas + '/' + bibliotecaId);
     }
+    
+    /**
+    * Crear de una bibilioteca
+    * @param biblioteca la nueva biblioteca
+    * @returns La confirmacion que la biblioteca fue creada. 
+    */
+    createBiblioteca(biblioteca): Observable<Biblioteca> {
+        return this.http.post<Biblioteca>(API_URL + bibliotecas, biblioteca);
+    }
 }
 
 
