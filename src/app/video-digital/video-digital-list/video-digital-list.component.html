@@ -4,7 +4,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th class="h4">Nombre video digital/th>    
+                        <th class="h4">Nombre video digital</th>    
                     </tr>
                 </thead>
                 <tbody>
@@ -18,12 +18,8 @@
             </table>
         </div>
         <div *ngIf="showCreate">
-                <app-author-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-author-create>
+                <app-video-digital-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-video-digital-create>
             </div>
-        <div class="col-8">
-            <div *ngIf="selectedVideoDigital">
-                <app-video-digital-detail [videoDigitalDetail]="selectedVideoDigital"></app-video-digital-detail>
-            </div>
-        </div>   
+        
     </div>
 </div>
