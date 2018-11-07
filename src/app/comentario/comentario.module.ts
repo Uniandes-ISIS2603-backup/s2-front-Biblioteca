@@ -1,4 +1,5 @@
 import {NgModule} from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {CommonModule} from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
@@ -18,6 +19,7 @@ import { ComentarioCreateComponent } from './comentario-create/comentario-create
         HttpClientModule,
         CommonModule,
         FormsModule,
+        NgbModule.forRoot(),
         LibroModule
     ],
     declarations: [ComentarioListComponent, ComentarioDetailComponent, ComentarioCreateComponent],

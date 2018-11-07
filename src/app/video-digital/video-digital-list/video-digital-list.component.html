@@ -3,7 +3,7 @@
         <div class="col-md-4">
             <br>
             <div class="row justify-content-center align-self-center">
-                <button [ngClass]="{ 'btn-primary : !showCreate, 'btnDanger':showCreate}" type="button" class="btn" (click)="showHideCreate()">Crear un video digital</button>
+                <button [ngClass]="{ 'btn-primary' : !showCreate, 'btnDanger':showCreate}" type="button" class="btn" (click)="showHideCreate()">Crear un video digital</button>
             </div>
             <br>
             <br>
@@ -19,7 +19,7 @@
                     <tr *ngFor = "let videoDigital  of videosDigitales">
                         <td>{{videoDigital.id}}</td>
                         <td><dd id="videoDigital-nombre" class="figure-caption" routerLink="/videosDigitales/{{videoDigital.id}}">{{videoDigital.nombre}}</dd>
-                </td>   
+                </td>
                 </tr>
                 </tbody>
             </table>
@@ -27,6 +27,6 @@
         <div *ngIf="showCreate">
                 <app-video-digital-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-video-digital-create>
             </div>
-        
+
     </div>
 </div>
