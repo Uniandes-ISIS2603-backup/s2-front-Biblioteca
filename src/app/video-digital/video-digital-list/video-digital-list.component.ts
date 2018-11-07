@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {VideoDigital} from '../video-digital';
 import {VideoDigitalService} from '../video-digital.service';
+import {VideoDigitalDetail} from '../video-digital-detail';
 
 @Component({
   selector: 'app-videoDigital',
@@ -15,6 +16,24 @@ export class VideoDigitalListComponent implements OnInit {
      * La lista de videosDigitales del sistema de videosDigitales
      */
     videosDigitales: VideoDigital[];
+      /**
+    * Muestra o oculta el video-digital-create-component
+    */
+    showCreate: boolean;
+    
+    selectedVideoDigital : VideoDigital;
+    
+    videoDigital_id: number;
+    
+     /**
+    * Shows the videoDigital
+    */
+    onSelected(videoDigital_id: number):void {
+        this.showCreate = false;
+        this.videoDigital_id = videoDigital_id;
+        this.selectedVideoDigital = new VideoDigitalDetail();
+        
+    }
     /**
      * Pregunta el servicio para actualizar la lista de videosDigitales
      */
@@ -25,6 +44,14 @@ export class VideoDigitalListComponent implements OnInit {
   ngOnInit() 
       {
         this.getVideosDigitales();
+        this.showCreate=false;
       }
-
+showHideCreate(): void {
+        if (this.selectedVideoDigital) {
+            this.selectedVideoDigital = undefined;
+            this.videoDigital_id = undefined;
+        }
+        this.showCreate = !this.showCreate;
+    }
+    
 }

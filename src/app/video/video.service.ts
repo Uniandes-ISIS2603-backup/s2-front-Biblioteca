@@ -7,7 +7,7 @@ import {VideoDetail} from './video-detail';
 
 import {environment} from '../../environments/environment';
 const API_URL = environment.apiURL;
-const videos = '/videos';
+const videos = 'videos';
 
 @Injectable()
 export class VideoService {
@@ -20,6 +20,10 @@ export class VideoService {
 
   getVideoDetail(videoId): Observable<VideoDetail> {
     return this.http.get<VideoDetail>(API_URL + videos + "/" + videoId);
+  }
+
+  createVideo(video): Observable<VideoDetail> {
+    return this.http.post<VideoDetail>(API_URL + videos, video);
   }
 
 }

@@ -17,6 +17,7 @@ export class VideoDigitalCreateComponent implements OnInit {
   ) { }
 videoDigital: VideoDigital;
   ngOnInit() {
+      this.videoDigital=new VideoDigital();
   }createVideoDigital(): VideoDigital {
        
 

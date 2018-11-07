@@ -1,29 +1,32 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col">
-            <table class="table table-striped">
-                <thead>
+        <div class="col-md-4">
+            <br>
+            <div class="row justify-content-center align-self-center">
+                <button [ngClass]="{ 'btn-primary : !showCreate, 'btnDanger':showCreate}" type="button" class="btn" (click)="showHideCreate()">Crear un video digital</button>
+            </div>
+            <br>
+            <br>
+            <div class="col-md-2">
+                <table class="table table-striped">
+                <thead class="thead-dark">
                     <tr>
-                        <th class="h4">Nombre video digital/th>    
+                        <th>ID</th>
+                        <th>Nombre videoDigital</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor = "let videoDigital  of videosDigitales"
-                        (click)="onSelected(videoDigital.id)">
-                        <td style="cursor: pointer;"> 
-                <dd>{{videoDigital.nombre}}</dd>
-                </td>
+                    <tr *ngFor = "let videoDigital  of videosDigitales">
+                        <td>{{videoDigital.id}}</td>
+                        <td><dd id="videoDigital-nombre" class="figure-caption" routerLink="/videosDigitales/{{videoDigital.id}}">{{videoDigital.nombre}}</dd>
+                </td>   
                 </tr>
                 </tbody>
             </table>
         </div>
         <div *ngIf="showCreate">
-                <app-author-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-author-create>
+                <app-video-digital-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-video-digital-create>
             </div>
-        <div class="col-8">
-            <div *ngIf="selectedVideoDigital">
-                <app-video-digital-detail [videoDigitalDetail]="selectedVideoDigital"></app-video-digital-detail>
-            </div>
-        </div>   
+        
     </div>
 </div>

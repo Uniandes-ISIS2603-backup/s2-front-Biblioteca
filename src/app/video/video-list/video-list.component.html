@@ -8,7 +8,9 @@
             </thead>
             <tbody>
                 <tr *ngFor = "let video of videos">
-                  <a routerLink="/videos/{{video.id}}">{{video.name}}</a>
+                  <td>
+                    <dd class="figure-caption" routerLink="/videos/{{video.id}}">{{video.name}}</dd>
+                  </td>
                 </tr>
             </tbody>
         </table>

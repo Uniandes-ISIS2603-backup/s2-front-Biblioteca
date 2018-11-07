@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+
+import { Video } from '../video';
+import { VideoService } from '../video.service';
 
 @Component({
   selector: 'app-video-create',
@@ -7,9 +11,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideoCreateComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private videoService: VideoService,
+    private toastrService: ToastrService
+  ) { }
+
+  video: Video;
+
+  createVideo(): Video {
+    this.videoService.createVideo(this.video)
+      .subscribe((video) => {
+        this.video = video;
+        this.toastrService.success("El video fue creado", "Creacion del video");
+      }, err => {
+        this.toastrService.error(err, "Error")
+      });
+    return this.video;
+  }
 
   ngOnInit() {
+    this.video = new Video();
   }
 
 }
