@@ -1,4 +1,17 @@
-<ul class="nav nav-tabs">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <a class="navbar-brand" id="brand" href="#">Bibliotecas<span id="admin">ADMINISTRADOR</span></a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+      aria-expanded="false" aria-label="Toggle navigation">
+    
+  <span class="navbar-toggler-icon"></span>
+
+    </button>
+    
+<div class="collapse navbar-collapse" id="navbarNavDropdown">
+<ul class="navbar-nav">
+    
     <li class="nav-item">
         <a id="bibliotecaTag" class="nav-link" routerLink="/bibliotecas/list" >Biblioteca</a>
     </li>
@@ -20,7 +33,12 @@
      <li class="nav-item">
       <a id="UsuarioTag" class="nav-link" routerLink="/usuarios/list">usuarios</a>
     </li>
-</ul>
+ </ul> 
+</div>
+
+   
+</nav>
+
 <div class="list">
 <router-outlet></router-outlet>
 </div>
