@@ -1,20 +1,66 @@
 <div class="container-fluid">
-    <div class="col-md-2">
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Libro Id</th>    
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor = "let libro of libros">
-                    <td style="cursor: pointer;">
-                        <dd routerLink="/libros/{{libro.id}}">{{libro.nombre}}</dd>
+    <div class="row">
+        <div class="col-md-4">
+            <br>
+            <div class="row justify-content-center align-self-center">
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Crear una libro</button>
+            </div>
+            <br>
+            <br>
+            <div class="col-md-2">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th> 
+                            <th>Nombre</th>  
+                            <th> ISBN</th>
+                            <th> Autor </th>
+                            <th> Editorial </th>
+                            <th> Edicion </th>
+                            <th> Idioma </th>
+                            <th> Unidades Disponibles </th>
+                            <th> Usuarios en Lista de Espera </th>
+                            <th> Calificacion promedio </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor = "let libro of libros">
+                            <td>{{libro.id}}</td>
+                            <td>
+                    <dd id="libroNombre" class="figure-caption" routerLink="/libros/{{libro.id}}">{{libro.nombre}}</dd>
                     </td>
-                  
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+                    <td>
+                    <dd id="libroIsbn" class="figure-caption" routerLink="/libros/{{libro.id}}">{{libro.isbn}}</dd>
+                    </td>
+                    <td>
+                    <dd id="libroAutor" class="figure-caption" routerLink="/libros/{{libro.id}}">{{libro.autor}}</dd>
+                    </td>
+                    <td>
+                    <dd id="libroEditorial" class="figure-caption" routerLink="/libro/{{libro.id}}">{{libro.editorial}}</dd>
+                    </td>
+                    </td>
+                    <td>
+                    <dd id="libroEdicion" class="figure-caption" routerLink="/libro/{{libro.id}}">{{libro.edicion}}</dd>
+                    </td>
+                    <td>
+                    <dd id="libroIdioma" class="figure-caption" routerLink="/libro/{{libro.id}}">{{libro.idioma}}</dd>
+                    </td
+                    <td>
+                    <dd id="libroUnidadesDisponibles" class="figure-caption" routerLink="/libro/{{libro.id}}">{{libro.unidadesDisponibles}}</dd>
+                    </td>
+                    <td>
+                    <dd id="libroUsuariosListaEspera" class="figure-caption" routerLink="/libro/{{libro.id}}">{{libro.usuariosListaEspera}}</dd>
+                    </td>
+                    <td>
+                    <dd id="libroCalificacionPromedio" class="figure-caption" routerLink="/libro/{{libro.id}}">{{libro.calificacionPromedio}}</dd>
+                    </td>
 
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div *ngIf="showCreate">
+                <app-libro-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-libro-create>
+            </div>
+        </div>

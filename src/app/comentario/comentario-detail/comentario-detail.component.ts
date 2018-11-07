@@ -17,10 +17,19 @@ export class ComentarioDetailComponent implements OnInit {
   private route:ActivatedRoute
   ) { }
   
+  /**
+   * el comentario que queremos mostrar
+   */
   comentarioDetail:ComentarioDetail;
   
+  /**
+   * el id del comentario que queremos
+   */
   comentario_id : number;
   
+  /**
+   * El metodo que devuelve los comentarios de un libro
+   */
   getComentarioDetail():void {
       this.comentarioService.getComentarioDetail(this.comentario_id).subscribe(comentarioDetail => {this.comentarioDetail = comentarioDetail})
   }

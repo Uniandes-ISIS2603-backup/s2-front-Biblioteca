@@ -22,12 +22,26 @@ export class LibroService {
     */
     constructor(private http: HttpClient) { }
     
-  
+  /**
+   * Obtener los libros
+   */
     getLibros() : Observable<Libro[]> {
         return this.http.get<Libro[]>(API_URL + libros);
     }
     
+    /**
+     * Obtener los libros detalle
+     */
     getLibroDetail(libroId): Observable<LibroDetail> {
         return this.http.get<LibroDetail>(API_URL + libros + '/' + libroId);
+    }
+    
+    /**
+     * Crear libro
+     * @param libro: el nuevo libro
+     * @returns devielve la confiracion del libro creado
+     */
+    createLibro(libro): Observable<Libro> {
+        return this.http.post<Libro>(API_URL + libros, libro);
     }
 }

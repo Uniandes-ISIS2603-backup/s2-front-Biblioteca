@@ -25,10 +25,19 @@ export class LibroDetailComponent implements OnInit {
         });
     }
 
+    /**
+     * el id del libro 
+     */
     libro_id: number;
+    /**
+     * el libro que queremos mostrar
+     */
     libroDetail: LibroDetail;
     navigationSubscription;
 
+    /**
+     * el metodo que devuelve los libros detallados
+     */
     getLibroDetail(): void {
         this.libroService.getLibroDetail(this.libro_id)
             .subscribe(libroDetail => {

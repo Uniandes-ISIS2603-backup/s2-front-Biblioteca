@@ -10,6 +10,7 @@ import {ComentarioDetailComponent} from './comentario-detail/comentario-detail.c
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 
 import {LibroModule} from '../libro/libro.module';
+import { ComentarioCreateComponent } from './comentario-create/comentario-create.component';
 @NgModule({
     imports: [
         BrowserModule,
@@ -19,7 +20,7 @@ import {LibroModule} from '../libro/libro.module';
         FormsModule,
         LibroModule
     ],
-    declarations: [ComentarioListComponent, ComentarioDetailComponent],
+    declarations: [ComentarioListComponent, ComentarioDetailComponent, ComentarioCreateComponent],
     providers: [ComentarioService],
     exports: [ComentarioListComponent]
 })

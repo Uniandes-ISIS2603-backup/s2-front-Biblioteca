@@ -1,3 +1,94 @@
-<p>
-  libro-create works!
-</p>
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <br>
+        <h2 class="text-center">Crear un libro</h2>
+        <br>
+        <form name="libro" (ngSubmit)="f.form.valid && createLibro()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="libroNombre"><b>Nombre</b></label>
+                <input type="text" name="libroNombre" class="form-control" id="libroNombre" [(ngModel)]="libro.nombre"
+                    #libroNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroNombre.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta el nombre de la libro</div>
+                </div>
+            </div>
+              
+             <div class="form-group">
+                <label for="libroIsbn"><b>ISBBN</b></label>
+                <input type="text" name="libroIsbn" class="form-control" id="libroIsbn" [(ngModel)]="libro.isbn"
+                    #libroIsbn="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroIsbn.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta el isbn del libro</div>
+                </div>
+            </div>
+            
+             <div class="form-group">
+                <label for="libroAutor"><b>Autor</b></label>
+                <input type="text" name="libroAutor" class="form-control" id="libroAutor" [(ngModel)]="libro.autor"
+                    #libroAutor="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroAutor.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta el autor del libro</div>
+                </div>
+            </div>
+              
+            
+             <div class="form-group">
+                <label for="libroEditorial"><b>Editorial</b></label>
+                <input type="text" name="libroEditorial" class="form-control" id="libroEditorial" [(ngModel)]="libro.editorial"
+                    #libroEditorial="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroEditorial.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta la editorial del libro</div>
+                </div>
+            </div>
+            
+              <div class="form-group">
+                <label for="libroEdicion"><b>Edicion</b></label>
+                <input type="text" name="libroEdicion" class="form-control" id="libroEdicion" [(ngModel)]="libro.edicion"
+                    #libroEdicion="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroEdicion.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta la edicion del libro</div>
+                </div>
+            </div>
+             <div class="form-group">
+                <label for="libroIdioma"><b>Idioma</b></label>
+                <input type="text" name="libroIdioma" class="form-control" id="libroIdioma" [(ngModel)]="libro.idioma"
+                    #libroIdioma="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroIdioma.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta el idioma del libro</div>
+                </div>
+            </div>
+              <div class="form-group">
+                <label for="libroUnidadesDisponibles"><b>Unidades Disponibles</b></label>
+                <input type="number" name="libroUnidadesDisponibles" class="form-control" id="libroUnidadesDisponibles" [(ngModel)]="libro.unidadesDisponibles"
+                    #libroUnidadesDisponibles="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroUnidadesDisponibles.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Faltan las unidades disponibles</div>
+                </div>
+            </div> 
+             <div class="form-group">
+                <label for="libroUsuariosListaEspera"><b>Usuarios en Lista de Espera</b></label>
+                <input type="number" name="libroUsuariosListaEspera" class="form-control" id="libroUsuariosListaEspera" [(ngModel)]="libro.usuariosListaEspera"
+                    #libroUsuariosListaEspera="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroUsuariosListaEspera.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Faltan los usuarios en lista de espera </div>
+                </div>
+            </div> 
+                <div class="form-group">
+                <label for="libroCalificacionPromedio"><b>Calificacion Promedio</b></label>
+                <input type="number" name="libroCalificacionPromedio" class="form-control" id="libroCalificacionPromedio" [(ngModel)]="libro.calificacionPromedio"
+                    #libroCalificacionPromedio="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroCalificacionPromedio.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Faltan los usuarios en lista de espera </div>
+                </div>
+            </div> 
+              
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-3"></div>
+</div>
