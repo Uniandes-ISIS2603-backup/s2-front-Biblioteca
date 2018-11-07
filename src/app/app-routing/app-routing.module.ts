@@ -4,9 +4,11 @@ import {RouterModule, Routes} from '@angular/router';
 
 import {SalaListComponent} from '../sala/sala-list/sala-list.component';
 import {ComentarioListComponent} from '../comentario/comentario-list/comentario-list.component';
+import {ComentarioDetailComponent} from '../comentario/comentario-detail/comentario-detail.component';
 import {BibliotecaListComponent} from '../biblioteca/biblioteca-list/biblioteca-list.component';
 import { BibliotecaDetailComponent } from '../biblioteca/biblioteca-detail/biblioteca-detail.component';
 import {LibroListComponent} from '../libro/libro-list/libro-list.component';
+import {LibroDetailComponent} from '../libro/libro-detail/libro-detail.component';
 import {VideoListComponent} from '../video/video-list/video-list.component';
 import {VideoDetailComponent} from '../video/video-detail/video-detail.component';
 import {LibroDigitalListComponent} from '../libro-digital/libro-digital-list/libro-digital-list.component';
@@ -37,6 +39,11 @@ const routes: Routes =
             {
                 path: 'list',
                 component: LibroListComponent
+            },
+            {
+                path: ':id',
+                component: LibroDetailComponent
+
             }
 
         ]
@@ -47,6 +54,10 @@ const routes: Routes =
             {
                 path: 'list',
                 component: ComentarioListComponent
+            },
+            {
+                path: ':id',
+                component: ComentarioDetailComponent
             }
 
         ]

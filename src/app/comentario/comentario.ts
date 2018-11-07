@@ -1,4 +1,4 @@
-export interface Comentario {
+export class Comentario {
 
     id:number;
     texto:string;

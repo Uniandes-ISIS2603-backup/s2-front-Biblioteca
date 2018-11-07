@@ -8,7 +8,9 @@
             </thead>
             <tbody>
                 <tr *ngFor = "let libro of libros">
-                    <td>{{libro.id}}</td>
+                    <td style="cursor: pointer;">
+                        <dd routerLink="/libros/{{libro.id}}">{{libro.nombre}}</dd>
+                    </td>
                   
                 </tr>
             </tbody>

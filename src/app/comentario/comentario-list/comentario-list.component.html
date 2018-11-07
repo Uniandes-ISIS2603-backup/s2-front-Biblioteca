@@ -8,9 +8,10 @@
             </thead>
             <tbody>
                 <tr *ngFor = "let comentario of comentarios">
-                    <td>{{comentario.id}}</td>
-                  
-                </tr>
+                    <td style="cursor: pointer;">
+            <dd class="figure-caption" routerLink="/comentarios/{{comentario.id}}">{{comentario.texto}}</dd>
+            </td>
+            </tr>
             </tbody>
         </table>
     </div>

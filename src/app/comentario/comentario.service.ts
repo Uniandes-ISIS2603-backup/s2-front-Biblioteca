@@ -3,9 +3,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Comentario} from './comentario';
 import { Observable } from 'rxjs';
-
-const API_URL = "http://localhost:8080/sX_biblioteca-api/";
-const comentarios = "/comentarios";
+import {ComentarioDetail} from './comentario-detail'
+import {environment} from '../../environments/environment';
+const API_URL = environment.apiURL;
+const comentarios = '/comentarios';
 
 /**
 * The service provider for everything related to editorials
@@ -24,4 +25,8 @@ export class ComentarioService {
         return this.http.get<Comentario[]>(API_URL + comentarios);
     }
     
+    getComentarioDetail(comentarioId): Observable<ComentarioDetail>{
+        return this.http.get<ComentarioDetail>(API_URL + comentarios + '/' + comentarioId)
+    }
+
 }

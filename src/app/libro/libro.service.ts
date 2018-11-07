@@ -3,9 +3,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Libro} from './libro';
 import { Observable } from 'rxjs';
+import { LibroDetail } from './libro-detail';
 
-const API_URL = "http://localhost:8080/sX_biblioteca-api/";
-const libros = "/libros.json";
+
+import { environment } from '../../environments/environment';
+const API_URL = environment.apiURL;
+const libros = '/libros';
 
 /**
 * The service provider for everything related to editorials
@@ -24,4 +27,7 @@ export class LibroService {
         return this.http.get<Libro[]>(API_URL + libros);
     }
     
+    getLibroDetail(libroId): Observable<LibroDetail> {
+        return this.http.get<LibroDetail>(API_URL + libros + '/' + libroId);
+    }
 }

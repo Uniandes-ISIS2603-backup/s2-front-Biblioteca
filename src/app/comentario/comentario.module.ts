@@ -1,17 +1,26 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ComentarioListComponent } from './comentario-list/comentario-list.component';
-import { FormsModule } from '@angular/forms';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {BrowserModule} from '@angular/platform-browser';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+
+import {ComentarioListComponent} from './comentario-list/comentario-list.component';
 import {ComentarioService} from './comentario.service';
+import {ComentarioDetailComponent} from './comentario-detail/comentario-detail.component';
+import {AppRoutingModule} from '../app-routing/app-routing.module';
 
-
+import {LibroModule} from '../libro/libro.module';
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule
-  ],
-  declarations: [ComentarioListComponent],
-  providers:[ComentarioService],
-  exports:[ComentarioListComponent]
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        CommonModule,
+        FormsModule,
+        LibroModule
+    ],
+    declarations: [ComentarioListComponent, ComentarioDetailComponent],
+    providers: [ComentarioService],
+    exports: [ComentarioListComponent]
 })
-export class ComentarioModule { }
+export class ComentarioModule {}
