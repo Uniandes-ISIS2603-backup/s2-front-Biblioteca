@@ -33,12 +33,12 @@ export class BibliotecaListComponent implements OnInit {
     showCreate: boolean;
    
      /**
-     * the author that the user views.
+     * la biblioteca que el usuario ve
      */
     selectedBiblioteca : Biblioteca;
     
     /**
-    * The id of the author that the user wants to view
+    * El id de la biblioteca que el usuario quiere ver
     */
     biblioteca_id: number;
     

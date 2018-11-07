@@ -1,3 +1,33 @@
-<p>
-  prestamo-list works!
-</p>
+<div class="container-fluid">
+   <div class="row">
+        <div class="col-md-4">
+            <br>
+            <div class="row justify-content-center align-self-center">
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Crear un prestamo</button>
+            </div>
+            <br>
+            <br>
+<div class="col-md-2">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th> 
+                    <th>Prestamo</th>    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let prestamo of prestamos">
+                    <td>{{prestamo.id}}</td>
+                    <td>
+                        <dd id="prestamo-fechaSalida" class="figure-caption" routerLink="/prestamos/{{prestamo.id}}">{{biblioteca.fechaSalida}}</dd>
+                            </td>
+                  
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<div *ngIf="showCreate">
+                <app-prestamo-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-prestamo-create>
+            </div>
+</div>

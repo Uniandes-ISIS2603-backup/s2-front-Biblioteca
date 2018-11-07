@@ -11,7 +11,7 @@ const API_URL = environment.apiURL;
 const bibliotecas = "bibliotecas";
 
 /**
-* The service provider for everything related to editorials
+* The service provider for everything related to biblioteca
 */
 @Injectable()
 export class BibliotecaService {

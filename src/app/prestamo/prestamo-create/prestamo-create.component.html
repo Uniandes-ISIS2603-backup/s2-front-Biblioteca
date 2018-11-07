@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <br>
+        <h2 class="text-center">Crear un prestamo</h2>
+        <br>
+        <form name="prestamo" (ngSubmit)="f.form.valid && createPrestamo()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="fechaDeSalida"><b>Fecha de salida del prestamo</b></label>
+                <input type="text" name="fechaDeSalida" class="form-control" id="fechaDeSalida" [(ngModel)]="prestamo.fechaDeSalida"
+                    #fechaDeSalida="ngModel" [ngClass]="{ 'is-invalid': f.submitted && fechaDeSalida.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta la fecha de salida del prestamo</div>
+                </div>
+            </div>
+              
+            <div class="form-group">
+                <label for="fechaDeEntrega"><b>Fecha de entrega prestamo</b></label>
+                <input type="text" name="fechaDeEntrega" class="form-control" id="fechaDeSalida" [(ngModel)]="prestamo.fechaDeEntrega"
+                    #fechaDeEntrega="ngModel" [ngClass]="{ 'is-invalid': f.submitted && fechaDeEntrega.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta la fecha de entrega del prestamo</div>
+                </div>
+            </div>
+            
+             
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-3"></div>
+</div>
