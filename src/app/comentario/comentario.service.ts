@@ -39,7 +39,7 @@ export class ComentarioService {
      * @param comentario el nuevo comentario
      * @returns la confirmacion que el comentario fue creado
      */
-      createBComentario(comentario): Observable<Comentario> {
+      createComentario(comentario): Observable<Comentario> {
         return this.http.post<Comentario>(API_URL + comentarios, comentario);
     }
 }

@@ -26,7 +26,7 @@ export class PrestamoService
         return this.http.get<Prestamo []>(API_URL + prestamos);
     }
     
-     getPrestamosDetail(prestamoId): Observable<PrestamoDetail> {
+     getPrestamoDetail(prestamoId): Observable<PrestamoDetail> {
         return this.http.get<PrestamoDetail>(API_URL + prestamos + '/' + prestamoId);
     }
     

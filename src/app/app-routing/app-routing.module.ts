@@ -7,6 +7,8 @@ import {ComentarioListComponent} from '../comentario/comentario-list/comentario-
 import {ComentarioDetailComponent} from '../comentario/comentario-detail/comentario-detail.component';
 import {BibliotecaListComponent} from '../biblioteca/biblioteca-list/biblioteca-list.component';
 import { BibliotecaDetailComponent } from '../biblioteca/biblioteca-detail/biblioteca-detail.component';
+import { PrestamoListComponent } from '../prestamo/prestamo-list/prestamo-list.component';
+import { PrestamoDetailComponent } from '../prestamo/prestamo-detail/prestamo-detail.component';
 import {LibroListComponent} from '../libro/libro-list/libro-list.component';
 import {LibroDetailComponent} from '../libro/libro-detail/libro-detail.component';
 import {VideoListComponent} from '../video/video-list/video-list.component';
@@ -29,6 +31,22 @@ const routes: Routes =
             {
                 path: ':id',
                 component: BibliotecaDetailComponent
+            }
+
+        ]
+
+    },
+    {
+        path: 'prestamos',
+        children:
+        [
+            {
+                path: 'list',
+                component: PrestamoListComponent
+            },
+            {
+                path: ':id',
+                component: PrestamoDetailComponent
             }
 
         ]

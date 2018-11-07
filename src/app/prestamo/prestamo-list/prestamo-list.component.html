@@ -13,14 +13,14 @@
             <thead class="thead-dark">
                 <tr>
                     <th>ID</th> 
-                    <th>Prestamo</th>    
+                    <th>Fecha de prestamo</th>    
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor = "let prestamo of prestamos">
                     <td>{{prestamo.id}}</td>
                     <td>
-                        <dd id="prestamo-fechaSalida" class="figure-caption" routerLink="/prestamos/{{prestamo.id}}">{{biblioteca.fechaSalida}}</dd>
+                        <dd id="prestamo-fechaSalida" class="figure-caption" routerLink="/prestamos/{{prestamo.id}}">{{prestamo.fechaSalida}}</dd>
                             </td>
                   
                 </tr>
