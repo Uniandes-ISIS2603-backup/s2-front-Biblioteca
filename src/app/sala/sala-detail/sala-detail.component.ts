@@ -16,8 +16,9 @@ export class SalaDetailComponent implements OnInit {
         private salaService: SalaService,
         private route: ActivatedRoute
     ) { }
-
+sala_id: number; 
   ngOnInit() {
+       this.sala_id = +this.route.snapshot.paramMap.get('id');
   }
 
 }

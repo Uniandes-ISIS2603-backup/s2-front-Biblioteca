@@ -7,5 +7,8 @@
  {
      id: number;
      nombre: String;
+     email: String;
+    telefono: String;
+    multa: String;
  }
 
