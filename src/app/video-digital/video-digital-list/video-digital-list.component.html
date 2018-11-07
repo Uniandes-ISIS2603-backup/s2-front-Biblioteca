@@ -1,17 +1,29 @@
 <div class="container-fluid">
-    <div class="col-md-2">
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th>VideoDigital Nombre</th>    
+    <div class="row">
+        <div class="col">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="h4">Nombre video digital/th>    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let videoDigital  of videosDigitales"
+                        (click)="onSelected(videoDigital.id)">
+                        <td style="cursor: pointer;"> 
+                <dd>{{videoDigital.nombre}}</dd>
+                </td>
                 </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor = "let v of videosDigitales">
-                    <td>{{v.nombre}}</td>
-                  
-                </tr>
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
+        <div *ngIf="showCreate">
+                <app-author-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-author-create>
+            </div>
+        <div class="col-8">
+            <div *ngIf="selectedVideoDigital">
+                <app-video-digital-detail [videoDigitalDetail]="selectedVideoDigital"></app-video-digital-detail>
+            </div>
+        </div>   
     </div>
 </div>

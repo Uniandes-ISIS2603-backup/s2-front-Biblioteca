@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
 import {VideoDigital} from '../video-digital';
-import {VideoDigitalService} from '../video-digital.services';
+import {VideoDigitalService} from '../video-digital.service';
 import { VideoDigitalDetail } from '../video-digital-detail';
 
 @Component({

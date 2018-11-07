@@ -27,4 +27,12 @@ export class VideoDigitalService {
      getVideoDigitalDetail(videoDigitalId): Observable<VideoDigitalDetail> {
         return this.http.get<VideoDigitalDetail>(API_URL + videosDigitales + '/' + videoDigitalId);
     }
+     /**
+    * Creates an videoDigital
+    * @param videoDigital The new videoDigital
+    * @returns The new videoDigital with the new id
+    */
+    createVideoDigital(videoDigital): Observable<VideoDigital> {
+        return this.http.post<VideoDigital>(API_URL + videosDigitales, videoDigital);
+    }
 }
