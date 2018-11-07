@@ -7,9 +7,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor = "let s of salas">
-                    <td>{{s.ubicacion}}</td>
-                  
+                <tr *ngFor = "let sala of salas">
+                    <td style="cursor: pointer;">
+                        <dd class="figure-caption" routerLink="/salas/{sala.id}}">{{sala.ubicacion}}</dd>
+                    </td>
                 </tr>
             </tbody>
         </table>

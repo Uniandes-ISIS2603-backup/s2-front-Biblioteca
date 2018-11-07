@@ -5,3 +5,8 @@
  */
 
 
+import{Sala} from './sala';
+
+export class SalaDetail extends Sala{
+    
+}

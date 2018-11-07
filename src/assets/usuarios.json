@@ -2,8 +2,8 @@
     {
        
        
-        "id": 200,
-        "ubicacion": "Norte"
+        "id": 400,
+        "nombre": "Pedro"
         
         
       
@@ -11,24 +11,24 @@
     {
        
         
-        "id": 201,
-        "ubicacion": "Sur"
+        "id": 401,
+        "nombre": "Lalo"
         
         
     },
     {
         
 
-        "id": 202,
-        "ubicacion": "Este"
+        "id": 402,
+        "nombre": "Maria"
        
         
     },
     {
         
        
-        "id": 203,
-      "ubicacion": "Oeste"
+        "id": 403,
+      "nombre": "Ana"
        
         
     }
