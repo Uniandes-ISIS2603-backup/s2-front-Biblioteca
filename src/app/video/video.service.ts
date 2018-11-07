@@ -7,7 +7,7 @@ import {VideoDetail} from './video-detail';
 
 import {environment} from '../../environments/environment';
 const API_URL = environment.apiURL;
-const videos = '/videos';
+const videos = 'videos';
 
 @Injectable()
 export class VideoService {
