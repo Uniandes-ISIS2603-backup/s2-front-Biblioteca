@@ -22,4 +22,8 @@ export class VideoService {
     return this.http.get<VideoDetail>(API_URL + videos + "/" + videoId);
   }
 
+  createVideo(video): Observable<VideoDetail> {
+    return this.http.post<VideoDetail>(API_URL + videos, video);
+  }
+
 }
