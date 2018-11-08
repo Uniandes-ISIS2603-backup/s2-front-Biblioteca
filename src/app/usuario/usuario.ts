@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
- export interface Usuario
+ export class Usuario
  {
      id: number;
      nombre: String;

@@ -24,4 +24,8 @@
             </tbody>
         </table>
     </div>
+            
+            <div *ngIf="showCreate">
+                <app-sala-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-sala-create>
+            </div>
 </div>
