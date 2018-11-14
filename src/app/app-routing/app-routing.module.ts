@@ -18,6 +18,7 @@ import {VideoDigitalListComponent} from '../video-digital/video-digital-list/vid
 import {UsuarioListComponent} from '../usuario/usuario-list/usuario-list.component';
 import {SalaDetailComponent} from '../sala/sala-detail/sala-detail.component';
 import {VideoDigitalDetailComponent} from '../video-digital/video-digital-detail/video-digital-detail.component';
+import {UsuarioDetailComponent} from '../usuario/usuario-detail/usuario-detail.component';
 
 const routes: Routes =
 [
@@ -136,6 +137,10 @@ const routes: Routes =
             {
                 path: 'list',
                 component: UsuarioListComponent
+            },
+              {
+                path: ':id',
+                component: UsuarioDetailComponent
             }
         ]
     }
