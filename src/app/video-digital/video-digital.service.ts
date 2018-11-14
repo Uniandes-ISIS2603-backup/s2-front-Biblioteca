@@ -4,9 +4,9 @@ import { HttpClient } from '@angular/common/http';
 import {VideoDigital} from './video-digital';
 import { Observable } from 'rxjs';
 import {VideoDigitalDetail} from './video-digital-detail';
-
-const API_URL = "http://localhost:8080/sX_biblioteca-api/";
-const videosDigitales = "bibliotecas.json";
+import { environment } from '../../environments/environment';
+const API_URL = environment.apiURL;
+const videosDigitales = "videosdigitales";
 
 /**
 * The service provider for everything related to editorials

@@ -20,6 +20,7 @@ videoDigital: VideoDigital;
       this.videoDigital=new VideoDigital();
   }createVideoDigital(): VideoDigital {
        
+         console.log(this.videoDigital)
 
 
         this.videoDigitalService.createVideoDigital(this.videoDigital)

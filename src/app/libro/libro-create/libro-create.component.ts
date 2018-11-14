@@ -49,6 +49,7 @@ export class LibroCreateComponent implements OnInit {
         this.libroService.createLibro(this.libro)
             .subscribe((libro) => {
                 this.libro = libro;
+                console.log(this.libro.id);
                 this.create.emit();
                 this.toastrService.success("El libro fue creada", "Creación de libro");
                 

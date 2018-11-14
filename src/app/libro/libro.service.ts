@@ -8,7 +8,7 @@ import { LibroDetail } from './libro-detail';
 
 import { environment } from '../../environments/environment';
 const API_URL = environment.apiURL;
-const libros = '/libros';
+const libros = 'libros';
 
 /**
 * The service provider for everything related to editorials

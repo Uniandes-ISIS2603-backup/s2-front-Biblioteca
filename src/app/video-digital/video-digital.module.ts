@@ -5,13 +5,19 @@ import {VideoDigitalListComponent} from './video-digital-list/video-digital-list
 import { FormsModule } from '@angular/forms';
 import {VideoDigitalService} from './video-digital.service';
 import { VideoDigitalCreateComponent } from './video-digital-create/video-digital-create.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {HttpClientModule} from '@angular/common/http';
+import {VideoDigitalDetailComponent} from './video-digital-detail/video-digital-detail.component';
 @NgModule({
   imports: [
+       BrowserModule,
     CommonModule,
     AppRoutingModule,
+            HttpClientModule,
+
     FormsModule
   ],
-  declarations: [VideoDigitalListComponent, VideoDigitalCreateComponent],
+  declarations: [VideoDigitalListComponent, VideoDigitalCreateComponent,VideoDigitalDetailComponent],
   providers:[VideoDigitalService],
   exports: [VideoDigitalListComponent]
 })
