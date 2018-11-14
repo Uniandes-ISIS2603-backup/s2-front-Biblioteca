@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import {VideoDigitalDetail} from './video-digital-detail';
 import { environment } from '../../environments/environment';
 const API_URL = environment.apiURL;
-const videosDigitales = "videosdigitales";
+const videosdigitales = "videosdigitales";
 
 /**
 * The service provider for everything related to editorials
@@ -22,10 +22,10 @@ export class VideoDigitalService {
     
   
     getVideosDigitales() : Observable<VideoDigital[]> {
-        return this.http.get<VideoDigital[]>(API_URL + videosDigitales);
+        return this.http.get<VideoDigital[]>(API_URL + videosdigitales);
     }
      getVideoDigitalDetail(videoDigitalId): Observable<VideoDigitalDetail> {
-        return this.http.get<VideoDigitalDetail>(API_URL + videosDigitales + '/' + videoDigitalId);
+        return this.http.get<VideoDigitalDetail>(API_URL + videosdigitales + '/' + videoDigitalId);
     }
      /**
     * Creates an videoDigital
@@ -33,6 +33,6 @@ export class VideoDigitalService {
     * @returns The new videoDigital with the new id
     */
     createVideoDigital(videoDigital): Observable<VideoDigital> {
-        return this.http.post<VideoDigital>(API_URL + videosDigitales, videoDigital);
+        return this.http.post<VideoDigital>(API_URL + videosdigitales, videoDigital);
     }
 }

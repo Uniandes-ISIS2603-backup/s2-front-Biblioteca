@@ -17,6 +17,7 @@ import {LibroDigitalListComponent} from '../libro-digital/libro-digital-list/lib
 import {VideoDigitalListComponent} from '../video-digital/video-digital-list/video-digital-list.component';
 import {UsuarioListComponent} from '../usuario/usuario-list/usuario-list.component';
 import {SalaDetailComponent} from '../sala/sala-detail/sala-detail.component';
+import {VideoDigitalDetailComponent} from '../video-digital/video-digital-detail/video-digital-detail.component';
 
 const routes: Routes =
 [
@@ -109,6 +110,10 @@ const routes: Routes =
         {
           path: 'list',
           component: VideoDigitalListComponent
+        },
+        {
+          path: ':id',
+          component: VideoDigitalDetailComponent
         }
       ]
     },
