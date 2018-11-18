@@ -9,6 +9,4 @@ export class libroDigital {
   idioma: string;
   calificacionPromedio: number;
 
-  usuarios: any[];
-
 }
