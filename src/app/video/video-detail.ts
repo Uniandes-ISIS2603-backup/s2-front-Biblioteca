@@ -1,12 +1,10 @@
 import { Video } from './video';
-
-//import { prestamo } from '../prestamo/prestamo'
-//TODO importar prestamo y reserva cunado esten echos
+import { Prestamo } from '../prestamo/prestamo';
+import {Reserva} from '../reserva/reserva';
 
 export class VideoDetail extends Video {
 
-  reservas: any[];
-  prestamos: any[];
-  //TODO cambiar de any a prestamo y reserva
+  reservas: Reserva[];
+  prestamos: Prestamo[];
 
 }

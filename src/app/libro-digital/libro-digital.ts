@@ -1,4 +1,4 @@
-export class libroDigital {
+export class LibroDigital {
 
   id: number;
   nombre: string;

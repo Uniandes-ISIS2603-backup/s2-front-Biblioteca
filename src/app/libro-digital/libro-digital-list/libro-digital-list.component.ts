@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { libroDigital } from '../../libro-digital/libro-digital';
+import { LibroDigital } from '../../libro-digital/libro-digital';
 import { LibroDigitalService } from '../../libro-digital/libro-digital.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { LibroDigitalService } from '../../libro-digital/libro-digital.service';
 })
 export class LibroDigitalListComponent implements OnInit {
 
-  librosDigitales: libroDigital[];
+  librosDigitales: LibroDigital[];
 
   constructor(private libroDigitalService: LibroDigitalService) { }
 
