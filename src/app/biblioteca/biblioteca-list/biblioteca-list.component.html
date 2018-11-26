@@ -1,3 +1,11 @@
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<style type="text/css">
+.fa_custom {
+color: #0099CC
+}
+</style>
+</head>
 <div class="container-fluid">
    <div class="row">
         <div class="col-md-4">
@@ -14,24 +22,35 @@
                 <tr>
                     <th>ID</th> 
                     <th>Biblioteca Nombre</th>    
+                    <th> </th>  
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor = "let biblioteca of bibliotecas">
                     <td>{{biblioteca.id}}</td>
+                    <td style="cursor: pointer;" (click)="onSelected(biblioteca.id)" >
+                        <dd>{{biblioteca.nombre}}</dd>
+                    </td>
                     <td>
-                        <dd id="biblioteca-nombre" class="figure-caption" routerLink="/bibliotecas/{{biblioteca.id}}">{{biblioteca.nombre}}</dd>
-                            </td>
+                            <i class="fa fa-pencil "(click)="showHideEdit(biblioteca.id)"></i>
+                    </td>
                   
                 </tr>
             </tbody>
         </table>
     </div>
-            <div class="col-20">
-            <div *ngIf="showCreate">
+            <div class="col-8">
+            <div *ngIf="showView">
+                <app-biblioteca-detail [bibliotecaDetail]="selectedBiblioteca"></app-biblioteca-detail>
+            </div>
+                <div *ngIf="showCreate">
                 <app-biblioteca-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-biblioteca-create>
             </div>
-            </div> 
+            </div>
+            <div *ngIf="showEdit">
+                <app-biblioteca-edit [biblioteca]="selectedBiblioteca" (cancel)="showHideEdit(selectedBiblioteca.id)" (update)="updateBiblioteca()" ></app-biblioteca-edit>
+            </div>
+            
     </div>
 </div>
        

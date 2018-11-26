@@ -32,6 +32,16 @@ export class BibliotecaListComponent implements OnInit {
     showCreate: boolean = false;
    
      /**
+    * Muestra o oculta la edición de una biblioteca
+    */
+    showEdit: boolean;
+    
+    /**
+     * Muestra o oculta el detalle de un autor
+     */
+    showView: boolean;
+    
+     /**
      * la biblioteca que el usuario ve
      */
     selectedBiblioteca : Biblioteca;
@@ -46,8 +56,19 @@ export class BibliotecaListComponent implements OnInit {
     */
     onSelected(biblioteca_id: number):void {
         this.showCreate = false;
+        this.showEdit = false;
+        this.showView = true;
+        this.biblioteca_id = biblioteca_id;
         this.selectedBiblioteca = new BibliotecaDetail();
+        this.getBibliotecaDetail();
         
+    }
+    
+    getBibliotecaDetail(): void {
+        this.bibliotecaService.getBibliotecaDetail(this.biblioteca_id)
+            .subscribe(selectedBiblioteca => {
+                this.selectedBiblioteca = selectedBiblioteca
+            });
     }
     
     /**
@@ -61,13 +82,43 @@ export class BibliotecaListComponent implements OnInit {
     * Shows or hides the create component
     */
     showHideCreate(): void {
-           
+        this.showView = false;
+        this.showEdit = false;
         this.showCreate = !this.showCreate;
+    }
+    
+    updateBiblioteca(): void{
+        this.showEdit = false;
+        this.showView = true;
+        this.getBibliotecas();
+    }
+    
+    /**
+    * Shows or hides the create component
+    */
+    showHideEdit(biblioteca_id: number): void {
+        if (!this.showEdit || (this.showEdit && biblioteca_id != this.selectedBiblioteca.id)) {
+            this.showView = false;
+            this.showCreate = false;
+            this.showEdit = true;
+            this.biblioteca_id = biblioteca_id;
+            this.selectedBiblioteca = new BibliotecaDetail();
+            this.getBibliotecaDetail();
+        }
+        else { 
+            this.showEdit = false;
+            this.showView = true;
+        }
     }
   ngOnInit() 
       {
-        this.getBibliotecas();
+       
+        this.showView = false;
+        this.showEdit = false;
+        this.selectedBiblioteca = undefined;
+        this.biblioteca_id = undefined;
         this.showCreate = false;
+        this.getBibliotecas();
       }
 
 }

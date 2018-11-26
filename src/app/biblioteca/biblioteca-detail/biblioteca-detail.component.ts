@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,Input, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
 import {Biblioteca} from '../biblioteca';
@@ -12,12 +12,13 @@ import { BibliotecaDetail } from '../biblioteca-detail';
 })
 export class BibliotecaDetailComponent implements OnInit {
 
+    /**
+    * The author
+    */
+    @Input() bibliotecaDetail: BibliotecaDetail;
   constructor(private bibliotecaService: BibliotecaService, private route: ActivatedRoute) { }
   
-  /**
-    * La biblioteca que queremos mostrar
-    */
-    bibliotecaDetail: BibliotecaDetail;
+ 
 
     /**
     * El id de la biblioteca que queremos
@@ -25,7 +26,7 @@ export class BibliotecaDetailComponent implements OnInit {
     biblioteca_id: number;
     
     /**
-    * The method which retrieves the books of an editorial
+    * El metodo que obtienen los detalles de la biblioteca que queremos
     */
     getBibliotecaDetail(): void {
         this.bibliotecaService.getBibliotecaDetail(this.biblioteca_id)
@@ -36,8 +37,11 @@ export class BibliotecaDetailComponent implements OnInit {
   ngOnInit() 
       {
            this.biblioteca_id = +this.route.snapshot.paramMap.get('id');
-           this.bibliotecaDetail = new BibliotecaDetail();
-            this.getBibliotecaDetail();
+           if (this.biblioteca_id)
+            {
+             this.bibliotecaDetail = new BibliotecaDetail();
+             this.getBibliotecaDetail();
+            }
        }
 
 }

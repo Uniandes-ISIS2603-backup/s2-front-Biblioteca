@@ -21,6 +21,7 @@ export class BibliotecaEditComponent implements OnInit, OnChanges
   constructor
   (
         private bibliotecaService: BibliotecaService,
+        
         private toastrService: ToastrService,
   ) { }
     
@@ -48,9 +49,10 @@ export class BibliotecaEditComponent implements OnInit, OnChanges
     editBiblioteca(): void {
         this.bibliotecaService.updateBiblioteca(this.biblioteca)
             .subscribe(() => {
+                this.update.emit();
                 this.toastrService.success("La información de la biblioteca fue actualizada", "Biblioteca edition");
             });
-        this.update.emit();
+        
     }
     
     /**
@@ -66,6 +68,7 @@ export class BibliotecaEditComponent implements OnInit, OnChanges
   ngOnInit() 
       {
        
+      
         }
    /**
     * This function will be called when the user chooses another author to edit
