@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { LibroDigital } from '../../libro-digital/libro-digital';
+import { LibroDigitalDetail } from '../libro-digital-detail';
 import { LibroDigitalService } from '../../libro-digital/libro-digital.service';
 
 @Component({
@@ -11,6 +12,9 @@ import { LibroDigitalService } from '../../libro-digital/libro-digital.service';
 export class LibroDigitalListComponent implements OnInit {
 
   librosDigitales: LibroDigital[];
+  showCreate: boolean;
+  selectedLibroDigital: LibroDigital;
+  libroDigital_id: number;
 
   constructor(private libroDigitalService: LibroDigitalService) { }
 
