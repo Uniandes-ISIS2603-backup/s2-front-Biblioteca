@@ -18,6 +18,15 @@ export class LibroDigitalListComponent implements OnInit {
 
   constructor(private libroDigitalService: LibroDigitalService) { }
 
+  onSelected(libroDigital_id: number): void {
+    this.showCreate = false;
+    this.selectedLibroDigital = new LibroDigitalDetail();
+  }
+
+  showHideCreate(): void {
+    this.showCreate = !this.showCreate;
+  }
+
   getLibrosDigitales(): void {
     this.libroDigitalService.getLibrosDigitales().subscribe(librosDigitales => {this.librosDigitales = librosDigitales});
   }
