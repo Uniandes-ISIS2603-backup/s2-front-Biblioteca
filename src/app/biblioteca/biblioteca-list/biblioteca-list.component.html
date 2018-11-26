@@ -8,7 +8,7 @@
             </div>
             <br>
             <br>
-    <div class="col-md-2">
+    
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
@@ -27,8 +27,11 @@
             </tbody>
         </table>
     </div>
+            <div class="col-20">
             <div *ngIf="showCreate">
                 <app-biblioteca-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-biblioteca-create>
             </div>
+            </div> 
+    </div>
 </div>
        

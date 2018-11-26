@@ -1,7 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+//import { NgxPaginationModule } from 'ngx-pagination';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule , HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 
@@ -21,8 +25,9 @@ import {UsuarioModule} from './usuario/usuario.module';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
     FormsModule,
     BibliotecaModule,
     SalaModule,
@@ -32,7 +37,13 @@ import {UsuarioModule} from './usuario/usuario.module';
     VideoDigitalModule,
     PrestamoModule,
     LibroDigitalModule,
-    UsuarioModule
+    UsuarioModule,
+    ToastrModule.forRoot({
+            timeOut: 10000,
+            positionClass: 'toast-bottom-right',
+            preventDuplicates: true,
+        }),
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,9 +1,6 @@
 import { Component, OnInit , Output, EventEmitter} from '@angular/core';
-
 import { ToastrService } from 'ngx-toastr';
-
 import { BibliotecaService } from '../biblioteca.service';
-
 import { Biblioteca } from '../biblioteca';
 
 @Component({

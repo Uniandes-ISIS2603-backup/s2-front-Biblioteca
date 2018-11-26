@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
 
 import {Biblioteca} from '../biblioteca';
 import {BibliotecaService} from '../biblioteca.service';
@@ -30,7 +29,7 @@ export class BibliotecaListComponent implements OnInit {
      /**
     * Muestra o oculta el biblioteca-create-component
     */
-    showCreate: boolean;
+    showCreate: boolean = false;
    
      /**
      * la biblioteca que el usuario ve
@@ -47,7 +46,6 @@ export class BibliotecaListComponent implements OnInit {
     */
     onSelected(biblioteca_id: number):void {
         this.showCreate = false;
-        this.biblioteca_id = biblioteca_id;
         this.selectedBiblioteca = new BibliotecaDetail();
         
     }
@@ -63,10 +61,7 @@ export class BibliotecaListComponent implements OnInit {
     * Shows or hides the create component
     */
     showHideCreate(): void {
-        if (this.selectedBiblioteca) {
-            this.selectedBiblioteca = undefined;
-            this.biblioteca_id = undefined;
-        }
+           
         this.showCreate = !this.showCreate;
     }
   ngOnInit() 
