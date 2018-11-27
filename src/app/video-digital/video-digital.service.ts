@@ -1,9 +1,11 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {VideoDigital} from './video-digital';
 import { Observable } from 'rxjs';
+
+import {VideoDigital} from './video-digital';
 import {VideoDigitalDetail} from './video-digital-detail';
+
 import { environment } from '../../environments/environment';
 const API_URL = environment.apiURL;
 const videosdigitales = "videosdigitales";
@@ -34,5 +36,14 @@ export class VideoDigitalService {
     */
     createVideoDigital(videoDigital): Observable<VideoDigital> {
         return this.http.post<VideoDigital>(API_URL + videosdigitales, videoDigital);
+    }
+    
+    /**
+    * Actualizar un videoDigital
+    * @param videoDigital El videoDigital que será actualizada
+    * @returns La confirmación que el videoDigital fue actualizada
+    */
+    updateVideoDigital(videoDigital): Observable<VideoDigitalDetail> {
+        return this.http.put<VideoDigitalDetail>(API_URL + videosdigitales + '/' + videoDigital.id, videoDigital);
     }
 }

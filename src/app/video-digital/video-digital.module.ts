@@ -8,6 +8,7 @@ import { VideoDigitalCreateComponent } from './video-digital-create/video-digita
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {VideoDigitalDetailComponent} from './video-digital-detail/video-digital-detail.component';
+import { VideoDigitalEditComponent } from './video-digital-edit/video-digital-edit.component';
 @NgModule({
   imports: [
        BrowserModule,
@@ -17,7 +18,7 @@ import {VideoDigitalDetailComponent} from './video-digital-detail/video-digital-
 
     FormsModule
   ],
-  declarations: [VideoDigitalListComponent, VideoDigitalCreateComponent,VideoDigitalDetailComponent],
+  declarations: [VideoDigitalListComponent, VideoDigitalCreateComponent,VideoDigitalDetailComponent, VideoDigitalEditComponent],
   providers:[VideoDigitalService],
   exports: [VideoDigitalListComponent]
 })

@@ -21,6 +21,16 @@ export class VideoDigitalListComponent implements OnInit {
     */
     showCreate: boolean;
     
+    /**
+    * Muestra o oculta la edición de un videoDigital
+    */
+    showEdit: boolean;
+    
+     /**
+     * Muestra o oculta el detalle de un videoDigital
+     */
+    showView: boolean;
+    
     selectedVideoDigital : VideoDigital;
     
     videoDigital_id: number;
@@ -30,9 +40,19 @@ export class VideoDigitalListComponent implements OnInit {
     */
     onSelected(videoDigital_id: number):void {
         this.showCreate = false;
+        this.showEdit = false;
+        this.showView = true;
         this.videoDigital_id = videoDigital_id;
         this.selectedVideoDigital = new VideoDigitalDetail();
+        this.getVideoDigitalDetail();
         
+    }
+    
+    getVideoDigitalDetail(): void {
+        this.videoDigitalService.getVideoDigitalDetail(this.videoDigital_id)
+            .subscribe(selectedVideoDigital => {
+                this.selectedVideoDigital = selectedVideoDigital
+            });
     }
     /**
      * Pregunta el servicio para actualizar la lista de videosDigitales
@@ -41,17 +61,43 @@ export class VideoDigitalListComponent implements OnInit {
         this.videoDigitalService.getVideosDigitales().subscribe(videosDigitales => this.videosDigitales = videosDigitales);
     }
 
-  ngOnInit() 
-      {
-        this.getVideosDigitales();
-        this.showCreate=false;
-      }
 showHideCreate(): void {
-        if (this.selectedVideoDigital) {
-            this.selectedVideoDigital = undefined;
-            this.videoDigital_id = undefined;
-        }
+        this.showView = false;
+        this.showEdit = false;
         this.showCreate = !this.showCreate;
     }
+    updateVideoDigital(): void{
+        this.showEdit = false;
+        this.showView = true;
+        this.getVideosDigitales();
+    }
     
+    /**
+    * Shows or hides the create component
+    */
+    showHideEdit(videoDigital_id: number): void {
+        if (!this.showEdit || (this.showEdit && videoDigital_id != this.selectedVideoDigital.id)) {
+            this.showView = false;
+            this.showCreate = false;
+            this.showEdit = true;
+            this.videoDigital_id = videoDigital_id;
+            this.selectedVideoDigital = new VideoDigitalDetail();
+            this.getVideoDigitalDetail();
+        }
+        else { 
+            this.showEdit = false;
+            this.showView = true;
+        }
+    }
+    
+    ngOnInit() 
+      {
+       
+        this.showView = false;
+        this.showEdit = false;
+        this.selectedVideoDigital = undefined;
+        this.videoDigital_id = undefined;
+        this.showCreate = false;
+        this.getVideosDigitales();
+      }
 }

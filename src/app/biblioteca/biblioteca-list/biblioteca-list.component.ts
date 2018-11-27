@@ -37,7 +37,7 @@ export class BibliotecaListComponent implements OnInit {
     showEdit: boolean;
     
     /**
-     * Muestra o oculta el detalle de un autor
+     * Muestra o oculta el detalle de una biblioteca
      */
     showView: boolean;
     

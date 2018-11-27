@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {AppRoutingModule} from '../../app-routing/app-routing.module';
+import {APP_BASE_HREF} from '@angular/common';
+import {HttpClientModule} from '@angular/common/http';
 
+import {AppModule} from '../../app.module';
 import { VideoDigitalListComponent} from './video-digital-list.component';
+import {VideoDigitalService} from '../video-digital.service';
 
 describe('VideoDigitalListComponent', () => {
   let component: VideoDigitalListComponent;
@@ -8,7 +13,9 @@ describe('VideoDigitalListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VideoDigitalListComponent ]
+            imports: [AppRoutingModule, HttpClientModule, AppModule],
+            declarations: [],
+            providers: [{provide: APP_BASE_HREF, useValue: ''}, VideoDigitalService]
     })
     .compileComponents();
   }));

@@ -1,3 +1,12 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <style type="text/css">
+        .fa_custom {
+            color: #0099CC
+        }
+    </style>
+</head>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-4">
@@ -9,24 +18,36 @@
             <br>
             <div class="col-md-2">
                 <table class="table table-striped">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre videoDigital</th>
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre videoDigital</th>
+                            <th> </th> 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor = "let videoDigital  of videosDigitales">
+                            <td>{{videoDigital.id}}</td>
+                            <td><dd id="videoDigital-nombre" class="figure-caption" routerLink="/videosDigitales/{{videoDigital.id}}">{{videoDigital.nombre}}</dd>
+                    </td>
+                    <td>
+                        <i class="fa fa-pencil "(click)="showHideEdit(videoDigital.id)"></i>
+                    </td>
                     </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor = "let videoDigital  of videosDigitales">
-                        <td>{{videoDigital.id}}</td>
-                        <td><dd id="videoDigital-nombre" class="figure-caption" routerLink="/videosDigitales/{{videoDigital.id}}">{{videoDigital.nombre}}</dd>
-                </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <div *ngIf="showCreate">
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-8">
+            <div *ngIf="showView">
+                <app-video-digital-detail [videoDigitalDetail]="selectedVideoDigital"></app-video-digital-detail>
+            </div>
+            <div *ngIf="showCreate">
                 <app-video-digital-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-video-digital-create>
             </div>
-
+            
+            <div *ngIf="showEdit">
+                <app-video-digital-edit [videoDigital]="selectedVideoDigital" (cancel)="showHideEdit(selectedVideoDigital.id)" (update)="updateVideoDigital()" ></app-video-digital-edit>
+            </div>
+            </div>
+        </div>
     </div>
-</div>

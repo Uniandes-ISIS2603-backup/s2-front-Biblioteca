@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
 import {VideoDigital} from '../video-digital';
@@ -12,12 +12,13 @@ import { VideoDigitalDetail } from '../video-digital-detail';
 })
 export class VideoDigitalDetailComponent implements OnInit {
 
+     /**
+    * The author
+    */
+    @Input() videoDigitalDetail: VideoDigitalDetail;
   constructor(private videoDigitalService: VideoDigitalService, private route: ActivatedRoute) { }
   
-  /**
-    * El video digital que queremos mostrar
-    */
-    videoDigitalDetail: VideoDigitalDetail;
+  
 
     /**
     * El id del video digital que queremos
@@ -33,8 +34,11 @@ export class VideoDigitalDetailComponent implements OnInit {
   ngOnInit() 
       {
            this.videoDigital_id = +this.route.snapshot.paramMap.get('id');
+           if (this.videoDigital_id)
+            {
            this.videoDigitalDetail = new VideoDigitalDetail();
             this.getVideoDigitalDetail();
+            }
        }
 
 }

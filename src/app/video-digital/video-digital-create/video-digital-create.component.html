@@ -4,7 +4,7 @@
         <br>
         <h2 class="text-center">Crear un videoDigital</h2>
         <hr>
-        <form name="videoDigital"  (ngSubmit)="v.form.valid && crearVideoDigital()"#v="ngForm" novalidate>
+        <form name="videoDigital"  (ngSubmit)="v.form.valid && createVideoDigital()"#v="ngForm" novalidate>
               <div class="form-group">
                   <label for="videoDigitalNombre"><b>Nombre</b></label>
                   <input type="text" name="videoDigitalNombre" class="form-control" id="videoDigitalNombre" [(ngModel)]="videoDigital.nombre" #videoDigitalNombre="ngModel" [ngClass]="{ 'is-invalid': v.submitted && videoDigitalNombre.invalid }" required>
