@@ -1,3 +1,43 @@
-<p>
-  video-create works!
-</p>
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <br>
+        <h2 class="text-center">Crear un video</h2>
+        <br>
+        <form name="video" (ngSubmit)="f.form.valid && createVideo()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="videoNombre"><b>Nombre</b></label>
+                <input type="text" name="videoNombre" class="form-control" id="videoNombre" [(ngModel)]="video.nombre"
+                    #videoNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && videoNombre.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta el nombre del video</div>
+                </div>
+            </div>
+
+             <div class="form-group">
+                <label for="videoDirector"><b>Director</b></label>
+                <input type="text" name="videoDirector" class="form-control" id="videoDirector" [(ngModel)]="video.director"
+                    #videoZona="ngModel" [ngClass]="{ 'is-invalid': f.submitted && videoDirector.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta el director de la video</div>
+                </div>
+            </div>
+
+             <div class="form-group">
+                <label for="videoIdioma"><b>Idioma</b></label>
+                <input type="text" name="videoIdioma" class="form-control" id="videoIdioma" [(ngModel)]="video.idioma"
+                    #videoDireccion="ngModel" [ngClass]="{ 'is-invalid': f.submitted && videoIdioma.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta el idioma del video</div>
+                </div>
+            </div>
+
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-3"></div>
+</div>

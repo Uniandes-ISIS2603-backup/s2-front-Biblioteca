@@ -18,6 +18,7 @@ import { VideoDigitalModule } from './video-digital/video-digital.module';
 import { PrestamoModule } from './prestamo/prestamo.module';
 import { LibroDigitalModule } from './libro-digital/libro-digital.module';
 import {UsuarioModule} from './usuario/usuario.module';
+import { ReservaModule } from './reserva/reserva.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -38,6 +39,7 @@ import {UsuarioModule} from './usuario/usuario.module';
     PrestamoModule,
     LibroDigitalModule,
     UsuarioModule,
+    ReservaModule,
     ToastrModule.forRoot({
             timeOut: 10000,
             positionClass: 'toast-bottom-right',
