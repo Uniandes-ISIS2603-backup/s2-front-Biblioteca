@@ -1,5 +1,9 @@
 <div class="container-fluid">
-    <div class="col-md-2">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="row justify-content-center align-self-center">
+        <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn" (click)="showHideCreate()">Crear un libro digital</button>
+      </div>
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
@@ -13,4 +17,10 @@
             </tbody>
         </table>
     </div>
+    <div class="col-20">
+      <div *ngIf="showCreate">
+        <app-libro-digital-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-libro-digital-create>
+      </div>
+    </div>
+  </div>
 </div>

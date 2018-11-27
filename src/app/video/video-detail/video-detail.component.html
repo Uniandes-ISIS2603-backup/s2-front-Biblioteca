@@ -1,7 +1,11 @@
 <div>
   <h3>{{videoDetail.nombre}}</h3>
   <dl *ngIf="videoDetail!=undefined">
+    <p>ID: {{videoDetail.id}}</p>
+    <p>Nombre: {{videoDetail.nombre}}</p>
     <p>Director: {{videoDetail.director}}</p>
-    
+    <p>Unidades Disponibles: {{videoDetail.unidadesDisponibles}}</p>
+    <p>Idioma: {{videoDetail.idioma}}</p>
+    <p>Subtitulos: {{videoDetail.subtitulos}}</p>
   </dl>
 </div>
