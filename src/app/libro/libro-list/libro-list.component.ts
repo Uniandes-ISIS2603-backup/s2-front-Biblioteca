@@ -1,10 +1,8 @@
 import {Component, OnInit} from '@angular/core';
+
 import {Libro} from '../libro';
 import {LibroService} from '../libro.service';
 import {LibroDetail} from '../libro-detail';
-import {ActivatedRoute} from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-//import 'rxjs/add/operator/filter';
 
 /**
  * la liista de los libros
@@ -20,7 +18,7 @@ export class LibroListComponent implements OnInit {
      * Constructor del componente 
      * 
      */
-    constructor(private libroService: LibroService, private route: ActivatedRoute) {}
+    constructor(private libroService: LibroService) {}
 
     /**
      * La lista de los libros del sistema de bibliotecas
@@ -30,9 +28,20 @@ export class LibroListComponent implements OnInit {
      * muestra o oculta el libros-create-component
      */
      showCreate:boolean;
+     
+     /**
+    * Muestra o oculta la edición de un libro
+    */
+    showEdit: boolean;
+    
+    /**
+     * Muestra o oculta el detalle de un libro
+     */
+    showView: boolean;
      /**
       * el libro que el usuario ve
       */
+      
       selectedLibro:Libro;
       
       /**
@@ -45,9 +54,20 @@ export class LibroListComponent implements OnInit {
         */
        onSelected(libro_id:number):void{
            this.showCreate = false;
+           this.showEdit = false;
+           this.showView = true;
            this.libro_id = libro_id;
            this.selectedLibro=new LibroDetail();
+           this.getLibroDetail();
        }
+       
+       
+       getLibroDetail(): void {
+        this.libroService.getLibroDetail(this.libro_id)
+            .subscribe(selectedLibro => {
+                this.selectedLibro = selectedLibro
+            });
+    }
        
        /**
         * Pregunta el servicio para actualizar la lista de libros
@@ -59,16 +79,43 @@ export class LibroListComponent implements OnInit {
     /**
      * Muestra o esconde el componente creado
      */
-         showHideCreate(): void {
-        if (this.selectedLibro) {
-            this.selectedLibro = undefined;
-            this.libro_id = undefined;
-        }
+    showHideCreate(): void {
+        this.showView = false;
+        this.showEdit = false;
         this.showCreate = !this.showCreate;
     }
-    ngOnInit() {
+    
+     updateLibro(): void{
+        this.showEdit = false;
+        this.showView = true;
         this.getLibros();
-        this.showCreate = false;
     }
+    /**
+    * Shows or hides the create component
+    */
+    showHideEdit(libro_id: number): void {
+        if (!this.showEdit || (this.showEdit && libro_id != this.selectedLibro.id)) {
+            this.showView = false;
+            this.showCreate = false;
+            this.showEdit = true;
+            this.libro_id = libro_id;
+            this.selectedLibro = new LibroDetail();
+            this.getLibroDetail();
+        }
+        else { 
+            this.showEdit = false;
+            this.showView = true;
+        }
+    }
+  ngOnInit() 
+      {
+       
+        this.showView = false;
+        this.showEdit = false;
+        this.selectedLibro = undefined;
+        this.libro_id = undefined;
+        this.showCreate = false;
+        this.getLibros();
+      }
 
 }

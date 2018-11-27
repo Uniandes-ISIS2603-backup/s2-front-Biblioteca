@@ -46,11 +46,11 @@
             <div *ngIf="showCreate">
                 <app-biblioteca-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-biblioteca-create>
             </div>
-        </div>
+       
         <div *ngIf="showEdit">
             <app-biblioteca-edit [biblioteca]="selectedBiblioteca" (cancel)="showHideEdit(selectedBiblioteca.id)" (update)="updateBiblioteca()" ></app-biblioteca-edit>
         </div>
-
+        </div>
     </div>
 </div>
        

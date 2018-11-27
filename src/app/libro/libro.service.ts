@@ -1,10 +1,10 @@
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {Libro} from './libro';
 import { Observable } from 'rxjs';
-import { LibroDetail } from './libro-detail';
 
+import {Libro} from './libro';
+import { LibroDetail } from './libro-detail';
 
 import { environment } from '../../environments/environment';
 const API_URL = environment.apiURL;
@@ -43,5 +43,14 @@ export class LibroService {
      */
     createLibro(libro): Observable<Libro> {
         return this.http.post<Libro>(API_URL + libros, libro);
+    }
+    
+     /**
+    * Actualizar un libro
+    * @param libro El libro  que será actualizado.
+    * @returns La confirmación que el libro fue actualizado.
+    */
+    updateLibro(libro): Observable<LibroDetail> {
+        return this.http.put<LibroDetail>(API_URL + libros + '/' + libro.id, libro);
     }
 }

@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router, NavigationEnd} from '@angular/router';
+import {Component, Input, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
-import {LibroService} from '../libro.service';
 import {Libro} from '../libro';
+import {LibroService} from '../libro.service';
 import {LibroDetail} from '../libro-detail';
 
 import {Comentario} from '../../comentario/comentario';
@@ -14,27 +14,17 @@ import {Comentario} from '../../comentario/comentario';
 })
 export class LibroDetailComponent implements OnInit {
 
-    constructor(
-        private libroService: LibroService,
-        private route: ActivatedRoute,
-        private router: Router) {
-        this.navigationSubscription = this.router.events.subscribe((e: any) => {
-            if (e instanceof NavigationEnd) {
-                this.ngOnInit();
-            }
-        });
-    }
+    /**
+     * el libro que queremos mostrar
+     */
+    @Input() libroDetail: LibroDetail;    
+    constructor(private libroService: LibroService, private route: ActivatedRoute) { }
 
     /**
      * el id del libro 
      */
     libro_id: number;
-    /**
-     * el libro que queremos mostrar
-     */
-    libroDetail: LibroDetail;
-    navigationSubscription;
-
+   
     /**
      * el metodo que devuelve los libros detallados
      */
@@ -46,8 +36,11 @@ export class LibroDetailComponent implements OnInit {
     }
     ngOnInit() {
         this.libro_id = +this.route.snapshot.paramMap.get('id');
-        this.libroDetail = new LibroDetail();
-        this.getLibroDetail();
+        if (this.libro_id)
+        {
+            this.libroDetail = new LibroDetail();
+            this.getLibroDetail();
+        }
     }
 
 }

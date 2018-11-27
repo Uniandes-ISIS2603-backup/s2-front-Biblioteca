@@ -1,59 +1,59 @@
 import {Component, OnInit, Input, OnChanges, Output, EventEmitter} from '@angular/core';
 
-import {VideoDigitalService} from '../video-digital.service';
-import {VideoDigitalDetail} from '../video-digital-detail';
+import {LibroService} from '../libro.service';
+import {LibroDetail} from '../libro-detail';
 import {ToastrService} from 'ngx-toastr';
 @Component({
-  selector: 'app-video-digital-edit',
-  templateUrl: './video-digital-edit.component.html',
-  styleUrls: ['./video-digital-edit.component.css']
+  selector: 'app-libro-edit',
+  templateUrl: './libro-edit.component.html',
+  styleUrls: ['./libro-edit.component.css']
 })
-export class VideoDigitalEditComponent implements OnInit, OnChanges {
+export class LibroEditComponent implements OnInit, OnChanges {
 
-    /**
+ /**
     * Constructor for the component
-    * @param videoDigitalService The videoDigital's services provider
+    * @param libroService The libro' services provider
     * @param toastrService The toastr to show messages to the user
     */
   constructor
   (
-        private videoDigitalService: VideoDigitalService,
+        private libroService: LibroService,
         
         private toastrService: ToastrService,
   ) { }
-  
-   /**
+
+     /**
     * 
-    * El id del videoDigital que se recibió del componente padre
+    * El id del libro que se recibió del componente padre
     */
-    @Input() videoDigital: VideoDigitalDetail;
+    @Input() libro: LibroDetail;
     
      /**
     * El output que le dice al componente principal
-    * que el usuario ya no quiere editar un videoDigital.
+    * que el usuario ya no quiere editar un libro.
     */
     @Output() cancel = new EventEmitter();
     
     /**
     * El output que le dice al componente principal
-    * que el usuario quiere editar un videoDigital.
+    * que el usuario quiere editar un libro
     */
     @Output() update = new EventEmitter();
     
      /**
-    * Actualización de la información del videoDigital.
+    * Actualización de la información de in libro
     */
-    editvideoDigital(): void {
-        this.videoDigitalService.updateVideoDigital(this.videoDigital)
+    editLibro(): void {
+        this.libroService.updateLibro(this.libro)
             .subscribe(() => {
                 this.update.emit();
-                this.toastrService.success("La información del videoDigital fue actualizada", "videoDigital edition");
+                this.toastrService.success("La información del libro fue actualizada", "Libro edition");
             });
         
     }
-/**
+    /**
     * Emite la señal para decirle al componente principal que el 
-    * usuario ya no quiere editar una biblioteca
+    * usuario ya no quiere editar un libro
     */
     cancelEdition(): void {
         this.cancel.emit();
@@ -72,4 +72,5 @@ export class VideoDigitalEditComponent implements OnInit, OnChanges {
     ngOnChanges() {
         this.ngOnInit();
     }
+
 }

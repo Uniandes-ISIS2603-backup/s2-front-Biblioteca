@@ -1,14 +1,21 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {AppRoutingModule} from '../../app-routing/app-routing.module';
+import {APP_BASE_HREF} from '@angular/common';
+import {HttpClientModule} from '@angular/common/http';
 
+import {AppModule} from '../../app.module';
 import { LibroListComponent } from './libro-list.component';
+import {LibroService} from '../libro.service';
 
 describe('LibroListComponent', () => {
   let component: LibroListComponent;
   let fixture: ComponentFixture<LibroListComponent>;
 
-  beforeEach(async(() => {
+  beforeEach((() => {
     TestBed.configureTestingModule({
-      declarations: [ LibroListComponent ]
+            imports: [AppRoutingModule, HttpClientModule, AppModule],
+            declarations: [],
+            providers: [{provide: APP_BASE_HREF, useValue: ''}, LibroService]
     })
     .compileComponents();
   }));

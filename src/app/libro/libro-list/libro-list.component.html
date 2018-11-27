@@ -1,3 +1,11 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <style type="text/css">
+        .fa_custom {
+            color: #0099CC
+        }
+    </style>
+</head>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-4">
@@ -14,53 +22,34 @@
                         <tr>
                             <th>ID</th> 
                             <th>Nombre</th>  
-                            <th> ISBN</th>
-                            <th> Autor </th>
-                            <th> Editorial </th>
-                            <th> Edicion </th>
-                            <th> Idioma </th>
-                            <th> Unidades Disponibles </th>
-                            <th> Usuarios en Lista de Espera </th>
-                            <th> Calificacion promedio </th>
+                            <th> </th>  
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor = "let libro of libros">
                             <td>{{libro.id}}</td>
-                            <td>
-                    <dd id="libroNombre" class="figure-caption" routerLink="/libros/{{libro.id}}">{{libro.nombre}}</dd>
-                    </td>
+                            <td style="cursor: pointer;" (click)="onSelected(libro.id)" >
+                    <dd>{{libro.nombre}}</dd>
                     <td>
-                    <dd id="libroIsbn" class="figure-caption" routerLink="/libros/{{libro.id}}">{{libro.isbn}}</dd>
-                    </td>
-                    <td>
-                    <dd id="libroAutor" class="figure-caption" routerLink="/libros/{{libro.id}}">{{libro.autor}}</dd>
-                    </td>
-                    <td>
-                    <dd id="libroEditorial" class="figure-caption" routerLink="/libro/{{libro.id}}">{{libro.editorial}}</dd>
-                    </td>
-                    
-                    <td>
-                    <dd id="libroEdicion" class="figure-caption" routerLink="/libro/{{libro.id}}">{{libro.edicion}}</dd>
-                    </td>
-                    <td>
-                    <dd id="libroIdioma" class="figure-caption" routerLink="/libro/{{libro.id}}">{{libro.idioma}}</dd>
-                    </td>
-                    <td>
-                    <dd id="libroUnidadesDisponibles" class="figure-caption" routerLink="/libro/{{libro.id}}">{{libro.unidadesDisponibles}}</dd>
-                    </td>
-                    <td>
-                    <dd id="libroUsuariosListaEspera" class="figure-caption" routerLink="/libro/{{libro.id}}">{{libro.usuariosListaEspera}}</dd>
-                    </td>
-                    <td>
-                    <dd id="libroCalificacionPromedio" class="figure-caption" routerLink="/libro/{{libro.id}}">{{libro.calificacionPromedio}}</dd>
+                        <i class="fa fa-pencil "(click)="showHideEdit(libro.id)"></i>
                     </td>
 
                     </tr>
                     </tbody>
                 </table>
             </div>
-            <div *ngIf="showCreate">
-                <app-libro-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-libro-create>
+            <div class="col-8">
+                <div *ngIf="showView">
+                    <app-libro-detail [libroDetail]="selectedLibro"></app-libro-detail>
+                </div>
+                <div *ngIf="showCreate">
+                    <app-libro-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-libro-create>
+                </div>
+
+                <div *ngIf="showEdit">
+                    <app-libro-edit [libro]="selectedLibro" (cancel)="showHideEdit(selectedLibro.id)" (update)="updateLibro()" ></app-libro-edit>
+                </div>
             </div>
         </div>
+    </div>
+</div>

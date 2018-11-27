@@ -29,7 +29,7 @@ export class BibliotecaListComponent implements OnInit {
      /**
     * Muestra o oculta el biblioteca-create-component
     */
-    showCreate: boolean = false;
+    showCreate: boolean;
    
      /**
     * Muestra o oculta la edición de una biblioteca
