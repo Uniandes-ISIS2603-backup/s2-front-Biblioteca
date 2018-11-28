@@ -12,6 +12,7 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
 
 import {LibroModule} from '../libro/libro.module';
 import { ComentarioCreateComponent } from './comentario-create/comentario-create.component';
+import { ComentarioEditComponent } from './comentario-edit/comentario-edit.component';
 @NgModule({
     imports: [
         BrowserModule,
@@ -22,8 +23,7 @@ import { ComentarioCreateComponent } from './comentario-create/comentario-create
         NgbModule.forRoot(),
         LibroModule
     ],
-    declarations: [ComentarioListComponent, ComentarioDetailComponent, ComentarioCreateComponent],
-    providers: [ComentarioService],
-    exports: [ComentarioListComponent]
+    declarations: [ComentarioListComponent, ComentarioDetailComponent, ComentarioCreateComponent, ComentarioEditComponent],
+    providers: [ComentarioService]
 })
 export class ComentarioModule {}

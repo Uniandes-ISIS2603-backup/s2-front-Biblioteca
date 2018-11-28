@@ -42,4 +42,13 @@ export class ComentarioService {
       createComentario(comentario): Observable<Comentario> {
         return this.http.post<Comentario>(API_URL + comentarios, comentario);
     }
+    
+    /**
+    * Actualizar un comentario
+    * @param comentario El comentario que será actualizad0
+    * @returns La confirmación que el comentario fue actualizada
+    */
+    updateComentario(comentario): Observable<ComentarioDetail> {
+        return this.http.put<ComentarioDetail>(API_URL + comentarios + '/' + comentario.id, comentario);
+    }
 }

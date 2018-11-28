@@ -5,7 +5,7 @@ export class Comentario {
 
     id:number;
     texto:string;
-    fecha:Date;
+    fecha:any;
     nombreUsuario:string;
     numeroEstrellas:number;
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { ComentarioService } from '../comentario.service';
@@ -20,7 +20,7 @@ export class ComentarioDetailComponent implements OnInit {
   /**
    * el comentario que queremos mostrar
    */
-  comentarioDetail:ComentarioDetail;
+  @Input() comentarioDetail: ComentarioDetail;
   
   /**
    * el id del comentario que queremos
@@ -38,8 +38,11 @@ export class ComentarioDetailComponent implements OnInit {
   ngOnInit() {
       
       this.comentario_id = +this.route.snapshot.paramMap.get('id');
-      this.comentarioDetail = new ComentarioDetail();
-      this.getComentarioDetail()
+      if (this.comentario_id)
+      {
+          this.comentarioDetail = new ComentarioDetail();
+          this.getComentarioDetail()
+      }
   }
 
 }

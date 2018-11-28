@@ -4,42 +4,45 @@
             <br>
             <div class="row justify-content-center align-self-center">
                 <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                    (click)="showHideCreate()">Crear una comentario</button>
+                    (click)="showHideCreate()">Crear un comentario</button>
             </div>
             <br>
             <br>
-            <div class="col-md-2">
-                <table class="table table-striped">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>ID</th> 
-                            <th>Comentario texto</th>  
-                            <th> Fecha</th>
-                            <th> Nombre de usuario </th>
-                            <th> Numero de estrellas </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor = "let comentario of comentarios">
-                            <td>{{comentario.id}}</td>
-                            <td>
-                    <dd id="comentarioTexto" class="figure-caption" routerLink="/comentarios/{{comentario.id}}">{{comentario.texto}}</dd>
-                    </td>
-                    <td>
-                    <dd id="comentarioFecha" class="figure-caption" routerLink="/comentarios/{{comentario.id}}">{{comentario.fecha}}</dd>
-                    </td>
-                    <td>
-                    <dd id="comentarioNombreUsuario" class="figure-caption" routerLink="/comentarios/{{comentario.id}}">{{comentario.nombreUsuario}}</dd>
-                    </td>
-                    <td><dd id="comentarioNumeroEstrellas" class="figure-caption" routerLink="/comentarios/{{comentario.id}}">{{comentario.numeroEstrellas}}</dd>
-                    </td>
 
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th> 
+                        <th>Comentario texto</th>  
+                        <th> </th>
                     </tr>
-                    </tbody>
-                </table>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let comentario of comentarios">
+                        <td>{{comentario.id}}</td>
+                        <td style="cursor: pointer;" (click)="onSelected(comentario.id)" >
+                <dd>{{comentario.texto}}</dd>
+                </td>
+                <td>
+                    <i class="fa fa-pencil "(click)="showHideEdit(comentario.id)"></i>
+                </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-8">
+            <div *ngIf="showView">
+                <app-comentario-detail [comentarioDetail]="selectedComentario"></app-comentario-detail>
             </div>
             <div *ngIf="showCreate">
                 <app-comentario-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-comentario-create>
             </div>
+
+            <div *ngIf="showEdit">
+                <app-comentario-edit [comentario]="selectedComentario" (cancel)="showHideEdit(selectedComentario.id)" (update)="updateComentario()" ></app-comentario-edit>
+            </div>
         </div>
+    </div>
+</div>
+ 
 
