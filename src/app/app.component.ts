@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from './auth/auth.service';
 
 
 @Component({
@@ -8,11 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 's2-front-Biblioteca';
-  
+
   /**
      * Assigns a title to the web page
      */
     ngOnInit(): void {
         this.title = "s2-front-Biblioteca";
+        this.authService.start();
+    }
+
+    constructor(private authService: AuthService) { }
+
+    logout(): void {
+        this.authService.logout()
     }
 }

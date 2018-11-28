@@ -42,6 +42,15 @@
             </div>
 
             <div class="form-group">
+               <label for="videoBiblioteca"><b>Biblioteca</b></label>
+               <input type="number" name="videoBiblioteca" class="form-control" id="videoBiblioteca" [(ngModel)]="video.biblioteca"
+                   #videoBiblioteca="ngModel" [ngClass]="{ 'is-invalid': f.submitted && videoBilbioteca.invalid }" required>
+               <div class="invalid-feedback">
+                   <div>Falta la biblioteca del video</div>
+               </div>
+           </div>
+
+            <!--<div class="form-group">
                     <label for="videoBiblioteca"><b>Biblioteca</b></label>
                     <select class="custom-select" name="videoBiblioteca" id="videoBiblioteca" [(ngModel)]="video.bilbioteca.nombre"
                         #videoBiblioteca="ngModel" [ngClass]="{ 'is-invalid': f.submitted && videoBiblioteca.invalid }"
@@ -51,7 +60,7 @@
                     <div class="invalid-feedback">
                         <div>Falte la biblioteca del video</div>
                     </div>
-            </div>
+            </div>-->
 
             <div class="form-group">
               <label for="videoSubtitulos"><b>Tiene Subtitulos</b></label>

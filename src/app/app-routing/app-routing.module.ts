@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
+import {NgxPermissionsGuard} from 'ngx-permissions';
 
 import {SalaListComponent} from '../sala/sala-list/sala-list.component';
 import {ComentarioListComponent} from '../comentario/comentario-list/comentario-list.component';
@@ -21,6 +22,8 @@ import {SalaDetailComponent} from '../sala/sala-detail/sala-detail.component';
 import {VideoDigitalDetailComponent} from '../video-digital/video-digital-detail/video-digital-detail.component';
 import {UsuarioDetailComponent} from '../usuario/usuario-detail/usuario-detail.component';
 import {ReservaListComponent} from '../reserva/reserva-list/reserva-list.component';
+import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
+import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 
 const routes: Routes =
 [
@@ -30,7 +33,13 @@ const routes: Routes =
         [
             {
                 path: 'list',
-                component: BibliotecaListComponent
+                component: BibliotecaListComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['GUEST']
+                    }
+                }
             },
             {
                 path: ':id',
@@ -151,11 +160,42 @@ const routes: Routes =
         ]
     },
     {
+        path: 'auth',
+        children: [
+            {
+                path: 'login',
+                component: AuthLoginComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['GUEST']
+                    }
+                }
+            },
+            {
+                path: ':sign-up',
+                component: AuthSignUpComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['GUEST']
+                    }
+                }
+            }
+        ]
+    },
+    {
       path: 'reservas',
       children:[
         {
           path: 'list',
-          component: ReservaListComponent
+          component: ReservaListComponent,
+          canActivate: [NgxPermissionsGuard],
+          data: {
+              permissions: {
+                  only: ['GUEST']
+              }
+          }
         },
       ]
     }
