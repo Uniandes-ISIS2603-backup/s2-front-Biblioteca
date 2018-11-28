@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import {NgxPermissionsModule} from 'ngx-permissions';
 
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import {BibliotecaService} from './biblioteca.service';
@@ -21,6 +22,7 @@ import { BibliotecaDeleteComponent } from './biblioteca-delete/biblioteca-delete
         HttpClientModule,
         CommonModule,
         FormsModule,
+        NgxPermissionsModule,
         NgbModule
   ],
   declarations: [BibliotecaListComponent, BibliotecaDetailComponent, BibliotecaCreateComponent, BibliotecaEditComponent, BibliotecaDeleteComponent],

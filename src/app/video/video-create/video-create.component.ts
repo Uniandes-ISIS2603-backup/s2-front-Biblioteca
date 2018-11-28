@@ -25,11 +25,7 @@ export class VideoCreateComponent implements OnInit {
   @Output() create = new EventEmitter();
 
   getBibliotecas(): void {
-    this.bibliotecaService.getBibliotecas().subscribe(bibliotecas => {
-      this.bibliotecas = bibliotecas;
-    }, err => {
-      this.toastrService.error(err, 'Error');
-    });
+    this.bibliotecaService.getBibliotecas().subscribe(bibliotecas => this.bibliotecas = bibliotecas);
   }
 
   createVideo(): Video {

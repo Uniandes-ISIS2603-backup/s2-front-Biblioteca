@@ -8,6 +8,7 @@ import { HttpClientModule , HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import {NgxPermissionsModule} from 'ngx-permissions';
 
 import { BibliotecaModule } from './biblioteca/biblioteca.module';
 import {SalaModule} from './sala/sala.module';
@@ -19,6 +20,7 @@ import { PrestamoModule } from './prestamo/prestamo.module';
 import { LibroDigitalModule } from './libro-digital/libro-digital.module';
 import {UsuarioModule} from './usuario/usuario.module';
 import { ReservaModule } from './reserva/reserva.module';
+import {AuthModule} from './auth/auth.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -40,12 +42,14 @@ import { ReservaModule } from './reserva/reserva.module';
     LibroDigitalModule,
     UsuarioModule,
     ReservaModule,
+    AuthModule,
     ToastrModule.forRoot({
             timeOut: 10000,
             positionClass: 'toast-bottom-right',
             preventDuplicates: true,
         }),
     NgbModule,
+    NgxPermissionsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

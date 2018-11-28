@@ -2,6 +2,7 @@ import { Component, OnInit , Output, EventEmitter} from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { BibliotecaService } from '../biblioteca.service';
 import { Biblioteca } from '../biblioteca';
+import {NgxPermissionsModule} from 'ngx-permissions';
 
 @Component({
   selector: 'app-biblioteca-create',
@@ -9,12 +10,12 @@ import { Biblioteca } from '../biblioteca';
   styleUrls: ['./biblioteca-create.component.css']
 })
 export class BibliotecaCreateComponent implements OnInit {
-    
+
    /**
     * Constructor for the component
     * @param bibliotecaService The biblioteca's services provider
     * @param toastrService The toastr to show messages to the user
-    */  
+    */
   constructor(
   private bibliotecaService: BibliotecaService,
   private toastrService: ToastrService
@@ -25,7 +26,7 @@ export class BibliotecaCreateComponent implements OnInit {
     * La nueva biblioteca
     */
     biblioteca: Biblioteca;
-    
+
    /**
     * The output which tells the parent component
     * that the user no longer wants to create an biblioteca
@@ -37,7 +38,7 @@ export class BibliotecaCreateComponent implements OnInit {
     * that the user created a new biblioteca
     */
     @Output() create = new EventEmitter();
-    
+
     /**
     * Crear una biblioteca
     */
@@ -48,10 +49,10 @@ export class BibliotecaCreateComponent implements OnInit {
                 this.biblioteca = biblioteca;
                 this.create.emit();
                 this.toastrService.success("La biblioteca fue creada", "Creación de biblioteca");
-                
+
             });
             return this.biblioteca;
-        
+
     }
 
 /**
@@ -64,9 +65,9 @@ export class BibliotecaCreateComponent implements OnInit {
     /**
     * This function will initialize the component
     */
-    ngOnInit() 
+    ngOnInit()
     {
            this.biblioteca = new Biblioteca();
-    } 
+    }
 
 }
