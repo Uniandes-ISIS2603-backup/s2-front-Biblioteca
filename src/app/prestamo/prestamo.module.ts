@@ -18,6 +18,7 @@ import { PrestamoDetailComponent } from './prestamo-detail/prestamo-detail.compo
         HttpClientModule,
         CommonModule,
         NgxPermissionsModule,
+        NgbModule,
         FormsModule
   ],
   declarations: [PrestamoListComponent, PrestamoCreateComponent, PrestamoDetailComponent],
