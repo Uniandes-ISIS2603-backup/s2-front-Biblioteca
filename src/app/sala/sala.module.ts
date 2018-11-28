@@ -8,6 +8,7 @@ import { SalaListComponent } from './sala-list/sala-list.component';
 import{SalaService} from './sala.service';
 import { SalaDetailComponent } from './sala-detail/sala-detail.component';
 import { SalaCreateComponent } from './sala-create/sala-create.component';
+import { SalaEditComponent } from './sala-edit/sala-edit.component';
 
 
 
@@ -19,7 +20,7 @@ import { SalaCreateComponent } from './sala-create/sala-create.component';
         CommonModule,
         FormsModule,
   ],
-  declarations: [SalaListComponent, SalaDetailComponent, SalaCreateComponent],
+  declarations: [SalaListComponent, SalaDetailComponent, SalaCreateComponent, SalaEditComponent],
   providers:[SalaService],
   exports:[SalaListComponent]
 })

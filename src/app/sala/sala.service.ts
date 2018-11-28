@@ -27,4 +27,12 @@ export class SalaService {
     createSala(sala): Observable<Sala> {
         return this.http.post<Sala>(API_URL + salas, sala);
     }
+         /**
+    * Actualizar una sala
+    * @param sala La sala  que será actualizada.
+    * @returns La confirmación que la sala fue actualizada.
+    */
+    updateSala(sala): Observable<SalaDetail> {
+        return this.http.put<SalaDetail>(API_URL + salas + '/' + sala.id, sala);
+    }
 }

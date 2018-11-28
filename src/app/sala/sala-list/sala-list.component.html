@@ -16,11 +16,15 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor = "let sala of salas">
-                    <td style="cursor: pointer;">
-                        <dd class="figure-caption" routerLink="/salas/{sala.id}}">{{sala.ubicacion}}</dd>
+          <tr *ngFor = "let sala of salas">
+                            <td>{{sala.id}}</td>
+                            <td style="cursor: pointer;" (click)="onSelected(sala.id)" >
+                    <dd>{{sala.nombre}}</dd>
+                    <td>
+                        <i class="fa fa-pencil "(click)="showHideEdit(sala.id)"></i>
                     </td>
-                </tr>
+
+                    </tr>
             </tbody>
         </table>
     </div>
