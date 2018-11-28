@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import {DatePipe} from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 
 import { Reserva } from '../reserva';
@@ -7,17 +8,24 @@ import { ReservaService } from '../reserva.service';
 @Component({
   selector: 'app-reserva-create',
   templateUrl: './reserva-create.component.html',
-  styleUrls: ['./reserva-create.component.css']
+  styleUrls: ['./reserva-create.component.css'],
+  providers: [DatePipe]
 })
 export class ReservaCreateComponent implements OnInit {
 
-  constructor(private reservaService: ReservaService, private toastrService: ToastrService) { }
+  constructor(
+    private dp: DatePipe,
+    private reservaService: ReservaService,
+    private toastrService: ToastrService
+  ) { }
 
   reserva: Reserva;
   @Output() cancel = new EventEmitter();
   @Output() create = new EventEmitter();
 
   createReserva(): Reserva {
+      let dateB: Date = new Date(this.reserva.fechaReserva.year, this.reserva.fechaReserva.month - 1, this.reserva.fechaReserva.day);
+      this.reserva.fechaReserva = this.dp.transform(dateB, 'yyyy-MM-dd' );
     console.log(this.reserva);
     this.reservaService.createReserva(this.reserva).subscribe((reserva) => {
       this.reserva = reserva;

@@ -53,6 +53,11 @@
                     </div>
             </div>
 
+            <div class="form-group">
+              <label for="videoSubtitulos"><b>Tiene Subtitulos</b></label>
+              <input type="checkbox" name="videoSubtitulos" class="form-control" id="videoSubtitulos" [(ngModel)]="video.subtitulos" #videoSubtitulos="ngModel">
+            </div>
+
             <div class="row form-inline justify-content-center align-self-center">
                 <button type="submit" class="btn btn-primary">Create</button>
                 <div class="divider"></div>
