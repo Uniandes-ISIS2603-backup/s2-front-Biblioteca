@@ -1,57 +1,57 @@
 import {Component, OnInit, Input, OnChanges, Output, EventEmitter} from '@angular/core';
 
-import {VideoDigitalService} from '../video-digital.service';
-import {VideoDigitalDetail} from '../video-digital-detail';
+import {UsuarioService} from '../usuario.service';
+import {UsuarioDetail} from '../usuario-detail';
 import {ToastrService} from 'ngx-toastr';
 @Component({
-  selector: 'app-video-digital-edit',
-  templateUrl: './video-digital-edit.component.html',
-  styleUrls: ['./video-digital-edit.component.css']
+  selector: 'app-usuario-edit',
+  templateUrl: './usuario-edit.component.html',
+  styleUrls: ['./usuario-edit.component.css']
 })
-export class VideoDigitalEditComponent implements OnInit, OnChanges {
+export class UsuarioEditComponent implements OnInit , OnChanges  {
 
-    /**
+  /**
     * Constructor for the component
-    * @param videoDigitalService The videoDigital's services provider
+    * @param usuarioService The usuario' services provider
     * @param toastrService The toastr to show messages to the user
     */
   constructor
   (
-        private videoDigitalService: VideoDigitalService,
+        private usuarioService: UsuarioService,
         
         private toastrService: ToastrService,
   ) { }
   
    /**
     * 
-    * El id del videoDigital que se recibió del componente padre
+    * El id del usuario que se recibió del componente padre
     */
-    @Input() videoDigital: VideoDigitalDetail;
+    @Input() usuario: UsuarioDetail;
     
      /**
     * El output que le dice al componente principal
-    * que el usuario ya no quiere editar un videoDigital.
+    * que el usuario ya no quiere editar un usuario.
     */
     @Output() cancel = new EventEmitter();
     
     /**
     * El output que le dice al componente principal
-    * que el usuario quiere editar un videoDigital.
+    * que el usuario quiere editar un usuario.
     */
     @Output() update = new EventEmitter();
     
      /**
-    * Actualización de la información del videoDigital.
+    * Actualización de la información de un usuario.
     */
-    editVideoDigital(): void {
-        this.videoDigitalService.updateVideoDigital(this.videoDigital)
+    editUsuario(): void {
+        this.usuarioService.updateUsuario(this.usuario)
             .subscribe(() => {
                 this.update.emit();
-                this.toastrService.success("La información del videoDigital fue actualizada", "videoDigital edition");
+                this.toastrService.success("La información del usuario fue actualizada", "Usuario edition");
             });
         
     }
-/**
+    /**
     * Emite la señal para decirle al componente principal que el 
     * usuario ya no quiere editar una biblioteca
     */
@@ -72,4 +72,5 @@ export class VideoDigitalEditComponent implements OnInit, OnChanges {
     ngOnChanges() {
         this.ngOnInit();
     }
+
 }

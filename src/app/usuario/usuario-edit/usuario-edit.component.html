@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-12">
+        <br>
+        <h2 class="text-center">Editar un usuario</h2>
+        <br>
+        <form name="usuario" (ngSubmit)="f.form.valid && createUsuario()" #f="ngForm" novalidate>
+              <div class="form-group">
+                <label for="usuarioNombre"><b>Nombre</b></label>
+                <input type="text" name="usuarioNombre" class="form-control" id="usuarioNombre" [(ngModel)]="usuario.nombre"
+                       #usuarioNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && usuarioNombre.invalid }" required>
+                       <div class="invalid-feedback">
+                    <div>Falta el nombre del usuario</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="usuarioEmail"><b>Email</b></label>
+                <input type="text" name="usuarioEmail" class="form-control" id="usuarioEmail" [(ngModel)]="usuario.email"
+                       #usuarioEmail="ngModel" [ngClass]="{ 'is-invalid': f.submitted && usuarioEmail.invalid }" required>
+                       <div class="invalid-feedback">
+                    <div>Falta el email del usuario</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="usuarioTelefono"><b>Telefono</b></label>
+                <input type="text" name="usuarioTelefono" class="form-control" id="usuarioTelefono" [(ngModel)]="usuario.telefono"
+                       #usuarioTelefono="ngModel" [ngClass]="{ 'is-invalid': f.submitted && usuarioTelefono.invalid }" required>
+                       <div class="invalid-feedback">
+                    <div>Falta el telefono del usuario </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="row form-inline justify-content-center align-self-center">
+            <i  style="padding-right: 1em;"class="fa fa-save " (click)="editUsuario()"></i>
+
+            <i class="fa fa-ban" (click)="cancelEdition()"></i>
+        </div>
+    </div>
+</div>
+<br>
+<br>

@@ -4,59 +4,59 @@
         <h2 class="text-center">Editar un biblioteca</h2>
         <br>
         <form name="biblioteca" (ngSubmit)="f.form.valid && editBiblioteca()" #f="ngForm" novalidate>
-            <div class="form-group">
+              <div class="form-group">
                 <label for="bibliotecaNombre"><b>Nombre</b></label>
                 <input type="text" name="bibliotecaNombre" class="form-control" id="bibliotecaNombre" [(ngModel)]="biblioteca.nombre"
-                    #bibliotecaNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bibliotecaNombre.invalid }" required>
-                <div class="invalid-feedback">
+                       #bibliotecaNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bibliotecaNombre.invalid }" required>
+                       <div class="invalid-feedback">
                     <div>Falta el nombre de la biblioteca</div>
                 </div>
             </div>
-              
-             <div class="form-group">
+
+            <div class="form-group">
                 <label for="bibliotecaZona"><b>Zona</b></label>
                 <input type="text" name="bibliotecaZona" class="form-control" id="bibliotecaZona" [(ngModel)]="biblioteca.zona"
-                    #bibliotecaZona="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bibliotecaZona.invalid }" required>
-                <div class="invalid-feedback">
+                       #bibliotecaZona="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bibliotecaZona.invalid }" required>
+                       <div class="invalid-feedback">
                     <div>Falta la zona de la biblioteca</div>
                 </div>
             </div>
-            
-             <div class="form-group">
+
+            <div class="form-group">
                 <label for="bibliotecaDireccion"><b>Dirección</b></label>
                 <input type="text" name="bibliotecaDireccion" class="form-control" id="bibliotecaDireccion" [(ngModel)]="biblioteca.direccion"
-                    #bibliotecaDireccion="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bibliotecaDireccion.invalid }" required>
-                <div class="invalid-feedback">
+                       #bibliotecaDireccion="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bibliotecaDireccion.invalid }" required>
+                       <div class="invalid-feedback">
                     <div>Falta la dirección de la biblioteca de la biblioteca</div>
                 </div>
             </div>
-              
-            
-             <div class="form-group">
+
+
+            <div class="form-group">
                 <label for="bibliotecaHoraApertura"><b>Hora de apertura</b></label>
                 <input type="text" name="bibliotecaHoraApertura" class="form-control" id="bibliotecaHoraApertura" [(ngModel)]="biblioteca.horaApertura"
-                    #bibliotecaHoraApertura="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bibliotecaHoraApertura.invalid }" required>
-                <div class="invalid-feedback">
+                       #bibliotecaHoraApertura="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bibliotecaHoraApertura.invalid }" required>
+                       <div class="invalid-feedback">
                     <div>Falta la hora de apertura de la biblioteca de la biblioteca</div>
                 </div>
             </div>
-             
-             <div class="form-group">
+
+            <div class="form-group">
                 <label for="bibliotecaHoraCierre"><b>Hora de cierre</b></label>
                 <input type="text" name="bibliotecaHoraCierre" class="form-control" id="bibliotecaHoraCierre" [(ngModel)]="biblioteca.horaCierre"
-                    #bibliotecaHoraCierre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bibliotecaHoraCierre.invalid }" required>
-                <div class="invalid-feedback">
+                       #bibliotecaHoraCierre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bibliotecaHoraCierre.invalid }" required>
+                       <div class="invalid-feedback">
                     <div>Falta la hora de apertura de la biblioteca de la biblioteca</div>
                 </div>
             </div>
-         </form>
+        </form>
     </div>
 </div>
 <div class="row">
     <div class="col-12">
         <div class="row form-inline justify-content-center align-self-center">
             <i  style="padding-right: 1em;"class="fa fa-save " (click)="editBiblioteca()"></i>
-          
+
             <i class="fa fa-ban" (click)="cancelEdition()"></i>
         </div>
     </div>

@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http/';
 import {Observable} from 'rxjs';
+
 import {Usuario} from './usuario';
-import { environment } from '../../environments/environment';
 import{UsuarioDetail} from './usuario-detail';
+
+import { environment } from '../../environments/environment';
 const API_URL = environment.apiURL;
 const usuarios = "usuarios";
-@Injectable({
-  providedIn: 'root'
-})
+
+@Injectable()
 export class UsuarioService {
 
-    constructor(private  http: HttpClient) { }
+  constructor(private  http: HttpClient) { }
+  
   getUsuarios(): Observable<Usuario[]>
   {
       return this.http.get<Usuario[]>(API_URL + usuarios);
@@ -26,5 +28,14 @@ export class UsuarioService {
     */
     createUsuario(usuario): Observable<Usuario> {
         return this.http.post<Usuario>(API_URL + usuarios, usuario);
+    }
+    
+    /**
+    * Actualizar un usuario
+    * @param usuario El usuario que será actualizado
+    * @returns La confirmación que la biblioteca fue actualizada
+    */
+    updateUsuario(usuario): Observable<UsuarioDetail> {
+        return this.http.put<UsuarioDetail>(API_URL + usuarios + '/' + usuario.id, usuario);
     }
 }
