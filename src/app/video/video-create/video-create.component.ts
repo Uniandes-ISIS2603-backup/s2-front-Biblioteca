@@ -3,6 +3,8 @@ import { ToastrService } from 'ngx-toastr';
 
 import { Video } from '../video';
 import { VideoService } from '../video.service';
+import { Biblioteca } from '../../biblioteca/biblioteca';
+import { BibliotecaService } from '../../biblioteca/biblioteca.service';
 
 @Component({
   selector: 'app-video-create',
@@ -13,12 +15,22 @@ export class VideoCreateComponent implements OnInit {
 
   constructor(
     private videoService: VideoService,
+    private bibliotecaService: BibliotecaService,
     private toastrService: ToastrService
   ) { }
 
   video: Video;
+  bibliotecas: Biblioteca[];
   @Output() cancel = new EventEmitter();
   @Output() create = new EventEmitter();
+
+  getBibliotecas(): void {
+    this.bibliotecaService.getBibliotecas().subscribe(bibliotecas => {
+      this.bibliotecas = bibliotecas;
+    }, err => {
+      this.toastrService.error(err, 'Error');
+    });
+  }
 
   createVideo(): Video {
     this.videoService.createVideo(this.video)
@@ -38,6 +50,8 @@ export class VideoCreateComponent implements OnInit {
 
   ngOnInit() {
     this.video = new Video();
+    this.video.biblioteca = new Biblioteca();
+    this.getBibliotecas();
   }
 
 }

@@ -1,3 +1,79 @@
-<p>
-  libro-digital-create works!
-</p>
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <br>
+        <h2 class="text-center">Crear un Libro Digital</h2>
+        <br>
+        <form name="libroDigital" (ngSubmit)="f.form.valid && createLibroDigital()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="libroDigitalNombre"><b>Nombre</b></label>
+                <input type="text" name="libroDigitalNombre" class="form-control" id="libroDigitalNombre" [(ngModel)]="libroDigital.nombre"
+                    #libroDigitalNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroDigitalNombre.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta el nombre del Libro Digital</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+               <label for="libroDigitalIsbn"><b>ISBN</b></label>
+               <input type="text" name="libroDigitalIsbn" class="form-control" id="libroDigitalIsbn" [(ngModel)]="libroDigital.isbn"
+                   #libroDigitalIsbn="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroDigitalIsbn.invalid }" required>
+               <div class="invalid-feedback">
+                   <div>Falta el ISBN del Libro Digital</div>
+               </div>
+           </div>
+
+             <div class="form-group">
+                <label for="libroDigitalAutor"><b>Autor</b></label>
+                <input type="text" name="libroDigitalAutor" class="form-control" id="libroDigitalAutor" [(ngModel)]="libroDigital.autor"
+                    #libroDigitalAutor="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroDigitalAutor.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta el autor del Libro Digital</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+               <label for="libroDigitalEditorial"><b>Editorial</b></label>
+               <input type="text" name="libroDigitalEditorial" class="form-control" id="libroDigitalEditorial" [(ngModel)]="libroDigital.editorial"
+                   #libroDigitalEditorial="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroDigitalEditorial.invalid }" required>
+               <div class="invalid-feedback">
+                   <div>Falta la editorial del Libro Digital</div>
+               </div>
+           </div>
+
+           <div class="form-group">
+              <label for="libroDigitalEdicion"><b>Edicion</b></label>
+              <input type="text" name="libroDigitalEdicion" class="form-control" id="libroDigitalEdicion" [(ngModel)]="libroDigital.edicion"
+                  #libroDigitalEdicion="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroDigitalEdicion.invalid }" required>
+              <div class="invalid-feedback">
+                  <div>Falta la edicion del Libro Digital</div>
+              </div>
+          </div>
+
+             <div class="form-group">
+                <label for="libroDigitalIdioma"><b>Idioma</b></label>
+                <input type="text" name="libroDigitalIdioma" class="form-control" id="libroDigitalIdioma" [(ngModel)]="libroDigital.idioma"
+                    #libroDigitalIdioma="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroDigitalIdioma.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta el idioma del libroDigital</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+              <label for="libroDigitalCalificacionPromedio"><b>Calificacion Promedio</b></label>
+                <input type="number" name="libroDigitalCalificacionPromedio" class="form-control" id="libroDigitalCalificacionPromedio" [(ngModel)]="libroDigital.calificacionPromedio"
+                #libroDigitalCalificacionPromedio="ngModel" [ngClass]="{ 'is-invalid': f.submitted && libroDigitalCalificacionPromedio.invalid }" required>
+              <div class="invalid-feedback">
+                <div>Faltan la calificacion del libro digital</div>
+              </div>
+            </div>
+
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-3"></div>
+</div>
