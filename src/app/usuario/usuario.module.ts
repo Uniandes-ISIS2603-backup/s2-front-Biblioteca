@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
+import { AppRoutingModule } from '../app-routing/app-routing.module';
+import { UsuarioService } from './usuario.service';
 import { UsuarioListComponent } from './usuario-list/usuario-list.component';
-import{UsuarioService} from './usuario.service';
 import { UsuarioDetailComponent } from './usuario-detail/usuario-detail.component';
 import { UsuarioCreateComponent } from './usuario-create/usuario-create.component';
 import { UsuarioEditComponent } from './usuario-edit/usuario-edit.component';
@@ -15,13 +17,15 @@ import { UsuarioEditComponent } from './usuario-edit/usuario-edit.component';
 @NgModule({
   imports: [
      BrowserModule,
+        BrowserModule,
         AppRoutingModule,
         HttpClientModule,
         CommonModule,
         FormsModule,
+        NgbModule
   ],
   declarations: [UsuarioListComponent, UsuarioDetailComponent, UsuarioCreateComponent, UsuarioEditComponent],
   providers:[UsuarioService],
-  exports:[UsuarioListComponent]
+  
 })
 export class UsuarioModule { }

@@ -3,7 +3,7 @@
         <br>
         <h2 class="text-center">Editar un usuario</h2>
         <br>
-        <form name="usuario" (ngSubmit)="f.form.valid && createUsuario()" #f="ngForm" novalidate>
+        <form name="usuario" (ngSubmit)="f.form.valid && editUsuario()" #f="ngForm" novalidate>
               <div class="form-group">
                 <label for="usuarioNombre"><b>Nombre</b></label>
                 <input type="text" name="usuarioNombre" class="form-control" id="usuarioNombre" [(ngModel)]="usuario.nombre"

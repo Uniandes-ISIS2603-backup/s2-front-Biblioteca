@@ -1,3 +1,11 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <style type="text/css">
+        .fa_custom {
+            color: #0099CC
+        }
+    </style>
+</head>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-4">
@@ -8,24 +16,33 @@
             </div>
             <br>
             <br>
-    <div class="col-md-2">
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Usuario Nombre</th>    
+
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Usuario Nombre</th>    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let usuario of usuarios">
+                        <td style="cursor: pointer;" (click)="onSelected(usuario.id)" >
+                <dd>{{usuario.nombre}}</dd>
+                </td>
                 </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor = "let usuario of usuarios">
-                    <td style="cursor: pointer;">
-                        <dd class="figure-caption" routerLink="/usuarios/{usuario.id}}">{{usuario.nombre}}</dd>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-            
+                </tbody>
+            </table>
+        </div>
+        <div class="col-8">
+            <div *ngIf="showView">
+                <app-usuario-detail [usuarioDetail]="selectedUsuario"></app-usuario-detail>
+            </div>
             <div *ngIf="showCreate">
                 <app-usuario-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-usuario-create>
             </div>
+
+            <div *ngIf="showEdit">
+                <app-usuario-edit [usuario]="selectedUsuario" (cancel)="showHideEdit(selectedUsuario.id)" (update)="updateUsuario()" ></app-usuario-edit>
+            </div>
+        </div>
+    </div>
 </div>

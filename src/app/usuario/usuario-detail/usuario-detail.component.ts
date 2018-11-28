@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { UsuarioService } from '../usuario.service';
@@ -13,15 +13,19 @@ import{UsuarioDetail} from '../usuario-detail';
 })
 export class UsuarioDetailComponent implements OnInit {
 
+  /**
+    * El usuario que queremos mostrar
+    */
+   @Input() usuarioDetail: UsuarioDetail;
   constructor(
         private usuarioService: UsuarioService,
         private route: ActivatedRoute
     ) { }
-      /**
-    * El usuario que queremos mostrar
+    
+    usuario_id: number; 
+    /**
+    * El metodo que obtienen los detalles del usuario que queremos
     */
-    usuarioDetail: UsuarioDetail;
-usuario_id: number; 
 getUsuarioDetail(): void {
         this.usuarioService.getUsuarioDetail(this.usuario_id)
             .subscribe(usuarioDetail => {
@@ -30,8 +34,11 @@ getUsuarioDetail(): void {
 }
   ngOnInit() {
        this.usuario_id = +this.route.snapshot.paramMap.get('id');
-       this.usuarioDetail = new UsuarioDetail();
-            this.getUsuarioDetail();
+      if (this.usuario_id)
+      {
+          this.usuarioDetail = new UsuarioDetail();
+          this.getUsuarioDetail();
+      }
   }
 
 }

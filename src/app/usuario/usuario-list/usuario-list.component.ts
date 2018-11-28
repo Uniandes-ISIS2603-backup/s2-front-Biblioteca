@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
 import{Usuario} from '../usuario';
 import {UsuarioService} from '../usuario.service';
 import { UsuarioDetail } from '../usuario-detail';
-import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-usuario',
@@ -21,7 +22,17 @@ export class UsuarioListComponent implements OnInit {
     * Muestra o oculta el usuario-create-component
     */
     showCreate: boolean;
-   
+    
+     /**
+    * Muestra o oculta la edición de un usuario.
+    */
+    showEdit: boolean;
+    
+    /**
+     * Muestra o oculta el detalle de un usuario.
+     */
+    showView: boolean;
+    
      /**
      * el usuario que el usuario ve
      */
@@ -37,9 +48,17 @@ export class UsuarioListComponent implements OnInit {
     */
     onSelected(usuario_id: number):void {
         this.showCreate = false;
+        this.showEdit = false;
+        this.showView = true;
         this.usuario_id = usuario_id;
         this.selectedUsuario = new UsuarioDetail();
-        
+        this.getUsuarioDetail();
+    }
+    getUsuarioDetail(): void {
+        this.usuarioService.getUsuarioDetail(this.usuario_id)
+            .subscribe(selectedUsuario => {
+                this.selectedUsuario = selectedUsuario
+            });
     }
     
     /**
@@ -53,16 +72,44 @@ export class UsuarioListComponent implements OnInit {
     * Shows or hides the create component
     */
     showHideCreate(): void {
-        if (this.selectedUsuario) {
-            this.selectedUsuario = undefined;
-            this.usuario_id = undefined;
-        }
+        this.showView = false;
+        this.showEdit = false;
         this.showCreate = !this.showCreate;
     }
+    
+    updateUsuario(): void{
+        this.showEdit = false;
+        this.showView = true;
+        this.getUsuarios();
+    }
+    
+     /**
+    * Shows or hides the create component
+    */
+    showHideEdit(usuario_id: number): void {
+        if (!this.showEdit || (this.showEdit && usuario_id != this.selectedUsuario.id)) {
+            this.showView = false;
+            this.showCreate = false;
+            this.showEdit = true;
+            this.usuario_id = usuario_id;
+            this.selectedUsuario = new UsuarioDetail();
+            this.getUsuarioDetail();
+        }
+        else { 
+            this.showEdit = false;
+            this.showView = true;
+        }
+    }
+    
   ngOnInit() 
       {
-        this.getUsuarios();
+       
+        this.showView = false;
+        this.showEdit = false;
+        this.selectedUsuario = undefined;
+        this.usuario_id = undefined;
         this.showCreate = false;
+        this.getUsuarios();
       }
 
 }
