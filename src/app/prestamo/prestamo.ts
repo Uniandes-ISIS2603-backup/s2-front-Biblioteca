@@ -11,12 +11,12 @@ export class  Prestamo {
     /**
      * Se refiera a la fecha en la que se presta el libro
      */
-    fechaDeSalida: Date;
+    fechaDeSalida: any;
 
     /**
      * Se refiera a la fecha en la que se debe entregar el libro
      */
-    fechaDeEntrega: Date;
+    fechaDeEntrega: any;
 
     /**
      * Se refiere a si el libro fue devuelto o no
