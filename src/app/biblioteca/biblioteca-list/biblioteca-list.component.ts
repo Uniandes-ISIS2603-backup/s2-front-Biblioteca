@@ -40,6 +40,10 @@ export class BibliotecaListComponent implements OnInit {
      * Muestra o oculta el detalle de una biblioteca
      */
     showView: boolean;
+        /**
+     * Muestra o oculta la opcion de eliminar una biblioteca
+     */
+    showDelete: boolean;
     
      /**
      * la biblioteca que el usuario ve
@@ -109,6 +113,14 @@ export class BibliotecaListComponent implements OnInit {
             this.showEdit = false;
             this.showView = true;
         }
+    }
+        /**
+    * Shows or hides the delete component
+    */
+    showHideDelete(): void {
+        this.showView = false;
+        this.showEdit = false;
+        this.showDelete = !this.showDelete;
     }
   ngOnInit() 
       {

@@ -1,6 +1,6 @@
 
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import {Biblioteca} from './biblioteca';
@@ -48,6 +48,14 @@ export class BibliotecaService {
     updateBiblioteca(biblioteca): Observable<BibliotecaDetail> {
         return this.http.put<BibliotecaDetail>(API_URL + bibliotecas + '/' + biblioteca.id, biblioteca);
     }
+    /**
+    * Borrar una biblioteca
+    * @param biblioteca La biblioteca que será borrada
+    */
+    deleteBiblioteca(biblioteca): Observable<HttpEvent<BibliotecaDetail>>{
+        return this.http.delete<BibliotecaDetail>(API_URL + bibliotecas + '/' + biblioteca.id, biblioteca);
+    }
+
 }
 
 
