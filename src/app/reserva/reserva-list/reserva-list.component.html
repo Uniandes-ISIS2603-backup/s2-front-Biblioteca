@@ -1,28 +1,52 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <style type="text/css">
+        .fa_custom {
+            color: #0099CC
+        }
+    </style>
+</head>
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-4">
-      <div class="row justify-content-center align-self-center">
-        <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn" (click)="showHideCreate()">Crear una reserva</button>
-      </div>
-      <table class="table table-striped">
-        <thead class="thead-dark">
-          <tr>
-            <th>Reserva Nombre</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let reserva of reservas">
-            <td>
-              <!--<dd class="figure-caption" routerLink="/reservas/{{reserva.id}}">{{reserva.idRecursoReservado}}</dd> reserva no tiene id-->
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="row">
+        <div class="col-md-4">
+            <br>
+            <div class="row justify-content-center align-self-center">
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn" (click)="showHideCreate()">Crear una reserva</button>
+            </div>
+            <br>
+            <br>
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>  
+                        <th>Reserva Nombre</th>
+                        <th> </th>  
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let reserva of reservas">
+                        <td>{{reserva.id}}</td>
+                        <td style="cursor: pointer;" (click)="onSelected(reserva.id)" >
+                <dd>{{reserva.fechaReserva}}</dd>
+                </td>
+                <td>
+                    <i class="fa fa-pencil "(click)="showHideEdit(reserva.id)"></i>
+                </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-8">
+            <div *ngIf="showView">
+                <app-reserva-detail [reservaDetail]="selectedReserva"></app-reserva-detail>
+            </div>
+            <div *ngIf="showCreate">
+                <app-reserva-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-reserva-create>
+            </div>
+
+            <div *ngIf="showEdit">
+                <app-reserva-edit [reserva]="selectedReserva" (cancel)="showHideEdit(selectedReserva.id)" (update)="updateReserva()" ></app-reserva-edit>
+            </div>
+        </div>
     </div>
-    <div class="col-20">
-      <div *ngIf="showCreate">
-        <app-reserva-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-reserva-create>
-      </div>
-    </div>
-  </div>
 </div>

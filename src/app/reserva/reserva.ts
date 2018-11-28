@@ -6,6 +6,10 @@ import {Sala} from '../sala/sala';
 
 export class Reserva {
 
+   /**
+    * Se refiere al identificador de cada biblioteca
+    */
+    id: number;
   fechaReserva: any;
   idRecursoReservado: number;
   tipoRecurso: string;
