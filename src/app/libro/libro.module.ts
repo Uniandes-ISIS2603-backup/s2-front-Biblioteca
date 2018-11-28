@@ -4,6 +4,7 @@ import {CommonModule} from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import {NgxPermissionsModule} from 'ngx-permissions';
 
 import {LibroService} from './libro.service';
 import {LibroListComponent} from './libro-list/libro-list.component';
@@ -21,10 +22,11 @@ import { LibroEditComponent } from './libro-edit/libro-edit.component';
         HttpClientModule,
         CommonModule,
         FormsModule,
+        NgxPermissionsModule,
         NgbModule
     ],
     declarations: [LibroListComponent, LibroDetailComponent, LibroCreateComponent, LibroEditComponent],
     providers: [LibroService],
-   
+
 })
 export class LibroModule {}

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import {NgxPermissionsModule} from 'ngx-permissions';
 
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { UsuarioService } from './usuario.service';
@@ -22,10 +23,11 @@ import { UsuarioEditComponent } from './usuario-edit/usuario-edit.component';
         HttpClientModule,
         CommonModule,
         FormsModule,
+        NgxPermissionsModule,
         NgbModule
   ],
   declarations: [UsuarioListComponent, UsuarioDetailComponent, UsuarioCreateComponent, UsuarioEditComponent],
   providers:[UsuarioService],
-  
+
 })
 export class UsuarioModule { }

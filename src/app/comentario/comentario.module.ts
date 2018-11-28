@@ -4,6 +4,7 @@ import {CommonModule} from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import {NgxPermissionsModule} from 'ngx-permissions';
 
 import {ComentarioListComponent} from './comentario-list/comentario-list.component';
 import {ComentarioService} from './comentario.service';
@@ -21,6 +22,7 @@ import { ComentarioEditComponent } from './comentario-edit/comentario-edit.compo
         CommonModule,
         FormsModule,
         NgbModule.forRoot(),
+        NgxPermissionsModule,
         LibroModule
     ],
     declarations: [ComentarioListComponent, ComentarioDetailComponent, ComentarioCreateComponent, ComentarioEditComponent],

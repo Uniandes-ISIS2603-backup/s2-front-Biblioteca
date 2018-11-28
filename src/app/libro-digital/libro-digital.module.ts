@@ -4,6 +4,7 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import {NgxPermissionsModule} from 'ngx-permissions';
 
 import { LibroDigitalService } from './libro-digital.service';
 import { LibroDigitalListComponent } from './libro-digital-list/libro-digital-list.component';
@@ -16,6 +17,7 @@ import { LibroDigitalCreateComponent } from './libro-digital-create/libro-digita
     AppRoutingModule,
     HttpClientModule,
     BrowserModule,
+    NgxPermissionsModule,
     FormsModule
   ],
   declarations: [LibroDigitalListComponent, LibroDigitalDetailComponent, LibroDigitalCreateComponent],

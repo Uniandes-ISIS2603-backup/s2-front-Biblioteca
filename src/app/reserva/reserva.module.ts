@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import {NgxPermissionsModule} from 'ngx-permissions';
 
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { ReservaService } from './reserva.service';
@@ -19,6 +20,7 @@ import { ReservaDetailComponent } from './reserva-detail/reserva-detail.componen
         HttpClientModule,
         CommonModule,
         FormsModule,
+        NgxPermissionsModule,
         NgbModule
   ],
   declarations: [ReservaListComponent, ReservaCreateComponent, ReservaEditComponent, ReservaDetailComponent],

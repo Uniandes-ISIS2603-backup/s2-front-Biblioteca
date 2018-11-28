@@ -33,13 +33,7 @@ const routes: Routes =
         [
             {
                 path: 'list',
-                component: BibliotecaListComponent,
-                canActivate: [NgxPermissionsGuard],
-                data: {
-                    permissions: {
-                        only: ['GUEST']
-                    }
-                }
+                component: BibliotecaListComponent
             },
             {
                 path: ':id',
@@ -189,13 +183,7 @@ const routes: Routes =
       children:[
         {
           path: 'list',
-          component: ReservaListComponent,
-          canActivate: [NgxPermissionsGuard],
-          data: {
-              permissions: {
-                  only: ['GUEST']
-              }
-          }
+          component: ReservaListComponent
         },
       ]
     }

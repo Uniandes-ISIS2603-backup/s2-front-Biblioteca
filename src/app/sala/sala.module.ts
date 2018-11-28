@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import {NgxPermissionsModule} from 'ngx-permissions';
+
 import { SalaListComponent } from './sala-list/sala-list.component';
 import{SalaService} from './sala.service';
 import { SalaDetailComponent } from './sala-detail/sala-detail.component';
@@ -18,7 +20,8 @@ import { SalaEditComponent } from './sala-edit/sala-edit.component';
         AppRoutingModule,
         HttpClientModule,
         CommonModule,
-        FormsModule,
+        NgxPermissionsModule,
+        FormsModule
   ],
   declarations: [SalaListComponent, SalaDetailComponent, SalaCreateComponent, SalaEditComponent],
   providers:[SalaService],

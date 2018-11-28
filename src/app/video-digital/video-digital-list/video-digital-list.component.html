@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-md-4">
             <br>
-            <div class="row justify-content-center align-self-center">
+            <div class="row justify-content-center align-self-center" *ngxPermissionsOnly="['ADMIN']">
                 <button [ngClass]="{ 'btn-primary' : !showCreate, 'btnDanger':showCreate}" type="button" class="btn" (click)="showHideCreate()">Crear un video digital</button>
             </div>
             <br>
@@ -22,7 +22,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Nombre videoDigital</th>
-                            <th> </th> 
+                            <th> </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,7 +44,7 @@
             <div *ngIf="showCreate">
                 <app-video-digital-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-video-digital-create>
             </div>
-            
+
             <div *ngIf="showEdit">
                 <app-video-digital-edit [videoDigital]="selectedVideoDigital" (cancel)="showHideEdit(selectedVideoDigital.id)" (update)="updateVideoDigital()" ></app-video-digital-edit>
             </div>

@@ -4,6 +4,7 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import {NgxPermissionsModule} from 'ngx-permissions';
 
 import { VideoService } from './video.service';
 import { VideoListComponent } from './video-list/video-list.component';
@@ -17,6 +18,7 @@ import { VideoEditComponent } from './video-edit/video-edit.component';
     HttpClientModule,
     BrowserModule,
     FormsModule,
+    NgxPermissionsModule,
     AppRoutingModule
   ],
   declarations: [VideoListComponent, VideoDetailComponent, VideoCreateComponent, VideoEditComponent],

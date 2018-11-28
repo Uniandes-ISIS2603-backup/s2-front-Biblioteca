@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import {NgxPermissionsModule} from 'ngx-permissions';
 
 import { PrestamoService} from './prestamo.service';
 import { PrestamoListComponent } from './prestamo-list/prestamo-list.component';
@@ -15,10 +16,11 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
         AppRoutingModule,
         HttpClientModule,
         CommonModule,
-        FormsModule,
+        NgxPermissionsModule,
+        FormsModule
   ],
   declarations: [PrestamoListComponent, PrestamoCreateComponent, PrestamoDetailComponent],
   providers:[PrestamoService],
-  exports: [PrestamoListComponent]  
+  exports: [PrestamoListComponent]
 })
 export class PrestamoModule { }
