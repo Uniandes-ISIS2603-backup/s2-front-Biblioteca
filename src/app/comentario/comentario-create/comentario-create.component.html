@@ -43,9 +43,9 @@
 
             <div class="form-group">
                 <label for="comentarioFecha"><b>Fecha</b></label>
-                <div [ngClass]="{ 'is-invalid': f.submitted && comentarioFecha.invalid}">
-                    <input class="form-control" name="comentarioFecha"  id="comentarioFecha" [(ngModel)]="comentario.fecha"
-                       ngbDatepicker #d = 'ngbDatepicker' (click)="d.toggle()" #comentarioFecha="ngModel" [ngClass]="{ 'is-invalid': f.submitted && comentarioHoraCierre.invalid }" required>
+                <div [ngClass]="{ 'is-invalid': f.submitted && cFecha.invalid}">
+                    <input class="form-control" name="cFecha"  id="cFecha" [(ngModel)]="comentario.fecha"
+                       ngbDatepicker #d = 'ngbDatepicker' (click)="d.toggle()" #cFecha="ngModel" [ngClass]="{ 'is-invalid': f.submitted && ( cFecha.untouched || cFecha.invalid) }" required>
                        <div class="invalid-feedback">
                         <div>Falta la fecha </div>
                     </div>

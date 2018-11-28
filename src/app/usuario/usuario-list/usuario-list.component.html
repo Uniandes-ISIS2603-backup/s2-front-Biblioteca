@@ -20,13 +20,17 @@
             <table class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
-                        <th>Usuario Nombre</th>    
+                        <th>Usuario Nombre</th> 
+                        <th> </th>  
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor = "let usuario of usuarios">
                         <td style="cursor: pointer;" (click)="onSelected(usuario.id)" >
                 <dd>{{usuario.nombre}}</dd>
+                </td>
+                <td>
+                    <i class="fa fa-pencil "(click)="showHideEdit(biblioteca.id)"></i>
                 </td>
                 </tr>
                 </tbody>
