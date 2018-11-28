@@ -6,15 +6,11 @@ import {Sala} from '../sala/sala';
 
 export class Reserva {
 
-  fechaReserva: Date;
+  fechaReserva: any;
   idRecursoReservado: number;
   tipoRecurso: string;
   estado: boolean;
 
-  usuario: Usuario;
-  libro: Libro;
-  video: Video;
-  videoDigital: VideoDigital;
-  sala: Sala;
+
 
 }
