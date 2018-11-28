@@ -7,7 +7,7 @@ import {LibroDigitalDetail} from './libro-digital-detail';
 
 import {environment} from '../../environments/environment';
 const API_URL = environment.apiURL;
-const librosD = '/librosDigitales';
+const librosD = 'librosDigitales';
 
 @Injectable()
 export class LibroDigitalService {

@@ -17,19 +17,45 @@
              <div class="form-group">
                 <label for="videoDirector"><b>Director</b></label>
                 <input type="text" name="videoDirector" class="form-control" id="videoDirector" [(ngModel)]="video.director"
-                    #videoZona="ngModel" [ngClass]="{ 'is-invalid': f.submitted && videoDirector.invalid }" required>
+                    #videoDirector="ngModel" [ngClass]="{ 'is-invalid': f.submitted && videoDirector.invalid }" required>
                 <div class="invalid-feedback">
-                    <div>Falta el director de la video</div>
+                    <div>Falta el director del video</div>
                 </div>
             </div>
+
+            <div class="form-group">
+               <label for="videoUnidadesDisponibles"><b>Unidades Disponibles</b></label>
+               <input type="number" name="videoUnidadesDisponibles" class="form-control" id="videoUnidadesDisponibles" [(ngModel)]="video.unidadesDisponibles"
+                   #videoUnidadesDisponibles="ngModel" [ngClass]="{ 'is-invalid': f.submitted && videoUnidadesDisponibles.invalid }" required>
+               <div class="invalid-feedback">
+                   <div>Falta las unidades disponibles del video</div>
+               </div>
+           </div>
 
              <div class="form-group">
                 <label for="videoIdioma"><b>Idioma</b></label>
                 <input type="text" name="videoIdioma" class="form-control" id="videoIdioma" [(ngModel)]="video.idioma"
-                    #videoDireccion="ngModel" [ngClass]="{ 'is-invalid': f.submitted && videoIdioma.invalid }" required>
+                    #videoIdioma="ngModel" [ngClass]="{ 'is-invalid': f.submitted && videoIdioma.invalid }" required>
                 <div class="invalid-feedback">
                     <div>Falta el idioma del video</div>
                 </div>
+            </div>
+
+            <div class="form-group">
+                    <label for="videoBiblioteca"><b>Biblioteca</b></label>
+                    <select class="custom-select" name="videoBiblioteca" id="videoBiblioteca" [(ngModel)]="video.bilbioteca.nombre"
+                        #videoBiblioteca="ngModel" [ngClass]="{ 'is-invalid': f.submitted && videoBiblioteca.invalid }"
+                        required>
+                        <option [value]="biblioteca.nombre" *ngFor="let biblioteca of bibliotecas">{{biblioteca.name}}</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        <div>Falte la biblioteca del video</div>
+                    </div>
+            </div>
+
+            <div class="form-group">
+              <label for="videoSubtitulos"><b>Tiene Subtitulos</b></label>
+              <input type="checkbox" name="videoSubtitulos" class="form-control" id="videoSubtitulos" [(ngModel)]="video.subtitulos" #videoSubtitulos="ngModel">
             </div>
 
             <div class="row form-inline justify-content-center align-self-center">
