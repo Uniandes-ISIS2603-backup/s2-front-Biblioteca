@@ -9,6 +9,7 @@ import { VideoService } from './video.service';
 import { VideoListComponent } from './video-list/video-list.component';
 import { VideoDetailComponent } from './video-detail/video-detail.component';
 import { VideoCreateComponent } from './video-create/video-create.component';
+import { VideoEditComponent } from './video-edit/video-edit.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,7 @@ import { VideoCreateComponent } from './video-create/video-create.component';
     FormsModule,
     AppRoutingModule
   ],
-  declarations: [VideoListComponent, VideoDetailComponent, VideoCreateComponent],
+  declarations: [VideoListComponent, VideoDetailComponent, VideoCreateComponent, VideoEditComponent],
   providers:[VideoService],
   exports:[VideoListComponent]
 })

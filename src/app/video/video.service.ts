@@ -26,4 +26,8 @@ export class VideoService {
     return this.http.post<Video>(API_URL + videos, video);
   }
 
+  updateVideo(video): Observable<VideoDetail> {
+      return this.http.put<VideoDetail>(API_URL + videos + '/' + video.id, video);
+  }
+
 }
