@@ -13,6 +13,9 @@
             <tbody>
                 <tr *ngFor = "let libroDigital of librosDigitales">
                   <td>{{libroDigital.name}}</td>
+                    <td>
+                    <i class="fa fa-trash "(click)="deleteLibroDigital(libroDigital.id)"></i>
+                </td>
                 </tr>
             </tbody>
         </table>

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit , ViewContainerRef} from '@angular/core';
+import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
+import {ToastrService} from 'ngx-toastr';
 import { LibroDigital } from '../../libro-digital/libro-digital';
 import { LibroDigitalDetail } from '../libro-digital-detail';
 import { LibroDigitalService } from '../../libro-digital/libro-digital.service';
@@ -16,7 +17,10 @@ export class LibroDigitalListComponent implements OnInit {
   selectedLibroDigital: LibroDigital;
   libroDigital_id: number;
 
-  constructor(private libroDigitalService: LibroDigitalService) { }
+  constructor(private libroDigitalService: LibroDigitalService,
+            private modalDialogService: ModalDialogService,
+        private viewRef: ViewContainerRef,
+        private toastrService: ToastrService) { }
 
   onSelected(libroDigital_id: number): void {
     this.showCreate = false;
@@ -34,5 +38,30 @@ export class LibroDigitalListComponent implements OnInit {
   ngOnInit() {
     this.getLibrosDigitales();
   }
-
+ /**
+    * Deletes a libroDigital
+    */
+    deleteLibroDigital(libroDigitalId): void {
+        this.modalDialogService.openDialog(this.viewRef, {
+            title: 'Delete a libroDigital',
+            childComponent: SimpleModalComponent,
+            data: {text: 'Are you sure your want to delete this libroDigital?'},
+            actionButtons: [
+                {
+                    text: 'Yes',
+                    buttonClass: 'btn btn-danger',
+                    onAction: () => {
+                        this.libroDigitalService.deleteLibroDigital(libroDigitalId).subscribe(() => {
+                            this.toastrService.error("The libroDigital was successfully deleted", "LibroDigital deleted");
+                            this.ngOnInit();
+                        }, err => {
+                            this.toastrService.error(err, "Error");
+                        });
+                        return true;
+                    }
+                },
+                {text: 'No', onAction: () => true}
+            ]
+        });
+    }
 }
