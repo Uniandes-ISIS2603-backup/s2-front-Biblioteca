@@ -35,6 +35,11 @@ export class LibroListComponent implements OnInit {
      showCreate:boolean;
      
      /**
+     * muestra o oculta el libros-prestamo-component
+     */
+     showPrestamo:boolean;
+     
+     /**
     * Muestra o oculta la edición de un libro
     */
     showEdit: boolean;
@@ -58,6 +63,7 @@ export class LibroListComponent implements OnInit {
         * Muestra el libro
         */
        onSelected(libro_id:number):void{
+           this.showPrestamo = false;
            this.showCreate = false;
            this.showEdit = false;
            this.showView = true;
@@ -85,12 +91,24 @@ export class LibroListComponent implements OnInit {
      * Muestra o esconde el componente creado
      */
     showHideCreate(): void {
+        this.showPrestamo = false;
         this.showView = false;
         this.showEdit = false;
         this.showCreate = !this.showCreate;
     }
     
+    /**
+     * Muestra o esconde el componente creado
+     */
+    showHidePrestamo(): void {
+        this.showPrestamo = true;
+        this.showView = false;
+        this.showEdit = false;
+        this.showCreate = false;
+    }
+    
      updateLibro(): void{
+        this.showPrestamo = false;
         this.showEdit = false;
         this.showView = true;
         this.getLibros();
@@ -102,6 +120,7 @@ export class LibroListComponent implements OnInit {
         if (!this.showEdit || (this.showEdit && libro_id != this.selectedLibro.id)) {
             this.showView = false;
             this.showCreate = false;
+            this.showPrestamo = false;
             this.showEdit = true;
             this.libro_id = libro_id;
             this.selectedLibro = new LibroDetail();
@@ -140,7 +159,7 @@ export class LibroListComponent implements OnInit {
     }
   ngOnInit() 
       {
-       
+        this.showPrestamo = false;
         this.showView = false;
         this.showEdit = false;
         this.selectedLibro = undefined;

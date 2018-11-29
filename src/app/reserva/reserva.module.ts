@@ -15,6 +15,7 @@ import { ReservaDetailComponent } from './reserva-detail/reserva-detail.componen
 
 @NgModule({
   imports: [
+        
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,

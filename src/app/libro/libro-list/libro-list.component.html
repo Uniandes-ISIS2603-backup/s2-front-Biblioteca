@@ -23,6 +23,7 @@
                             <th>ID</th>
                             <th>Nombre</th>
                             <th> </th>
+                            <th *ngxPermissionsOnly="['ADMIN']"> </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,7 +34,13 @@
                     <td>
                         <i class="fa fa-pencil "(click)="showHideEdit(libro.id)"></i>
                     </td>
-                    
+                    <td>
+                        <i class="fa fa-trash "(click)="deleteLibro(libro.id)"></i>
+                    </td>
+                    <td>
+                    <i class="fa fa-money " *ngxPermissionsOnly="['ADMIN']"(click)="showHidePrestamo()"></i>
+                     </td>
+
                     </tr>
                     </tbody>
                 </table>
@@ -41,6 +48,9 @@
             <div class="col-8">
                 <div *ngIf="showView">
                     <app-libro-detail [libroDetail]="selectedLibro"></app-libro-detail>
+                </div>
+                <div *ngIf="showPrestamo">
+                    <app-libro-prestamo [libroDetail]="selectedLibro"></app-libro-prestamo>
                 </div>
                 <div *ngIf="showCreate">
                     <app-libro-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-libro-create>
