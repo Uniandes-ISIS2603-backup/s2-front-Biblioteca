@@ -46,4 +46,5 @@ export class UsuarioService {
     deleteUsuario(usuarioId): Observable<boolean> {
         return this.http.delete<boolean>(API_URL + usuarios + '/' + usuarioId);
     }
+    
 }

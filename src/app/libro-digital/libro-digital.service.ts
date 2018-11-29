@@ -25,5 +25,12 @@ export class LibroDigitalService {
   createLibroDigital(libroD): Observable<LibroDigital> {
     return this.http.post<LibroDigital>(API_URL + librosD, libroD);
   }
-
+      /**
+    * Deletes a libroDigital
+    * @param libroDigitalId The id of the libroDigital
+    * @returns The confirmation that the libroDigital was deleted
+    */
+    deleteLibroDigital(libroDigitalId): Observable<boolean> {
+        return this.http.delete<boolean>(API_URL + librosD + '/' + libroDigitalId);
+    }
 }
