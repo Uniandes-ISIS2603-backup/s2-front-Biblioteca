@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ViewContainerRef} from '@angular/core';
+import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
+import {ToastrService} from 'ngx-toastr';
 import { Reserva } from '../reserva';
 import { ReservaService } from '../reserva.service';
 import { ReservaDetail } from '../reserva-detail';
@@ -11,7 +12,10 @@ import { ReservaDetail } from '../reserva-detail';
 })
 export class ReservaListComponent implements OnInit {
 
-  constructor(private reservaService: ReservaService) { }
+  constructor(private reservaService: ReservaService,
+   private modalDialogService: ModalDialogService,
+        private viewRef: ViewContainerRef,
+        private toastrService: ToastrService) { }
 
   reservas: Reserva[];
   showCreate: boolean;
@@ -76,6 +80,29 @@ export class ReservaListComponent implements OnInit {
             this.showEdit = false;
             this.showView = true;
         }
+    }
+      deleteReserva(reservaId): void {
+        this.modalDialogService.openDialog(this.viewRef, {
+            title: 'Delete a reserva',
+            childComponent: SimpleModalComponent,
+            data: {text: 'Are you sure your want to delete this reserva?'},
+            actionButtons: [
+                {
+                    text: 'Yes',
+                    buttonClass: 'btn btn-danger',
+                    onAction: () => {
+                        this.reservaService.deleteReserva(reservaId).subscribe(() => {
+                            this.toastrService.error("The reserva was successfully deleted", "Reserva deleted");
+                            this.ngOnInit();
+                        }, err => {
+                            this.toastrService.error(err, "Error");
+                        });
+                        return true;
+                    }
+                },
+                {text: 'No', onAction: () => true}
+            ]
+        });
     }
   ngOnInit() {
     

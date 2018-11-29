@@ -113,6 +113,32 @@ export class PrestamoListComponent implements OnInit {
             this.showView = true;
         }
     }
+        /**
+    * Deletes a prestamo
+    */
+    deletePrestamo(prestamoId): void {
+        this.modalDialogService.openDialog(this.viewRef, {
+            title: 'Delete a prestamo',
+            childComponent: SimpleModalComponent,
+            data: {text: 'Are you sure your want to delete this prestamo?'},
+            actionButtons: [
+                {
+                    text: 'Yes',
+                    buttonClass: 'btn btn-danger',
+                    onAction: () => {
+                        this.prestamoService.deletePrestamo(prestamoId).subscribe(() => {
+                            this.toastrService.error("The prestamo was successfully deleted", "Prestamo deleted");
+                            this.ngOnInit();
+                        }, err => {
+                            this.toastrService.error(err, "Error");
+                        });
+                        return true;
+                    }
+                },
+                {text: 'No', onAction: () => true}
+            ]
+        });
+    }
   ngOnInit() 
       {
         this.showView = false;

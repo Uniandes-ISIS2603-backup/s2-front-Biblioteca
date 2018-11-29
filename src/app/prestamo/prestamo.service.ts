@@ -47,5 +47,13 @@ export class PrestamoService
     updatePrestamo(prestamo): Observable<PrestamoDetail> {
         return this.http.put<PrestamoDetail>(API_URL + prestamos + '/' + prestamo.id, prestamos);
     }
+           /**
+    * Deletes a prestamo
+    * @param prestamoId The id of the prestamo
+    * @returns The confirmation that the prestamo was deleted
+    */
+    deletePrestamo(prestamoId): Observable<boolean> {
+        return this.http.delete<boolean>(API_URL + prestamos + '/' + prestamoId);
+    }
 }
 

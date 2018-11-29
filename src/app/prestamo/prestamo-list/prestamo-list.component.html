@@ -35,6 +35,10 @@
                     <td>
                         <i *ngxPermissionsOnly="['ADMIN']" class="fa fa-pencil "(click)="showHideEdit(prestamo.id)"></i>
                     </td>
+                    <td>
+                        <i  class="fa fa-trash "(click)="deletePrestamo(prestamo.id)"></i>
+                    </td>
+
 
                     </tr>
                     </tbody>
