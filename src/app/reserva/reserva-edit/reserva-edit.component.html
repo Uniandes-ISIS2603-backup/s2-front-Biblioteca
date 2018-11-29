@@ -35,11 +35,10 @@
             </div>
 
             <div class="form-group">
-                <label for="Estado"><b>Estado</b></label>
-                <input type="text" name="Estado" class="form-control" id="Estado" [(ngModel)]="reserva.Estado"
-                       #Estado="ngModel" [ngClass]="{ 'is-invalid': f.submitted && Estado.invalid }" required>
-                       <div class="invalid-feedback">
-                    <div>Estado de la reserva</div>
+                <label for="estado"><b>Activa</b></label>
+                 <input type="checkbox" name="retornado" class="form-control" id="retornado" [(ngModel)]="reserva.estado">
+                <div class="invalid-feedback">
+                    <div>Falta saber si la reserva está activa</div>
                 </div>
             </div>
 
