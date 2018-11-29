@@ -51,4 +51,12 @@ export class ComentarioService {
     updateComentario(comentario): Observable<ComentarioDetail> {
         return this.http.put<ComentarioDetail>(API_URL + comentarios + '/' + comentario.id, comentario);
     }
+        /**
+    * Deletes a comentario
+    * @param comentarioId The id of the comentario
+    * @returns The confirmation that the comentario was deleted
+    */
+    deleteComentario(comentarioId): Observable<boolean> {
+        return this.http.delete<boolean>(API_URL + comentarios + '/' + comentarioId);
+    }
 }

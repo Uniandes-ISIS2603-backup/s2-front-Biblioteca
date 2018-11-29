@@ -38,4 +38,12 @@ export class UsuarioService {
     updateUsuario(usuario): Observable<UsuarioDetail> {
         return this.http.put<UsuarioDetail>(API_URL + usuarios + '/' + usuario.id, usuario);
     }
+     /**
+    * Deletes an usuario
+    * @param usuarioId The id of the usuario
+    * @returns The confirmation that the usuario was deleted
+    */
+    deleteUsuario(usuarioId): Observable<boolean> {
+        return this.http.delete<boolean>(API_URL + usuarios + '/' + usuarioId);
+    }
 }

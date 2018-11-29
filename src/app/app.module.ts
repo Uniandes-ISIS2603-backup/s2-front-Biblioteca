@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import {NgxPermissionsModule} from 'ngx-permissions';
+import { ModalDialogModule } from 'ngx-modal-dialog';
 
 import { BibliotecaModule } from './biblioteca/biblioteca.module';
 import {SalaModule} from './sala/sala.module';
@@ -39,6 +40,7 @@ import {AuthModule} from './auth/auth.module';
     VideoModule,
     VideoDigitalModule,
     PrestamoModule,
+    ModalDialogModule.forRoot(),
     LibroDigitalModule,
     UsuarioModule,
     ReservaModule,

@@ -35,4 +35,12 @@ export class SalaService {
     updateSala(sala): Observable<SalaDetail> {
         return this.http.put<SalaDetail>(API_URL + salas + '/' + sala.id, sala);
     }
+         /**
+    * Deletes a sala
+    * @param salaId The id of the sala
+    * @returns The confirmation that the sala was deleted
+    */
+    deleteSala(salaId): Observable<boolean> {
+        return this.http.delete<boolean>(API_URL + salas + '/' + salaId);
+    }
 }

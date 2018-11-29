@@ -53,4 +53,12 @@ export class LibroService {
     updateLibro(libro): Observable<LibroDetail> {
         return this.http.put<LibroDetail>(API_URL + libros + '/' + libro.id, libro);
     }
+        /**
+    * Deletes a libro
+    * @param libroId The id of the libro
+    * @returns The confirmation that the libro was deleted
+    */
+    deleteLibro(libroId): Observable<boolean> {
+        return this.http.delete<boolean>(API_URL + libros + '/' + libroId);
+    }
 }

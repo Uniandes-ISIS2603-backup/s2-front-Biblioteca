@@ -1,4 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewContainerRef} from '@angular/core';
+import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
+import {ToastrService} from 'ngx-toastr';
 
 import {Libro} from '../libro';
 import {LibroService} from '../libro.service';
@@ -18,7 +20,10 @@ export class LibroListComponent implements OnInit {
      * Constructor del componente 
      * 
      */
-    constructor(private libroService: LibroService) {}
+    constructor(private libroService: LibroService,
+            private modalDialogService: ModalDialogService,
+        private viewRef: ViewContainerRef,
+        private toastrService: ToastrService) {}
 
     /**
      * La lista de los libros del sistema de bibliotecas
@@ -106,6 +111,32 @@ export class LibroListComponent implements OnInit {
             this.showEdit = false;
             this.showView = true;
         }
+    }
+        /**
+    * Deletes a libro
+    */
+    deleteLibro(libroId): void {
+        this.modalDialogService.openDialog(this.viewRef, {
+            title: 'Delete a libro',
+            childComponent: SimpleModalComponent,
+            data: {text: 'Are you sure your want to delete this libro?'},
+            actionButtons: [
+                {
+                    text: 'Yes',
+                    buttonClass: 'btn btn-danger',
+                    onAction: () => {
+                        this.libroService.deleteLibro(libroId).subscribe(() => {
+                            this.toastrService.error("The ljbro was successfully deleted", "Libro deleted");
+                            this.ngOnInit();
+                        }, err => {
+                            this.toastrService.error(err, "Error");
+                        });
+                        return true;
+                    }
+                },
+                {text: 'No', onAction: () => true}
+            ]
+        });
     }
   ngOnInit() 
       {

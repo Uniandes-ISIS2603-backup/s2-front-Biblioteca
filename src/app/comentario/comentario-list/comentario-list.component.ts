@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
+import {ToastrService} from 'ngx-toastr';
 import {Comentario} from '../comentario';
 import {ComentarioService} from '../comentario.service';
 import {ComentarioDetail} from '../comentario-detail';
@@ -17,7 +18,10 @@ export class ComentarioListComponent implements OnInit {
      * Constructor del componente
      * @param comentarioService Los servicios del proveedor del comentario
      */
-  constructor(private comentarioService : ComentarioService) { }
+  constructor(private comentarioService : ComentarioService,
+          private modalDialogService: ModalDialogService,
+        private viewRef: ViewContainerRef,
+        private toastrService: ToastrService) { }
   
     /**
      * la lista de comentarios
@@ -105,6 +109,29 @@ export class ComentarioListComponent implements OnInit {
             this.showEdit = false;
             this.showView = true;
         }
+    }
+     deleteComentario(comentarioId): void {
+        this.modalDialogService.openDialog(this.viewRef, {
+            title: 'Delete an author',
+            childComponent: SimpleModalComponent,
+            data: {text: 'Are you sure your want to delete this author from the BookStore?'},
+            actionButtons: [
+                {
+                    text: 'Yes',
+                    buttonClass: 'btn btn-danger',
+                    onAction: () => {
+                        this.comentarioService.deleteComentario(comentarioId).subscribe(() => {
+                            this.toastrService.error("The comentario was successfully deleted", "Comentario deleted");
+                            this.ngOnInit();
+                        }, err => {
+                            this.toastrService.error(err, "Error");
+                        });
+                        return true;
+                    }
+                },
+                {text: 'No', onAction: () => true}
+            ]
+        });
     }
   ngOnInit() {
       this.showView = false;

@@ -12,7 +12,7 @@
             <br>
             <div class="row justify-content-center align-self-center" *ngxPermissionsOnly="['ADMIN']">
                 <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                    (click)="showHideCreate()">Crear una libro</button>
+                    (click)="showHideCreate()">Crear un libro</button>
             </div>
             <br>
             <br>
@@ -33,7 +33,7 @@
                     <td>
                         <i class="fa fa-pencil "(click)="showHideEdit(libro.id)"></i>
                     </td>
-
+                    
                     </tr>
                     </tbody>
                 </table>

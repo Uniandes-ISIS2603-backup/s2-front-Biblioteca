@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ViewContainerRef} from '@angular/core';
+import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
+import {ToastrService} from 'ngx-toastr';
 import{Usuario} from '../usuario';
 import {UsuarioService} from '../usuario.service';
 import { UsuarioDetail } from '../usuario-detail';
@@ -12,7 +13,10 @@ import { UsuarioDetail } from '../usuario-detail';
 })
 export class UsuarioListComponent implements OnInit {
 
-  constructor(private usuarioService:UsuarioService) { }
+  constructor(private usuarioService:UsuarioService,
+          private modalDialogService: ModalDialogService,
+        private viewRef: ViewContainerRef,
+        private toastrService: ToastrService) { }
      /**
      * La lista de usuarios
      */
@@ -99,6 +103,32 @@ export class UsuarioListComponent implements OnInit {
             this.showEdit = false;
             this.showView = true;
         }
+    }
+    /**
+    * Deletes an usuario
+    */
+    deleteUsuario(usuarioId): void {
+        this.modalDialogService.openDialog(this.viewRef, {
+            title: 'Delete an usuario',
+            childComponent: SimpleModalComponent,
+            data: {text: 'Are you sure your want to delete this usuario from the BookStore?'},
+            actionButtons: [
+                {
+                    text: 'Yes',
+                    buttonClass: 'btn btn-danger',
+                    onAction: () => {
+                        this.usuarioService.deleteUsuario(usuarioId).subscribe(() => {
+                            this.toastrService.error("The usuario was successfully deleted", "Usuario deleted");
+                            this.ngOnInit();
+                        }, err => {
+                            this.toastrService.error(err, "Error");
+                        });
+                        return true;
+                    }
+                },
+                {text: 'No', onAction: () => true}
+            ]
+        });
     }
     
   ngOnInit() 
