@@ -3,6 +3,8 @@ import {Component, OnInit, Input, OnChanges, Output, EventEmitter} from '@angula
 import {DatePipe} from '@angular/common';
 import {PrestamoService} from '../prestamo.service';
 import {PrestamoDetail} from '../prestamo-detail';
+import { UsuarioService} from '../../usuario/usuario.service';
+import {Usuario} from '../../usuario/usuario';
 import {ToastrService} from 'ngx-toastr';
 
 @Component({
@@ -16,7 +18,7 @@ export class PrestamoEditComponent implements OnInit, OnChanges  {
   constructor
   (
         private prestamoService: PrestamoService,
-        
+        private usuarioService: UsuarioService,
         private toastrService: ToastrService,
   ) { }
 

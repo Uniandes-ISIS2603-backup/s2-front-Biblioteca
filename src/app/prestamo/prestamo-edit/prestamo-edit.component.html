@@ -4,12 +4,50 @@
         <h2 class="text-center">Devolver un prestamo</h2>
         <br>
         <form name="prestamo" (ngSubmit)="f.form.valid && editPrestamo()" #f="ngForm" novalidate>
-
-              <div class="form-group">
+                <div class="form-group">
+                <label for="fechaDeSalida"><b>Fecha de salida del prestamo</b></label>
+                <div >
+                    <input class="form-control" id="fechaDSalida" name="fechaDSalida" [(ngModel)]="prestamo.fechaDeSalida"
+                        ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()">
+                    <div class="invalid-feedback">
+                        <div>Falta la fecha de salida del prestamo</div>
+                    </div>
+                </div>
+            </div>
+                       
+            <div class="form-group">
                 <label for="retornado"><b>Retornado</b></label>
-                <input type="checkbox" name="retornado" class="form-control" id="retornado" [(ngModel)]="prestamo.retornado">
+                 <input type="checkbox" name="retornado" class="form-control" id="retornado" [(ngModel)]="prestamo.retornado">
                 <div class="invalid-feedback">
                     <div>Falta saber si el prestamo es retornado</div>
+                </div>
+            </div>
+            
+              
+            <div class="form-group">
+                <label for="idRecursoPrestado"><b>Id del recurso que se quiere prestar</b></label>
+                <input type="number" name="idRecursoPrestado" class="form-control" id="idRecursoPrestado" [(ngModel)]="prestamo.idRecursoPrestado"
+                    #idRecursoPrestado="ngModel" [ngClass]="{ 'is-invalid': f.submitted && idRecursoPrestado.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta el id del recurso que está intentando prestarse</div>
+                </div>
+            </div> 
+              
+            <div class="form-group">
+                <label for="tipoRecurso"><b>Tipo de recurso</b></label>
+                <input type="text" name="tipoRecurso" class="form-control" id="tipoRecurso" [(ngModel)]="prestamo.tipoRecurso"
+                    #tipoRecurso="ngModel" [ngClass]="{ 'is-invalid': f.submitted && tipoRecurso.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta el tipo de recurso que se está prestando</div>
+                </div>
+            </div>
+              
+            <div class="form-group">
+                <label for="idUsuario"><b>Id del usuario al que se quiere prestar</b></label>
+                <input type="number" name="idUsuario" class="form-control" id="idUsuario" [(ngModel)]="prestamo.usuario.id"
+                    #idUsuario="ngModel" [ngClass]="{ 'is-invalid': f.submitted && idUsuario.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>Falta el id del recurso que está intentando prestarse</div>
                 </div>
             </div>
 
