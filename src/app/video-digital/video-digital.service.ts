@@ -46,4 +46,12 @@ export class VideoDigitalService {
     updateVideoDigital(videoDigital): Observable<VideoDigitalDetail> {
         return this.http.put<VideoDigitalDetail>(API_URL + videosdigitales + '/' + videoDigital.id, videoDigital);
     }
+         /**
+    * Deletes a video digital
+    * @param videoDigitalId The id of the videoDigital
+    * @returns The confirmation that the videoDigital was deleted
+    */
+    deleteVideoDigital(videoDigitalId): Observable<boolean> {
+        return this.http.delete<boolean>(API_URL + videosdigitales + '/' + videoDigitalId);
+    }
 }

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef} from '@angular/core';
+import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
+import {ToastrService} from 'ngx-toastr';
 import {VideoDigital} from '../video-digital';
 import {VideoDigitalService} from '../video-digital.service';
 import {VideoDigitalDetail} from '../video-digital-detail';
@@ -10,7 +12,10 @@ import {VideoDigitalDetail} from '../video-digital-detail';
 })
 export class VideoDigitalListComponent implements OnInit {
 
-  constructor(private videoDigitalService: VideoDigitalService) { }
+  constructor(private videoDigitalService: VideoDigitalService,
+   private modalDialogService: ModalDialogService,
+        private viewRef: ViewContainerRef,
+        private toastrService: ToastrService) { }
 
     /**
      * La lista de videosDigitales del sistema de videosDigitales
@@ -89,7 +94,32 @@ showHideCreate(): void {
             this.showView = true;
         }
     }
-    
+       /**
+    * Deletes a videoDigital
+    */
+    deleteVideoDigital(videoDigitalId): void {
+        this.modalDialogService.openDialog(this.viewRef, {
+            title: 'Delete a videoDigital',
+            childComponent: SimpleModalComponent,
+            data: {text: 'Are you sure your want to delete this videoDigital?'},
+            actionButtons: [
+                {
+                    text: 'Yes',
+                    buttonClass: 'btn btn-danger',
+                    onAction: () => {
+                        this.videoDigitalService.deleteVideoDigital(videoDigitalId).subscribe(() => {
+                            this.toastrService.error("The videoDigital was successfully deleted", "VideoDigital deleted");
+                            this.ngOnInit();
+                        }, err => {
+                            this.toastrService.error(err, "Error");
+                        });
+                        return true;
+                    }
+                },
+                {text: 'No', onAction: () => true}
+            ]
+        });
+    }
     ngOnInit() 
       {
        
