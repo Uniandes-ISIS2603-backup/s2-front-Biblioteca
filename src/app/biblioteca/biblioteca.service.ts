@@ -48,14 +48,14 @@ export class BibliotecaService {
     updateBiblioteca(biblioteca): Observable<BibliotecaDetail> {
         return this.http.put<BibliotecaDetail>(API_URL + bibliotecas + '/' + biblioteca.id, biblioteca);
     }
-    /**
-    * Borrar una biblioteca
-    * @param biblioteca La biblioteca que será borrada
+            /**
+    * Deletes a biblioteca
+    * @param bibliotecaId The id of the biblioteca
+    * @returns The confirmation that the biblioteca was deleted
     */
-    deleteBiblioteca(biblioteca): Observable<HttpEvent<BibliotecaDetail>>{
-        return this.http.delete<BibliotecaDetail>(API_URL + bibliotecas + '/' + biblioteca.id, biblioteca);
+    deleteBiblioteca(bibliotecaId): Observable<boolean> {
+        return this.http.delete<boolean>(API_URL + bibliotecas + '/' + bibliotecaId);
     }
-
 }
 
 

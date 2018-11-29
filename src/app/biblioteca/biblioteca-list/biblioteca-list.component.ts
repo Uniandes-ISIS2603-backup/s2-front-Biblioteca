@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ViewContainerRef} from '@angular/core';
+import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
+import {ToastrService} from 'ngx-toastr';
 import {Biblioteca} from '../biblioteca';
 import {BibliotecaService} from '../biblioteca.service';
 import { BibliotecaDetail } from '../biblioteca-detail';
@@ -18,7 +19,10 @@ export class BibliotecaListComponent implements OnInit {
     * Constructor para el componente
     * @param bibliotecaService Los servicios del proveedor de la bibliotca
     */
-  constructor(private bibliotecaService: BibliotecaService) 
+  constructor(private bibliotecaService: BibliotecaService,
+              private modalDialogService: ModalDialogService,
+        private viewRef: ViewContainerRef,
+        private toastrService: ToastrService) 
   {   }
 
     /**
@@ -114,13 +118,31 @@ export class BibliotecaListComponent implements OnInit {
             this.showView = true;
         }
     }
-        /**
-    * Shows or hides the delete component
+     /**
+    * Deletes a biblioteca
     */
-    showHideDelete(): void {
-        this.showView = false;
-        this.showEdit = false;
-        this.showDelete = !this.showDelete;
+    deleteBiblioteca(bibliotecaId): void {
+        this.modalDialogService.openDialog(this.viewRef, {
+            title: 'Delete a biblioteca',
+            childComponent: SimpleModalComponent,
+            data: {text: 'Are you sure your want to delete this biblioteca?'},
+            actionButtons: [
+                {
+                    text: 'Yes',
+                    buttonClass: 'btn btn-danger',
+                    onAction: () => {
+                        this.bibliotecaService.deleteBiblioteca(bibliotecaId).subscribe(() => {
+                            this.toastrService.error("The biblioteca was successfully deleted", "Biblioteca deleted");
+                            this.ngOnInit();
+                        }, err => {
+                            this.toastrService.error(err, "Error");
+                        });
+                        return true;
+                    }
+                },
+                {text: 'No', onAction: () => true}
+            ]
+        });
     }
   ngOnInit() 
       {

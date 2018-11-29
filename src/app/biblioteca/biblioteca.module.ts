@@ -12,7 +12,7 @@ import {BibliotecaListComponent} from './biblioteca-list/biblioteca-list.compone
 import {BibliotecaDetailComponent} from './biblioteca-detail/biblioteca-detail.component';
 import { BibliotecaCreateComponent } from './biblioteca-create/biblioteca-create.component';
 import { BibliotecaEditComponent } from './biblioteca-edit/biblioteca-edit.component';
-import { BibliotecaDeleteComponent } from './biblioteca-delete/biblioteca-delete.component';
+
 
 
 @NgModule({
@@ -25,7 +25,7 @@ import { BibliotecaDeleteComponent } from './biblioteca-delete/biblioteca-delete
         NgxPermissionsModule,
         NgbModule
   ],
-  declarations: [BibliotecaListComponent, BibliotecaDetailComponent, BibliotecaCreateComponent, BibliotecaEditComponent, BibliotecaDeleteComponent],
+  declarations: [BibliotecaListComponent, BibliotecaDetailComponent, BibliotecaCreateComponent, BibliotecaEditComponent],
   providers:[BibliotecaService]
 })
 export class BibliotecaModule { }

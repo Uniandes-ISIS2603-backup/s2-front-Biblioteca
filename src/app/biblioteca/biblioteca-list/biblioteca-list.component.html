@@ -39,7 +39,7 @@
 
                 </td>
                 <td>
-                    <i class="fa fa-trash "(click)="showHideDelete(biblioteca.id)"></i>
+                    <i class="fa fa-trash "(click)="deleteBiblioteca(biblioteca.id)"></i>
                 </td>
                 
 
@@ -60,9 +60,7 @@
         <div *ngIf="showEdit">
             <app-biblioteca-edit [biblioteca]="selectedBiblioteca" (cancel)="showHideEdit(selectedBiblioteca.id)" (update)="updateBiblioteca()" ></app-biblioteca-edit>
         </div>
-             <div *ngIf="showDelete">
-                <app-biblioteca-delete (cancel)="showHideDelete()" (delete)="ngOnInit()"></app-biblioteca-delete>
-            </div>
+           
         </div>
     </div>
 </div>
