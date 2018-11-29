@@ -23,7 +23,8 @@
                             <th>ID</th>
                             <th>Nombre</th>
                             <th> </th>
-                            <th *ngxPermissionsOnly="['ADMIN']"> </th>
+                            <th> </th>
+                            <th> </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,13 +33,13 @@
                             <td style="cursor: pointer;" (click)="onSelected(libro.id)" >
                     <dd>{{libro.nombre}}</dd>
                     <td>
-                        <i class="fa fa-pencil "(click)="showHideEdit(libro.id)"></i>
+                        <i *ngxPermissionsOnly="['ADMIN']" class="fa fa-pencil "(click)="showHideEdit(libro.id)"></i>
                     </td>
                     <td>
-                        <i class="fa fa-trash "(click)="deleteLibro(libro.id)"></i>
+                        <i *ngxPermissionsOnly="['ADMIN']"  class="fa fa-trash "(click)="deleteLibro(libro.id)"></i>
                     </td>
                     <td>
-                    <i class="fa fa-money " *ngxPermissionsOnly="['ADMIN']"(click)="showHidePrestamo()"></i>
+                    <i class="fa fa-money " *ngxPermissionsOnly="['CLIENT']"(click)="showHidePrestamo()"></i>
                      </td>
 
                     </tr>
