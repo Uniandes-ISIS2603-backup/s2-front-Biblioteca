@@ -14,6 +14,7 @@ export class Reserva {
   idRecursoReservado: number;
   tipoRecurso: string;
   estado: boolean;
+  usuario: Usuario;
 
 
 
