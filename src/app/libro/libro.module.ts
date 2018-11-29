@@ -12,6 +12,7 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {LibroDetailComponent} from './libro-detail/libro-detail.component';
 import { LibroCreateComponent } from './libro-create/libro-create.component';
 import { LibroEditComponent } from './libro-edit/libro-edit.component';
+import { LibroPrestamoComponent } from './libro-prestamo/libro-prestamo.component';
 
 
 
@@ -25,7 +26,7 @@ import { LibroEditComponent } from './libro-edit/libro-edit.component';
         NgxPermissionsModule,
         NgbModule
     ],
-    declarations: [LibroListComponent, LibroDetailComponent, LibroCreateComponent, LibroEditComponent],
+    declarations: [LibroListComponent, LibroDetailComponent, LibroCreateComponent, LibroEditComponent, LibroPrestamoComponent],
     providers: [LibroService],
 
 })
