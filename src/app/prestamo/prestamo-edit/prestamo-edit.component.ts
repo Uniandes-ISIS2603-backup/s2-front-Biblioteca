@@ -41,7 +41,7 @@ export class PrestamoEditComponent implements OnInit, OnChanges  {
      /**
     * Actualización de la información de la biblioteca
     */
-    editBiblioteca(): void {
+    editPrestamo(): void {
         this.prestamoService.updatePrestamo(this.prestamo)
             .subscribe(() => {
                 this.update.emit();
