@@ -4,6 +4,8 @@ import { ToastrService } from 'ngx-toastr';
 
 import { Reserva } from '../reserva';
 import { ReservaService } from '../reserva.service';
+import { UsuarioService} from '../../usuario/usuario.service';
+import {Usuario} from '../../usuario/usuario';
 
 @Component({
   selector: 'app-reserva-create',
@@ -16,7 +18,8 @@ export class ReservaCreateComponent implements OnInit {
   constructor(
     private dp: DatePipe,
     private reservaService: ReservaService,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private usuarioService: UsuarioService,
   ) { }
 
   reserva: Reserva;
@@ -41,6 +44,7 @@ export class ReservaCreateComponent implements OnInit {
 
   ngOnInit() {
     this.reserva = new Reserva();
+     this.reserva.usuario = new Usuario();
   }
 
 }
