@@ -1,33 +1,57 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <style type="text/css">
+        .fa_custom {
+            color: #0099CC
+        }
+    </style>
+</head>
 <div class="container-fluid">
-   <div class="row">
+    <div class="row">
         <div class="col-md-4">
             <br>
-            <div class="row justify-content-center align-self-center" *ngxPermissionsOnly="['ADMIN','CLIENT']">
+            <div class="row justify-content-center align-self-center" *ngxPermissionsOnly="['ADMIN']">
                 <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
                     (click)="showHideCreate()">Crear un prestamo</button>
             </div>
             <br>
             <br>
-<div class="col-md-2">
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th>ID</th>
-                    <th>Fecha de prestamo</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor = "let prestamo of prestamos">
-                    <td>{{prestamo.id}}</td>
-                    <td>
-                        <dd id="prestamo-fechaSalida" class="figure-caption" routerLink="/prestamos/{{prestamo.id}}">{{prestamo.fechaSalida}}</dd>
-                            </td>
+            <div class="col-md-2">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Fecha de prestamo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor = "let prestamo of prestamos">
+                            <td>{{prestamo.id}}</td>
 
-                </tr>
-            </tbody>
-        </table>
-    </div>
-<div *ngIf="showCreate">
+                            <td style="cursor: pointer;" (click)="onSelected(prestamo.id)" >
+                    <dd>{{prestamo.fechaSalida}}</dd>
+
+                    </td>
+                    <td>
+                        <i *ngxPermissionsOnly="['ADMIN']" class="fa fa-pencil "(click)="showHideEdit(biblioteca.id)"></i>
+                    </td>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-8">
+            <div *ngIf="showView">
+                <app-prestamo-detail [prestamoDetail]="selectedPrestamo"></app-prestamo-detail>
+            </div>
+            <div *ngIf="showCreate">
                 <app-prestamo-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-prestamo-create>
             </div>
+
+        <div *ngIf="showEdit">
+            <app-prestamo-edit [prestamo]="selectedPrestamo" (cancel)="showHideEdit(selectedPrestamo.id)" (update)="updatePrestamo()" ></app-prestamo-edit>
+        </div>
+           
+        </div>
+    </div>
 </div>

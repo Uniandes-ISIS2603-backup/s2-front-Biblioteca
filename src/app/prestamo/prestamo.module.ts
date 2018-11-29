@@ -11,6 +11,7 @@ import { PrestamoService} from './prestamo.service';
 import { PrestamoListComponent } from './prestamo-list/prestamo-list.component';
 import { PrestamoCreateComponent } from './prestamo-create/prestamo-create.component';
 import { PrestamoDetailComponent } from './prestamo-detail/prestamo-detail.component';
+import { PrestamoEditComponent } from './prestamo-edit/prestamo-edit.component';
 @NgModule({
   imports: [
         BrowserModule,
@@ -21,7 +22,7 @@ import { PrestamoDetailComponent } from './prestamo-detail/prestamo-detail.compo
         NgbModule,
         FormsModule
   ],
-  declarations: [PrestamoListComponent, PrestamoCreateComponent, PrestamoDetailComponent],
+  declarations: [PrestamoListComponent, PrestamoCreateComponent, PrestamoDetailComponent, PrestamoEditComponent],
   providers:[PrestamoService],
   exports: [PrestamoListComponent]
 })

@@ -38,5 +38,14 @@ export class PrestamoService
     createPrestamo(prestamo): Observable<Prestamo> {
         return this.http.post<Prestamo>(API_URL + prestamos, prestamo);
     }
+    
+    /**
+    * Entregar un prestamo
+    * @param prestamo El prestamo que será entregado
+    * @returns La confirmación que el prestamo fue entregado
+    */
+    updatePrestamo(prestamo): Observable<PrestamoDetail> {
+        return this.http.put<PrestamoDetail>(API_URL + prestamos + '/' + prestamo.id, prestamos);
+    }
 }
 

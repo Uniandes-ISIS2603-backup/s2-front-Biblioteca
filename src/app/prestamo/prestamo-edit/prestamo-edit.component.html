@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-12">
+        <br>
+        <h2 class="text-center">Devolver un prestamo</h2>
+        <br>
+        <form name="prestamo" (ngSubmit)="f.form.valid && editPrestamo()" #f="ngForm" novalidate>
+
+              <div class="form-group">
+                <label for="retornado"><b>Retornado</b></label>
+                <input type="checkbox" name="retornado" class="form-control" id="retornado" [(ngModel)]="prestamo.retornado">
+                <div class="invalid-feedback">
+                    <div>Falta saber si el prestamo es retornado</div>
+                </div>
+            </div>
+
+
+
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="row form-inline justify-content-center align-self-center">
+            <i  style="padding-right: 1em;"class="fa fa-save " (click)="editPrestamo()"></i>
+
+            <i class="fa fa-ban" (click)="cancelEdition()"></i>
+        </div>
+    </div>
+</div>
+<br>
+<br>

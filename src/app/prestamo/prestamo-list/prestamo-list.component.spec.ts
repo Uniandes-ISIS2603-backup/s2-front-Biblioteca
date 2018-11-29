@@ -1,17 +1,24 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {AppRoutingModule} from '../../app-routing/app-routing.module';
+import {APP_BASE_HREF} from '@angular/common';
+import {HttpClientModule} from '@angular/common/http';
 
+import {AppModule} from '../../app.module';
 import { PrestamoListComponent } from './prestamo-list.component';
+import { PrestamoService } from '../prestamo.service';
 
 describe('PrestamoListComponent', () => {
   let component: PrestamoListComponent;
   let fixture: ComponentFixture<PrestamoListComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ PrestamoListComponent ]
+            imports: [AppRoutingModule, HttpClientModule, AppModule],
+            declarations: [],
+            providers: [{provide: APP_BASE_HREF, useValue: ''}, PrestamoService]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(PrestamoListComponent);
